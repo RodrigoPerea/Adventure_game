@@ -5,87 +5,57 @@ import java.util.Scanner;
 public class Menu {
 
 
+    public void welcomeMessage(){
+        System.out.println("Welcome to Adventure Cave!\n");
+
+        System.out.println("Adventure Cave is a game where the player is trying to get out of an evil dungeon " +
+                "to move from room to room by typing in commands:\n" +
+                " go north\n" +
+                " go south\n" +
+                " go east\n" +
+                " go west");
+
+        System.out.println(" ");
+
+    }
+
+
     public void mainMenu() {
 
-        Scanner input = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("-- Menu --");
-        System.out.println(
-                "Select an option: \n" +
-                        "  1) Start\n" +
-                        "  2)  Exit\n");
-        int selection = input.nextInt();
-        input.nextLine();
+        welcomeMessage();
 
-        switch (selection) {
-            case 1:
-                this.Start();
+        String input;
+        do {
+            System.out.println("To get the description of which room you are in, write:\n" +
+                    " look ");
+            System.out.println("To get instructions and a overview of possible commands, write:\n" +
+                    " help ");
+            System.out.println("To exit the game, write:\n" +
+                    " exit");
+            input = sc.nextLine();
 
-            case 2:
-                this.Exit();
+            if (input.equalsIgnoreCase("look")) {
+                System.out.println("Looking around...\n");
+                System.out.println("The room you're in, ... ");
+            } else if (input.equalsIgnoreCase("Go north")) {
+                System.out.println("Going north!");
+            } else if (input.equalsIgnoreCase("Go south")) {
+                System.out.println("Going south!");
+            } else if (input.equalsIgnoreCase("Go east")) {
+                System.out.println("Going east!");
+            } else if (input.equalsIgnoreCase("Go west")) {
+                System.out.println("Going west!");
+            } else if (input.equalsIgnoreCase("help")) {
+                System.out.println("You use the commands 'go north', 'go east', 'go south' and 'go west' to change the " +
+                        "direction in this game ");
+            } else if (input.equalsIgnoreCase("exit")) {
+                System.out.println("You have ended the game - welcome back!");
+            } else
+                System.out.println("invalid command, try again!");
         }
+        while (!input.equals("exit")); // or (!"exit".equals(input) ??)
 
-    }
-
-    public void Start() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Welcome to the Adventure game \n" +
-                "You are trapped in a dungeon and trying to find your way out \n" +
-                "What will you do?\n");
-        System.out.println("-- Options --");
-        System.out.println("Select an option: \n" +
-                "  1) Look around\n" + //look around, decription of room
-                "  2) Navigate\n" +
-                "  6) Help\n" +
-                "  7) Exit");
-        int options = input.nextInt();
-        input.nextLine();
-
-        switch (options) {
-            case 1:
-                this.LookAround();
-
-            case 2:
-                this.Navigate();
-
-
-            case 3:
-                this.Help();
-
-            case 4:
-                this.Exit();
-
-        }
-    }
-    public void LookAround() {
-        //Description of the room
-        System.out.println("Its dark, and all you can hear is the water dripping from the ceiling and a gentle breeze coming from the walls");
-
-    }
-    public void Navigate() {
-        Scanner navigate = new Scanner(System.in);
-        System.out.println("to navigate around type\n" +
-                "           North" +
-                "           South" +
-                "           East" +
-                "           West\n");
-        System.out.println("What way will you go?\n" +
-                "");
-        String nav = navigate.nextLine();
-        System.out.println("You went " + nav);
-
-    }
-
-    public void Help() {
-        System.out.println("to navigate around type \n" +
-                "           North\n" +
-                "           South\n" +
-                "           East\n" +
-                "           West\n");
-    }
-
-    public void Exit() {
-        System.out.println("Exiting to Desktop");
-        System.exit(0);
     }
 }
