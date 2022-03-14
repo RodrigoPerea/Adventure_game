@@ -1,47 +1,38 @@
+package com.company;
+
+import com.company.Main;
+import java.util.Scanner;
+
 public class Room {
 
 
+// attributs for rooms
+
+
+  //movers
+  private int north;
+  private int  east;
+  private int west;
+  private int  south;
 
 
 
 
-private int room_1(){
-  return room_1();
-}
 
+  // constructer
 
-private int room_2(){
-    return room_2();
-  }
-
-private int room_3(){
-  return room_3();
-}
-
-  private int room_4(){
-    return room_4();
-  }
-
-  private int room_5(){
-    return room_5();
-  }
-
-  private int room_6(){
-    return room_6();
-  }
-
-  private int room_7(){
-    return room_7();
+  public Room(Integer north, Integer east, Integer south, Integer west) {
+    this.north = north;
+    this.east = east;
+    this.west = south;
+    this.south = west;
   }
 
 
-  private int room_8(){
-    return room_8();
-  }
+
+//rooms
 
 
-  private int room_9(){
-    return room_9();
-  }
+
 
 }
