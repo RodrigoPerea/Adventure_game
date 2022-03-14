@@ -27,7 +27,7 @@ public class Adventure {
     System.out.println("to navigate in" + magenta + " the Void!\n" + fReset);
 
     System.out.println("You have been abducted and teleported to " + magenta + "the Void" + fReset + ", where you are helt prisoner in a maze\n" +
-            " you're only hope is to find you're way through the maze and return to you're own planet\n" +
+            "You're only hope is to find you're way through the maze and return to you're own planet\n" +
             "Good luck and don't get caught\n");
   }
 
@@ -40,13 +40,14 @@ public class Adventure {
     makeDungeons();
 
     String input;
-    do {
+   // do {
       System.out.println("To see what's in the room, write: \n" +
               blue + "look " + fReset);
       System.out.println("To get instructions and a a help menu, write: \n" +
               blue + "help " + fReset);
       System.out.println("To exit the game, write: \n" +
               blue + "exit" + fReset);
+      do {
       input = sc.nextLine().toLowerCase();
 
       if (input.equals("look")) {
@@ -74,11 +75,16 @@ public class Adventure {
         checkForNull(dungeonWest, direction);
 
       } else if (input.equals("help")) {
-        System.out.println("You use the commands " + "go north\n" +
-                yellow + "go east\n" +
+        System.out.println("You use the commands\n" +
+                yellow +
+                "go north\n" +
+                "go east\n" +
                 "go south\n" +
                 "go west\n" + fReset +
-                "to change the direction in this game ");
+                "to navigate in this game \n");
+        System.out.println("and " + blue + "Look" + fReset + " to get a description of the room\n");
+        System.out.println("and if you want to end the game, write" + red + " exit" + fReset);
+
       } else if (input.equals("exit")) {
         System.out.println(red + "You have ended the game" + fReset);
       } else
@@ -92,7 +98,7 @@ public class Adventure {
   public void checkForNull(Room dungeon, String direction){
 
     if(dungeon == null){
-      System.out.println("You went into a wall" + red + "OUCH!" + fReset);
+      System.out.println("You went into a wall" + red + " OUCH!\n" + fReset);
     } else {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
