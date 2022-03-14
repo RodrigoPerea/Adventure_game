@@ -1,13 +1,23 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        Menu run = new Menu();
+
+        run.mainMenu();
+
+
 	// write your code here
 int  player;
 
+        /*
         // currentRoom  player
 
 /*
@@ -18,7 +28,7 @@ int  player;
 
         }
 */
-        // rooms & con
+        // opretter rummene, me dhvilken værdi det er mulgit at flytte.
         Room room1 = new Room (null, 2, 3 , null);
         Room  room2 = new Room (null, 2,3, 4);
         Room room3 = new Room(null, null, 3, 4);
