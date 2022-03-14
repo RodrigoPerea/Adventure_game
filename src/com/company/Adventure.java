@@ -16,9 +16,9 @@ public class Adventure {
   private String description;
 
 
-  public void welcomeMessage(){
+  public void welcomeMessage() {
     System.out.println(" ");
-    System.out.println(magenta +"Welcome to The Void!\n" + fReset);
+    System.out.println(magenta + "Welcome to The Void!\n" + fReset);
 
     System.out.println(magenta + "The Void" + fReset + " is a place where you are trapped\n" +
             "and where you have to find you're way out by using you're senses and write the commands\n" +
@@ -28,7 +28,7 @@ public class Adventure {
             "go west" + fReset);
     System.out.println("to navigate around the maze system!\n");
 
-    System.out.println("You have been abducted and teleported to " + magenta + "the Void" + fReset +", where you are helt prisoner in a maze\n" +
+    System.out.println("You have been abducted and teleported to " + magenta + "the Void" + fReset + ", where you are helt prisoner in a maze\n" +
             " you're only hope is to find you're way through the maze and return to you're own planet\n" +
             "Good luck and don't get caught\n");
   }
@@ -44,7 +44,7 @@ public class Adventure {
     String input;
     do {
       System.out.println("To see what's in the room, write: \n" +
-              blue +"look " + fReset);
+              blue + "look " + fReset);
       System.out.println("To get instructions and a a help menu, write: \n" +
               blue + "help " + fReset);
       System.out.println("To exit the game, write: \n" +
@@ -58,38 +58,37 @@ public class Adventure {
       } else if (input.equalsIgnoreCase("go north")) {
         Room dungeonNorth = currentRoom.getNorth();
         String direction = "north";
-        checkForNull(dungeonNorth, direction);
 
-      } else if (input.equalsIgnoreCase("go south")) {
-        Room dungeonSouth = currentRoom.getSouth();
-        String direction = "south";
-        checkForNull(dungeonSouth, direction);
+        } else if (input.equalsIgnoreCase("go south")) {
+          Room dungeonSouth = currentRoom.getSouth();
+          String direction = "south";
+          checkForNull(dungeonSouth, direction);
 
-      } else if (input.equalsIgnoreCase("Go east")) {
-        Room dungeonEast = currentRoom.getEast();
-        String direction = "east";
-        checkForNull(dungeonEast, direction);
+        } else if (input.equalsIgnoreCase("Go east")) {
+          Room dungeonEast = currentRoom.getEast();
+          String direction = "east";
+          checkForNull(dungeonEast, direction);
 
-      } else if (input.equalsIgnoreCase("Go west")) {
-        Room dungeonWest = currentRoom.getWest();
-        String direction = "west";
-        checkForNull(dungeonWest, direction);
+        } else if (input.equalsIgnoreCase("Go west")) {
+          Room dungeonWest = currentRoom.getWest();
+          String direction = "west";
+          checkForNull(dungeonWest, direction);
 
-      } else if (input.equals("help")) {
-        System.out.println("You use the commands " + "go north\n" +
-              yellow + "go east\n" +
-                "go south\n" +
-                "go west\n" + fReset +
-                "to change the direction in this game ");
-      } else if (input.equals("exit")) {
-        System.out.println(red + "You have ended the game" + fReset);
-      } else
-        System.out.println("Invalid, please try again!");
-    }
-    while (!input.equals("exit"));
+        } else if (input.equals("help")) {
+          System.out.println("You use the commands " + "go north\n" +
+                  yellow + "go east\n" +
+                  "go south\n" +
+                  "go west\n" + fReset +
+                  "to change the direction in this game ");
+        } else if (input.equals("exit")) {
+          System.out.println(red + "You have ended the game" + fReset);
+        } else
+          System.out.println("Invalid, please try again!");
+      }
+      while (!input.equals("exit")) ;
 
+  }
 
-  /* }
 
   public void checkForNull(Room dungeon, String direction){
 
@@ -99,7 +98,7 @@ public class Adventure {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
     }
-*/
+
   }
 
   //attributter
@@ -153,18 +152,21 @@ public class Adventure {
 
     currentRoom = dungeon1;
 
-    if (currentRoom.getNorth() != null) { //tjekker for om den er =null
-      currentRoom = currentRoom.getNorth();//skiftet plads
-    } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
-      currentRoom = currentRoom.getSouth();//skiftet plads
-    }  else if (currentRoom.getEast() != null) { //tjekker for om den er =null
-      currentRoom = currentRoom.getEast();//skiftet plads
-    } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
-      currentRoom = currentRoom.getWest();//skiftet plads
-    } else {
-      System.out.println("wrong way");
-    }
-  }
+     /* //Kan ikke få det her til at virke :(
+
+      if (currentRoom.getNorth() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getNorth();//skiftet plads
+      } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getSouth();//skiftet plads
+      } else if (currentRoom.getEast() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getEast();//skiftet plads
+      } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getWest();//skiftet plads
+      } else {
+        System.out.println("wrong way");
+      }
+  */  }
+
   public static void main(String[] args) {
 
     Adventure adventure = new Adventure();
