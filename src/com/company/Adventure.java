@@ -12,21 +12,19 @@ public class Adventure {
   public String magenta = "\u001B[35m";
 
   private Room currentRoom;
-  private String name;
-  private String description;
 
 
   public void welcomeMessage() {
     System.out.println(" ");
     System.out.println(magenta + "Welcome to The Void!\n" + fReset);
 
-    System.out.println(magenta + "The Void" + fReset + " is a place where you are trapped\n" +
-            "and where you have to find you're way out by using you're senses and write the commands\n" +
+    System.out.println(magenta + "The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension.\n" +
+            "You have to find you're way out by using you're senses and write the commands\n" +
             yellow + "go north\n" +
             "go south\n" +
             "go east\n" +
             "go west" + fReset);
-    System.out.println("to navigate around the maze system!\n");
+    System.out.println("to navigate in" + magenta + " the Void!\n" + fReset);
 
     System.out.println("You have been abducted and teleported to " + magenta + "the Void" + fReset + ", where you are helt prisoner in a maze\n" +
             " you're only hope is to find you're way through the maze and return to you're own planet\n" +
@@ -35,11 +33,11 @@ public class Adventure {
 
   public void mainMenu() {
 
-    makeDungeons();
-
     Scanner sc = new Scanner(System.in);
 
     welcomeMessage();
+
+    makeDungeons();
 
     String input;
     do {
@@ -60,33 +58,33 @@ public class Adventure {
         String direction = "north";
         checkForNull(dungeonNorth,direction);
 
-        } else if (input.equalsIgnoreCase("go south")) {
-          Room dungeonSouth = currentRoom.getSouth();
-          String direction = "south";
-          checkForNull(dungeonSouth, direction);
+      } else if (input.equalsIgnoreCase("go south")) {
+        Room dungeonSouth = currentRoom.getSouth();
+        String direction = "south";
+        checkForNull(dungeonSouth, direction);
 
-        } else if (input.equalsIgnoreCase("Go east")) {
-          Room dungeonEast = currentRoom.getEast();
-          String direction = "east";
-          checkForNull(dungeonEast, direction);
+      } else if (input.equalsIgnoreCase("Go east")) {
+        Room dungeonEast = currentRoom.getEast();
+        String direction = "east";
+        checkForNull(dungeonEast, direction);
 
-        } else if (input.equalsIgnoreCase("Go west")) {
-          Room dungeonWest = currentRoom.getWest();
-          String direction = "west";
-          checkForNull(dungeonWest, direction);
+      } else if (input.equalsIgnoreCase("Go west")) {
+        Room dungeonWest = currentRoom.getWest();
+        String direction = "west";
+        checkForNull(dungeonWest, direction);
 
-        } else if (input.equals("help")) {
-          System.out.println("You use the commands " + "go north\n" +
-                  yellow + "go east\n" +
-                  "go south\n" +
-                  "go west\n" + fReset +
-                  "to change the direction in this game ");
-        } else if (input.equals("exit")) {
-          System.out.println(red + "You have ended the game" + fReset);
-        } else
-          System.out.println("Invalid, please try again!");
-      }
-      while (!input.equals("exit")) ;
+      } else if (input.equals("help")) {
+        System.out.println("You use the commands " + "go north\n" +
+                yellow + "go east\n" +
+                "go south\n" +
+                "go west\n" + fReset +
+                "to change the direction in this game ");
+      } else if (input.equals("exit")) {
+        System.out.println(red + "You have ended the game" + fReset);
+      } else
+        System.out.println("Invalid, please try again!");
+    }
+    while (!input.equals("exit")) ;
 
   }
 
@@ -104,8 +102,8 @@ public class Adventure {
 
   //attributter
   //private String name; //evt. til senere brug
- // private String desception; //evt. til senere brug
-  
+  // private String desception; //evt. til senere brug
+
   //private boolean yesNo;
 
 
@@ -113,7 +111,7 @@ public class Adventure {
   public void makeDungeons() {
 
 
-    Room dungeon1 = new Room("Dungeon 1", "description");
+    Room dungeon1 = new Room("Dungeon 1", "It's dark, all you can see is some small" + magenta + " purple particles"+ fReset + " flying around the room");
     Room dungeon2 = new Room("Dungeon 2", "description");
     Room dungeon3 = new Room("Dungeon 3", "description");
     Room dungeon4 = new Room("Dungeon 4", "description");
