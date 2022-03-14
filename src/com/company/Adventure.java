@@ -10,8 +10,6 @@ public class Adventure {
   public String blue = "\u001B[34m";
   public String yellow = "\u001B[33m";
   public String magenta = "\u001B[35m";
-
-
   private Room currentRoom;
 
   private void newLine() {
@@ -21,18 +19,11 @@ public class Adventure {
   public void welcomeMessage() {
     System.out.println(" ");
     System.out.println(magenta + "Welcome to The Void!\n" + fReset);
-
+    newLine();
     System.out.println(magenta + "The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension.\n" +
-            "You have to find you're way out by using you're senses and write the commands\n" +
-            yellow + "go north\n" +
-            "go south\n" +
-            "go east\n" +
-            "go west" + fReset);
-    System.out.println("to navigate in" + magenta + " the Void!\n" + fReset);
-
-    System.out.println("You have been abducted and teleported to " + magenta + "the Void" + fReset + ", where you are helt prisoner in a maze\n" +
-            " you're only hope is to find you're way through the maze and return to you're own planet\n" +
-            "Good luck and don't get caught\n");
+            "You have to find you're way back to you own planet.\nYou have been abducted and teleported to " + magenta +"the Void" + fReset + ", where you are helt prisoner in a mazen" +
+            "You're only hope is to find you're way through the maze and return to you're own planet, by navigating around the new world by typin: go nort, go south, go west or go east. to explore the new world, type the comand: look"
+            + green+"\nGood luck and don't get caught ;)" +fReset);
   }
 
   public void mainMenu() {
@@ -45,11 +36,7 @@ public class Adventure {
 
     String input;
     do {
-      System.out.println("NAVIGATE COMANDS");
-      System.out.println( "Type:"+blue + " go north " + fReset +"to move north");
-      System.out.println( "Type:"+blue + " go east " + fReset +"to move east");
-      System.out.println("Type:"+blue + " go south " + fReset +"to move south");
-      System.out.println( "Type:"+blue + " go west " + fReset +"to move west");
+
       System.out.println("\nEXSTRA COMANDS:");
       System.out.println("Type:"+blue + " look " + fReset +"See whats in the room");
       System.out.println("Type:"+blue + " help " +fReset+"Go to the help menu");
@@ -77,6 +64,7 @@ public class Adventure {
 
       } else if (input.equalsIgnoreCase("Go west")) {
         Room dungeonWest = currentRoom.getWest();
+        System.out.println(currentRoom.getDescription());
         String direction = "west";
         //checkForNull(dungeonWest, direction);
 
@@ -84,13 +72,18 @@ public class Adventure {
         System.out.println("THE STORY");
         System.out.println("You have been abducted and teleported to "+ magenta + "the Void" + fReset + ", where you are helt prisoner in a maze" +
             "\nYou're only hope is to find you're way through the maze and return to you're own planet" +
-            "\n"+magenta+"The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension." +
+            "\n"+magenta+" The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension." +
             "\nGood luck and don't get caught");
-        System.out.println("You use the commands " + "go north\n" +
-                yellow + "go east\n" +
-                "go south\n" +
-                "go west\n" + fReset +
-                "to change the direction in this game ");
+        newLine();
+        System.out.println("NAVIGATION");
+        newLine();
+        System.out.println("You navigate around the "+yellow +"new world"+fReset+" by typing on the keybord.");
+        newLine();
+        System.out.println("Type:"+blue+ " go north " +fReset+"......to move north");
+        System.out.println("Type:"+blue+ " go east " +fReset+"........to move east");
+        System.out.println("Type:"+blue+ " go south " +fReset+"......to move south");
+        System.out.println("Type:"+blue+ " go west " +fReset+"........to move west");
+
       } else if (input.equals("exit")) {
         System.out.println(red + "You have ended the game" + fReset);
       } else
@@ -135,9 +128,12 @@ public class Adventure {
     Room dungeon8 = new Room("Dungeon 8", "description");
     Room dungeon9 = new Room("Dungeon 9", "description");
 
+
+
     //room 1
     dungeon1.setEast(dungeon2);
     dungeon1.setSouth(dungeon4);
+
     //Room 2
     dungeon2.setWest(dungeon1);
     dungeon2.setEast(dungeon3);
@@ -165,27 +161,28 @@ public class Adventure {
 
     currentRoom = dungeon1;
 
+
 //tjek for null
+    if (currentRoom.getNorth() != null) {             //tjekker for om den er =null
+      currentRoom = currentRoom.getNorth();           //skiftet plads
+      System.out.println(yellow + "your have now moved north\n" + fReset);
 
-      if (currentRoom.getNorth() != null) {             //tjekker for om den er =null
-        currentRoom = currentRoom.getNorth();           //skiftet plads
-        System.out.println(yellow + "your have now moved north\n" + fReset);
+    } else if (currentRoom.getSouth() != null) {         //tjekker for om den er =null
+      currentRoom = currentRoom.getSouth();             //skiftet plads
+      System.out.println(yellow + "your have now moved south\n"+ fReset);
 
-      } else if (currentRoom.getSouth() != null) {         //tjekker for om den er =null
-        currentRoom = currentRoom.getSouth();             //skiftet plads
-        System.out.println(yellow + "your have now moved south\n"+ fReset);
+    } else if (currentRoom.getEast() != null) {        //tjekker for om den er =null
+      currentRoom = currentRoom.getEast();
+      System.out.println(yellow + "your have now moved east\n"+ fReset);
 
-      } else if (currentRoom.getEast() != null) {        //tjekker for om den er =null
-        currentRoom = currentRoom.getEast();
-        System.out.println(yellow + "your have now moved east\n"+ fReset);
+    } else if (currentRoom.getWest() != null) {        //tjekker for om den er =null
+      currentRoom = currentRoom.getWest();
+      System.out.println(yellow + "your have now moved west\n"+ fReset);
 
-      } else if (currentRoom.getWest() != null) {        //tjekker for om den er =null
-        currentRoom = currentRoom.getWest();
-        System.out.println(yellow + "your have now moved west\n"+ fReset);
+    } else {
+      System.out.println(red+"you cannot go that way\n"+ fReset);
+    }
 
-      } else {
-        System.out.println(red+"you cannot go that way\n"+ fReset);
-      }
    }
 
   public static void main(String[] args) {
