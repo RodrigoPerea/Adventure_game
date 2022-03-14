@@ -5,12 +5,13 @@ public class Adventure {
 
   //attributter
   //private String name; //evt. til senere brug
- // private String desception; //evt. til senere brug
-  
-  //private boolean yesNo;
-public Room currentRoom;
+  // private String desception; //evt. til senere brug
 
-  public void rooms(){
+  //private boolean yesNo;
+  public Room currentRoom;
+
+
+  public void rooms() {
     Room room1 = new Room("rum1", "beskrivelse1");
     Room room2 = new Room("rum2", "beskrivelse2");
     Room room3 = new Room("rum3", "beskrivelse3");
@@ -25,6 +26,7 @@ public Room currentRoom;
     //room1
     room1.setEast(room2);
     room1.setSouth(room4);
+
 
     //room2
     room2.setEast(room3);
@@ -57,7 +59,25 @@ public Room currentRoom;
     //room9
     room9.setNorth(room6);
     room9.setWest(room8);
+    currentRoom = room1;
 
-    currentRoom=room1;
-}
+    //currentRoom.getNorth();
+    if (currentRoom.getNorth() != null) { //tjekker for om den er =null
+      currentRoom = currentRoom.getNorth();//skiftet plads
+    } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
+      currentRoom = currentRoom.getSouth();//skiftet plads
+    }  else if (currentRoom.getEast() != null) { //tjekker for om den er =null
+      currentRoom = currentRoom.getEast();//skiftet plads
+    } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
+      currentRoom = currentRoom.getWest();//skiftet plads
+    } else {
+      System.out.println("wrong way");
   }
+      //hvis den er =null printer den dette.
+}
+}
+
+
+
+
+
