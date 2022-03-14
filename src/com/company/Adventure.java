@@ -89,7 +89,7 @@ public class Adventure {
     while (!input.equals("exit"));
 
 
-  }
+  /* }
 
   public void checkForNull(Room dungeon, String direction){
 
@@ -99,6 +99,7 @@ public class Adventure {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
     }
+*/
   }
 
   //attributter
@@ -152,7 +153,7 @@ public class Adventure {
 
     currentRoom = dungeon1;
 
-    /*if (currentRoom.getNorth() != null) { //tjekker for om den er =null
+    if (currentRoom.getNorth() != null) { //tjekker for om den er =null
       currentRoom = currentRoom.getNorth();//skiftet plads
     } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
       currentRoom = currentRoom.getSouth();//skiftet plads
@@ -163,8 +164,6 @@ public class Adventure {
     } else {
       System.out.println("wrong way");
     }
-  }
-*/
   }
   public static void main(String[] args) {
 
