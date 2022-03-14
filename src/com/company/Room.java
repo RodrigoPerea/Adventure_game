@@ -5,34 +5,31 @@ import java.util.Scanner;
 
 public class Room {
 
+  // attributs
+  private Room north;
+  private Room east;
+  private Room west;
+  private Room south;
+  private String name;
+  private String descrption;
 
-// attributs for rooms
-
-
-  //movers
-  private int north;
-  private int  east;
-  private int west;
-  private int  south;
-
-
-
-
-
-  // constructer
-
-  public Room(Integer north, Integer east, Integer south, Integer west) {
-    this.north = north;
-    this.east = east;
-    this.west = south;
-    this.south = west;
+  //konstruktør
+  public void setEast(Room room) {
+    this.east = room;
   }
+public void setNorth (Room room){
+    this.north = room;
+}
+public void setSouth(Room room){
+    this.south = room;
+}
+public void setWest (Room room){
+    this.west = room;
+}
+  public Room(String name, String descetption) {
+    this.name = name;
+    this.descrption = descetption;
 
 
-
-
-
-
-
-
+  }
 }
