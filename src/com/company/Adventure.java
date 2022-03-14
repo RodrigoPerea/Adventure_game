@@ -58,6 +58,7 @@ public class Adventure {
       } else if (input.equalsIgnoreCase("go north")) {
         Room dungeonNorth = currentRoom.getNorth();
         String direction = "north";
+        checkForNull(dungeonNorth,direction);
 
         } else if (input.equalsIgnoreCase("go south")) {
           Room dungeonSouth = currentRoom.getSouth();
