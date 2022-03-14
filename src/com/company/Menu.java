@@ -6,9 +6,9 @@ public class Menu {
 
 
     public void welcomeMessage(){
-        System.out.println("Welcome to Adventure Cave!\n");
+        System.out.println("Welcome to Darkest Dungeon 2D!\n");
 
-        System.out.println("Adventure Cave is a game where the player is trying to get out of an evil dungeon " +
+        System.out.println("Darkest Dungeon 2D! is a game where the player is trying to get out of an evil dungeon " +
                 "to move from room to room by typing in commands:\n" +
                 " go north\n" +
                 " go south\n" +
