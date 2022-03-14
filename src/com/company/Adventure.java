@@ -49,24 +49,26 @@ public class Adventure {
 
       } else if (input.equalsIgnoreCase("go north")) {
         Room dungeonNorth = currentRoom.getNorth();
-        //String direction = "north";
-        //checkForNull(dungeonNorth,direction);
+        String direction = "north";
+        //dungeonNorth.setNorth(currentRoom);
+        checkForNull(dungeonNorth,direction);
 
       } else if (input.equalsIgnoreCase("go south")) {
         Room dungeonSouth = currentRoom.getSouth();
+        dungeonSouth.setSouth(currentRoom);
         String direction = "south";
-        //checkForNull(dungeonSouth, direction);
+        checkForNull(dungeonSouth, direction);
 
       } else if (input.equalsIgnoreCase("Go east")) {
         Room dungeonEast = currentRoom.getEast();
         String direction = "east";
-        //checkForNull(dungeonEast, direction);
+        checkForNull(dungeonEast, direction);
 
       } else if (input.equalsIgnoreCase("Go west")) {
         Room dungeonWest = currentRoom.getWest();
         System.out.println(currentRoom.getDescription());
         String direction = "west";
-        //checkForNull(dungeonWest, direction);
+        checkForNull(dungeonWest, direction);
 
       } else if (input.equals("help")) {
         System.out.println("THE STORY");
@@ -93,11 +95,11 @@ public class Adventure {
 
   }
 
-/*
+
   public void checkForNull(Room dungeon, String direction){
 
     if(dungeon == null){
-      System.out.println("You went into a wall" + red + "OUCH!" + fReset);
+      System.out.println("Your too close to the edge.." + red + "OUCH!" + fReset);
     } else {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
@@ -105,7 +107,7 @@ public class Adventure {
 
   }
 
- */
+
 
   //attributter
   //private String name; //evt. til senere brug
@@ -162,26 +164,28 @@ public class Adventure {
     currentRoom = dungeon1;
 
 
-//tjek for null
-    if (currentRoom.getNorth() != null) {             //tjekker for om den er =null
-      currentRoom = currentRoom.getNorth();           //skiftet plads
-      System.out.println(yellow + "your have now moved north\n" + fReset);
+    /*
+    if (currentRoom.getNorth() != null) {
+      currentRoom = currentRoom.getNorth();
+      System.out.println(yellow + "...your have now moved north\n" + fReset);
 
-    } else if (currentRoom.getSouth() != null) {         //tjekker for om den er =null
-      currentRoom = currentRoom.getSouth();             //skiftet plads
-      System.out.println(yellow + "your have now moved south\n"+ fReset);
+    } else if (currentRoom.getSouth() != null) {
+      currentRoom = currentRoom.getSouth();
+      System.out.println(yellow + "...your have now moved south\n"+ fReset);
 
-    } else if (currentRoom.getEast() != null) {        //tjekker for om den er =null
+    } else if (currentRoom.getEast() != null) {
       currentRoom = currentRoom.getEast();
-      System.out.println(yellow + "your have now moved east\n"+ fReset);
+      System.out.println(yellow + "...your have now moved east\n"+ fReset);
 
-    } else if (currentRoom.getWest() != null) {        //tjekker for om den er =null
+    } else if (currentRoom.getWest() != null) {
       currentRoom = currentRoom.getWest();
-      System.out.println(yellow + "your have now moved west\n"+ fReset);
+      System.out.println(yellow + "...your have now moved west\n"+ fReset);
 
     } else {
-      System.out.println(red+"you cannot go that way\n"+ fReset);
+      System.out.println(red+ "...you cannot go that way\n"+ fReset);
     }
+
+     */
 
    }
 
