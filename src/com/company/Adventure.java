@@ -7,7 +7,8 @@ public class Adventure {
   //private String name; //evt. til senere brug
  // private String desception; //evt. til senere brug
   
-  private boolean yesNo;
+  //private boolean yesNo;
+public Room currentRoom;
 
   public void rooms(){
     Room room1 = new Room("rum1", "beskrivelse1");
@@ -56,5 +57,7 @@ public class Adventure {
     //room9
     room9.setNorth(room6);
     room9.setWest(room8);
+
+    currentRoom=room1;
 }
   }

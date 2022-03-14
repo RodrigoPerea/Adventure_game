@@ -3,7 +3,11 @@ package com.company;
 import java.util.Scanner;
 
 public class Menu {
-
+    public String rød = "\u001B[31m";
+    public String fReset = "\u001B[0m";
+    public String grøn = "\u001B[32m";
+    public String blue = "\u001B[34m";
+    public String yellow = "\u001B[33m";
 
     public void welcomeMessage(){
         System.out.println("Welcome to Darkest Dungeon 2D!\n");
@@ -20,7 +24,9 @@ public class Menu {
     }
 
 
+
     public void mainMenu() {
+
 
         Scanner sc = new Scanner(System.in);
 
