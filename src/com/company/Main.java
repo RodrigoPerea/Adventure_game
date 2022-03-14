@@ -1,17 +1,24 @@
 package com.company;
 
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+int  player;
 
-        /*
         // currentRoom  player
+
+/*
         public String currentRoom (){
+            if (player.equals ){
+                System.out.println("...you cannot go that way");
+            } else if (player == Room);
 
         }
 */
-        // opretter rummene, me dhvilken værdi det er mulgit at flytte.
+        // rooms & con
         Room room1 = new Room (null, 2, 3 , null);
         Room  room2 = new Room (null, 2,3, 4);
         Room room3 = new Room(null, null, 3, 4);
