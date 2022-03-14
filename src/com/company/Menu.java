@@ -20,7 +20,7 @@ public class Menu {
         switch (selection) {
             case 1:
                 this.Start();
-                break;
+
             case 2:
                 this.Exit();
         }
@@ -44,13 +44,14 @@ public class Menu {
         switch (options) {
             case 1:
                 this.LookAround();
-                break;
+
             case 2:
                 this.Navigate();
-                break;
+
+
             case 3:
                 this.Help();
-                break;
+
             case 4:
                 this.Exit();
 
@@ -58,7 +59,7 @@ public class Menu {
     }
     public void LookAround() {
         //Description of the room
-
+        System.out.println("Its dark, and all you can hear is the water dripping from the ceiling and a gentle breeze coming from the walls");
 
     }
     public void Navigate() {
@@ -71,7 +72,7 @@ public class Menu {
         System.out.println("What way will you go?\n" +
                 "");
         String nav = navigate.nextLine();
-        System.out.println("You went" + nav);
+        System.out.println("You went " + nav);
 
     }
 
