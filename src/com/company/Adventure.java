@@ -29,7 +29,7 @@ public class Adventure {
     newLine();
     System.out.println("Your task now is to find your way to the roof of the rescue helicopter. " +
             "You navigate around the mall by typing:\n" +
-            " "+blue+ "\"go west\" "+fReset+"or " + blue+ "go north "+ fReset+"or " + blue+ "go south"+fReset+ " or " + blue+ "go east.\n" + fReset +
+            blue+ "\"go west\" "+fReset+"or " + blue+ "go north "+ fReset+"or " + blue+ "go south"+fReset+ " or " + blue+ "go east.\n" + fReset +
             "Along the way, you can find items to combat the mutations.\n");
   }
 
@@ -123,7 +123,9 @@ public class Adventure {
 
   }
 
+
   public void checkForNull(Room dungeon, String direction){
+
 
     if(dungeon == null){
       System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
@@ -135,22 +137,39 @@ public class Adventure {
     }
 
   }
+
+
+
   public void makeDungeons() {
 
 
     Room dungeon1 = new Room("Dungeon 1", "You are in the parking basement, where a few zombies walk around\n" +
             "shhh be quiet or they will see you!");
+
     Room dungeon2 = new Room("Dungeon 2", "You found the stairs, and went upstairs.\n" +
             "You are now on the first floor, it smells like death\n" +
             "you look over towards the dinning area and see a something laying over a dead corpse\n" +
             red + "WATCH OUT IT'S A ZOMBIE " + fReset);
-    Room dungeon3 = new Room("Dungeon 3", "Zombies.");
-    Room dungeon4 = new Room("Dungeon 4", "description");
-    Room dungeon5 = new Room("Dungeon 5", "Helicopter area");
-    Room dungeon6 = new Room("Dungeon 6", "description");
-    Room dungeon7 = new Room("Dungeon 7", "description");
-    Room dungeon8 = new Room("Dungeon 8", "Boss blocking the door");
-    Room dungeon9 = new Room("Dungeon 9", "description");
+
+    Room dungeon3 = new Room("Dungeon 3", "You are now hiding in one of the restaurant,the zombie followed you but have lost track of you\n" +
+            "you look for a knife but all you can find is a frying pan");
+
+    Room dungeon4 = new Room("Dungeon 4", "You went upstairs to the second floor.\n" +
+            "You hear some weird noises coming from the halls\n" +
+            "You spot a giant zombie wandering the hallway");
+
+    Room dungeon5 = new Room("Dungeon 5", "You arrived at the Helicopter area,you block the door the Mall and now have to wait for the helicopter\n" +
+            "the zombies are trying to get through the door, you looking nervous around for the helicopter");
+
+    Room dungeon6 = new Room("Dungeon 6", "You arrived to another staircase, but it looks like its destroyed\n" +
+            "you look around a spot a crate, you open it and find an axe");
+
+    Room dungeon7 = new Room("Dungeon 7", "You spot the Sport section, and decide to go pick up some football equipment for protection");
+
+    Room dungeon8 = new Room("Dungeon 8", "A zombie, as huge as a tank is blocking a some stairs going to the roof");
+
+    Room dungeon9 = new Room("Dungeon 9", "You are in the hunting section and find a rifle with a few shells left\n" +
+            "you can maybe use it against the giant zombie, that's blocking the door");
 
     //room 1
     dungeon1.setEast(dungeon2);
@@ -181,7 +200,21 @@ public class Adventure {
     //dungeon9.setNorth(dungeon6);
 
     currentRoom = dungeon1;
-  }
+
+     /* //Kan ikke få det her til at virke :(
+
+      if (currentRoom.getNorth() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getNorth();//skiftet plads
+      } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getSouth();//skiftet plads
+      } else if (currentRoom.getEast() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getEast();//skiftet plads
+      } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
+        currentRoom = currentRoom.getWest();//skiftet plads
+      } else {
+        System.out.println("wrong way");
+      }
+  */  }
 
   public static void main(String[] args) {
 
