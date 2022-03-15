@@ -98,6 +98,30 @@ public class Adventure {
 
   public void checkForNull(Room dungeon, String direction){
 
+/*
+    if (currentRoom.getNorth() != null) {
+      currentRoom = currentRoom.getNorth();
+      System.out.println(yellow + "...your have now moved north\n" + fReset);
+
+    } else if (currentRoom.getSouth() != null) {
+      currentRoom = currentRoom.getSouth();
+      System.out.println(yellow + "...your have now moved south\n"+ fReset);
+
+    } else if (currentRoom.getEast() != null) {
+      currentRoom = currentRoom.getEast();
+      System.out.println(yellow + "...your have now moved east\n"+ fReset);
+
+    } else if (currentRoom.getWest() != null) {
+      currentRoom = currentRoom.getWest();
+      System.out.println(yellow + "...your have now moved west\n"+ fReset);
+
+    } else {
+      System.out.println(red+ "...you cannot go that way\n"+ fReset);
+    }
+
+ */
+
+
     if(dungeon == null){
       System.out.println("Your too close to the edge.." + red + "OUCH!" + fReset);
     } else {
@@ -164,28 +188,8 @@ public class Adventure {
     currentRoom = dungeon1;
 
 
-    /*
-    if (currentRoom.getNorth() != null) {
-      currentRoom = currentRoom.getNorth();
-      System.out.println(yellow + "...your have now moved north\n" + fReset);
 
-    } else if (currentRoom.getSouth() != null) {
-      currentRoom = currentRoom.getSouth();
-      System.out.println(yellow + "...your have now moved south\n"+ fReset);
 
-    } else if (currentRoom.getEast() != null) {
-      currentRoom = currentRoom.getEast();
-      System.out.println(yellow + "...your have now moved east\n"+ fReset);
-
-    } else if (currentRoom.getWest() != null) {
-      currentRoom = currentRoom.getWest();
-      System.out.println(yellow + "...your have now moved west\n"+ fReset);
-
-    } else {
-      System.out.println(red+ "...you cannot go that way\n"+ fReset);
-    }
-
-     */
 
    }
 
