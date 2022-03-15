@@ -44,10 +44,16 @@ public class Adventure {
     String input;
 
 
-      System.out.println("\nEXSTRA COMANDS:");
-      System.out.println("Type:"+blue + " look " + fReset +"See whats in the room");
-      System.out.println("Type:"+blue + " help " +fReset+"Go to the help menu");
-      System.out.println("Type:"+blue + " exit " + fReset +"To exit the game");
+      System.out.println("\n   EXSTRA COMANDS:");
+    System.out.println("   ............................................");
+      System.out.println("   Type: |"+blue + " look " + fReset +"| See whats in the room");
+      System.out.println("   Type: |"+blue + " help " +fReset+"| Go to the help menu");
+      System.out.println("   Type: |"+blue + " exit " + fReset +"| To exit the game");
+      newLine();
+    System.out.println(red+"   Let the game begin! TYPE HERE"+fReset);
+      newLine();
+      newLine();
+      newLine();
       do {
         input = sc.nextLine().toLowerCase();
 
@@ -78,20 +84,35 @@ public class Adventure {
         checkForNull(dungeonWest, direction);
 
       } else if (input.equals("help")) {
-        System.out.println("THE STORY");
-        System.out.println("You have been abducted and teleported to "+ magenta + "the Void" + fReset + ", where you are helt prisoner in a maze" +
-            "\nYou're only hope is to find you're way through the maze and return to you're own planet" +
-            "\n"+magenta+" The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension." +
-            "\nGood luck and don't get caught");
         newLine();
-        System.out.println("NAVIGATION");
+        System.out.println(red+"THE STORY"+fReset);
+        System.out.println("We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
+            +"Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
+            "You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
+            "You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
+            "You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
+            "But be careful, because you must not be bitten or attacked by the mutations.");
         newLine();
-        System.out.println("You navigate around the "+yellow +"new world"+fReset+" by typing on the keybord.");
+        System.out.println("............................................................");
+        System.out.println("   NAVIGATION");
         newLine();
-        System.out.println("Type:"+blue+ " go north " +fReset+"......to move north");
-        System.out.println("Type:"+blue+ " go east " +fReset+"........to move east");
-        System.out.println("Type:"+blue+ " go south " +fReset+"......to move south");
-        System.out.println("Type:"+blue+ " go west " +fReset+"........to move west");
+        System.out.println("   You navigate around the "+yellow +"The New World"+fReset+" by typing on the keybord.");
+        newLine();
+        System.out.println("   Type: |"+blue+ " go north " +fReset+"| to move north");
+        System.out.println("   Type: |"+blue+ " go east " +fReset+" | to move east");
+        System.out.println("   Type: |"+blue+ " go south " +fReset+"| to move south");
+        System.out.println("   Type: |"+blue+ " go west " +fReset+" | to move west");
+        newLine();
+        System.out.println("\n   EXSTRA COMANDS:");
+        System.out.println("   ............................................");
+        System.out.println("   Type: |"+blue + " look " + fReset +"| See whats in the room");
+        System.out.println("   Type: |"+blue + " help " +fReset+"| Go to the help menu");
+        System.out.println("   Type: |"+blue + " exit " + fReset +"| To exit the game");
+        newLine();
+        System.out.println(red+"   Continue to find a safe to the roof! TYPE HERE"+fReset);
+        newLine();
+        newLine();
+        newLine();
 
       } else if (input.equals("exit")) {
         System.out.println(red + "You have ended the game" + fReset);
@@ -102,32 +123,7 @@ public class Adventure {
 
   }
 
-
   public void checkForNull(Room dungeon, String direction){
-
-/*
-    if (currentRoom.getNorth() != null) {
-      currentRoom = currentRoom.getNorth();
-      System.out.println(yellow + "...your have now moved north\n" + fReset);
-
-    } else if (currentRoom.getSouth() != null) {
-      currentRoom = currentRoom.getSouth();
-      System.out.println(yellow + "...your have now moved south\n"+ fReset);
-
-    } else if (currentRoom.getEast() != null) {
-      currentRoom = currentRoom.getEast();
-      System.out.println(yellow + "...your have now moved east\n"+ fReset);
-
-    } else if (currentRoom.getWest() != null) {
-      currentRoom = currentRoom.getWest();
-      System.out.println(yellow + "...your have now moved west\n"+ fReset);
-
-    } else {
-      System.out.println(red+ "...you cannot go that way\n"+ fReset);
-    }
-
- */
-
 
     if(dungeon == null){
       System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
@@ -139,17 +135,6 @@ public class Adventure {
     }
 
   }
-
-
-
-  //attributter
-  //private String name; //evt. til senere brug
-  // private String desception; //evt. til senere brug
-
-  //private boolean yesNo;
-
-
-
   public void makeDungeons() {
 
 
@@ -196,21 +181,7 @@ public class Adventure {
     //dungeon9.setNorth(dungeon6);
 
     currentRoom = dungeon1;
-
-     /* //Kan ikke få det her til at virke :(
-
-      if (currentRoom.getNorth() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getNorth();//skiftet plads
-      } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getSouth();//skiftet plads
-      } else if (currentRoom.getEast() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getEast();//skiftet plads
-      } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getWest();//skiftet plads
-      } else {
-        System.out.println("wrong way");
-      }
-  */  }
+  }
 
   public static void main(String[] args) {
 
