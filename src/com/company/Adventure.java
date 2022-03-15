@@ -19,12 +19,18 @@ public class Adventure {
 
   public void welcomeMessage() {
     System.out.println(" ");
-    System.out.println(magenta + "Welcome to The Void!\n" + fReset);
-
-    System.out.println(magenta + "The Void" + fReset + " is a game where you have been teleportet to the multivers and trapped inside another dimension.\n" +
-            "You have to find you're way back to you own planet.\nYou have been abducted and teleported to " + magenta +"the Void" + fReset + ", where you are helt prisoner in a mazen" +
-            "You're only hope is to find you're way through the maze and return to you're own planet, by navigating around the new world by typin: go nort, go south, go west or go east. to explore the new world, type the comand: look"
-            + green+"\nGood luck and don't get caught ;)" +fReset);
+    System.out.println(magenta + "Welcome to The New World!\n" + fReset+"\uD83E\uDDDF");
+    System.out.println("We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
+            +"Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
+            "You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
+            "You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
+            "You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
+            "But be careful, because you must not be bitten or attacked by the mutations.");
+    newLine();
+    System.out.println("Your task now is to find your way to the roof of the rescue helicopter. " +
+            "You navigate around the mall by typing:\n" +
+            " "+blue+ "\"go west\" "+fReset+"or " + blue+ "go north "+ fReset+"or " + blue+ "go south"+fReset+ " or " + blue+ "go east.\n" + fReset +
+            "Along the way, you can find items to combat the mutations.\n");
   }
 
   public void mainMenu() {
@@ -124,7 +130,9 @@ public class Adventure {
 
 
     if(dungeon == null){
-      System.out.println("Your too close to the edge.." + red + "OUCH!" + fReset);
+      System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
+              "\nOUCH!" + fReset);
+      System.out.println("Wrong way, please try again!");
     } else {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
@@ -145,14 +153,16 @@ public class Adventure {
   public void makeDungeons() {
 
 
-    Room dungeon1 = new Room("Dungeon 1", "It's dark, all you can see is some small" + magenta + " purple particles"+ fReset + " flying around the room");
-    Room dungeon2 = new Room("Dungeon 2", "description");
-    Room dungeon3 = new Room("Dungeon 3", "description");
+    Room dungeon1 = new Room("Dungeon 1", "You are in the parking basement, where a few zombies walk around\n" +
+            "shhh be quiet or they will see you!");
+    Room dungeon2 = new Room("Dungeon 2", "You found the stairs, and went upstairs.\n" +
+            "You are now on the first floor, it smells like death and you look over towards the dinning area and see a ");
+    Room dungeon3 = new Room("Dungeon 3", "Zombie.");
     Room dungeon4 = new Room("Dungeon 4", "description");
-    Room dungeon5 = new Room("Dungeon 5", "description");
+    Room dungeon5 = new Room("Dungeon 5", "Helicopter area");
     Room dungeon6 = new Room("Dungeon 6", "description");
     Room dungeon7 = new Room("Dungeon 7", "description");
-    Room dungeon8 = new Room("Dungeon 8", "description");
+    Room dungeon8 = new Room("Dungeon 8", "Boss blocking the door");
     Room dungeon9 = new Room("Dungeon 9", "description");
 
     //room 1
@@ -171,7 +181,7 @@ public class Adventure {
     dungeon5.setSouth(dungeon8);
     //Room 6
     dungeon6.setNorth(dungeon3);
-    dungeon6.setSouth(dungeon9);
+  //dungeon6.setSouth(dungeon9);
     //Room 7
     dungeon7.setNorth(dungeon4);
     dungeon7.setEast(dungeon8);
@@ -181,7 +191,7 @@ public class Adventure {
     dungeon8.setEast(dungeon9);
     //Room 9
     dungeon9.setWest(dungeon8);
-    dungeon9.setNorth(dungeon6);
+    //dungeon9.setNorth(dungeon6);
 
     currentRoom = dungeon1;
 
