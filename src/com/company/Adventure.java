@@ -156,7 +156,9 @@ public class Adventure {
     Room dungeon1 = new Room("Dungeon 1", "You are in the parking basement, where a few zombies walk around\n" +
             "shhh be quiet or they will see you!");
     Room dungeon2 = new Room("Dungeon 2", "You found the stairs, and went upstairs.\n" +
-            "You are now on the first floor, it smells like death and you look over towards the dinning area and see a ");
+            "You are now on the first floor, it smells like death\n" +
+            "you look over towards the dinning area and see a something laying over a dead corpse\n" +
+            red + "WATCH OUT IT'S A ZOMBIE " + fReset);
     Room dungeon3 = new Room("Dungeon 3", "Zombies.");
     Room dungeon4 = new Room("Dungeon 4", "description");
     Room dungeon5 = new Room("Dungeon 5", "Helicopter area");
