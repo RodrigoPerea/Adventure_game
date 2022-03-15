@@ -22,6 +22,7 @@ public class Room {
 
     }
 
+
     public void setNorth(Room cave) {
         north = cave;
     }

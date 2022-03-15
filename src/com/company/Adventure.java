@@ -19,7 +19,7 @@ public class Adventure {
 
   public void welcomeMessage() {
     System.out.println(" ");
-    System.out.println(magenta + "Welcome to The New World!\n" + fReset+"\uD83E\uDDDF");
+    System.out.println(magenta + "Welcome to The New World!\n" + fReset+"\uD83E\uDDDF   \uD83E\uDDDF   \uD83E\uDDDF   \uD83E\uDDDF   \uD83E\uDDDF");
     System.out.println("We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
             +"Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
             "You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
@@ -58,7 +58,8 @@ public class Adventure {
         input = sc.nextLine().toLowerCase();
 
       if (input.equals("look")) {
-        System.out.println("Looking around...");
+        System.out.println("Looking around...");  // kunne evt sættes i en metode for sig selv der hed look, så den ikke blir kaldt fra els if sætning men kommer i en mtode.
+        System.out.println(currentRoom.getName());
         System.out.println(currentRoom.getDescription());
 
       } else if (input.equalsIgnoreCase("go north")) {
@@ -86,12 +87,12 @@ public class Adventure {
       } else if (input.equals("help")) {
         newLine();
         System.out.println(red+"THE STORY"+fReset);
-        System.out.println("We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
-            +"Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
-            "You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
-            "You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
-            "You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
-            "But be careful, because you must not be bitten or attacked by the mutations.");
+        System.out.println("   We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
+            +"   Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
+            "   You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
+            "   You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
+            "   You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
+            "   But be careful, because you must not be bitten or attacked by the mutations.");
         newLine();
         System.out.println("............................................................");
         System.out.println("   NAVIGATION");
@@ -125,7 +126,7 @@ public class Adventure {
 
 
   public void checkForNull(Room dungeon, String direction){
-
+  // denne er lavet, så man SKAL kigge i rumet for at få beskrivelse af rummet.
 
     if(dungeon == null){
       System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
@@ -143,33 +144,33 @@ public class Adventure {
   public void makeDungeons() {
 
 
-    Room dungeon1 = new Room("Dungeon 1", "You are in the parking basement, where a few zombies walk around\n" +
+    Room dungeon1 = new Room(magenta+"You are in the parking basement!",fReset+ "Here in the basement, there is a few zombies walk around\n" +
             "shhh be quiet or they will see you!");
 
-    Room dungeon2 = new Room("Dungeon 2", "You found the stairs, and went upstairs.\n" +
-            "You are now on the first floor, it smells like death\n" +
-            "you look over towards the dinning area and see a something laying over a dead corpse\n" +
+    Room dungeon2 = new Room(magenta+"You found some stairs, and are on the first floor!",fReset+ "You found the stairs, and went upstairs.\n" +
+            "You are now on the first floor, and it smells like death\n" +
+            "You look over towards the dinning area and see a something laying over a dead corpse\n" +
             red + "WATCH OUT IT'S A ZOMBIE " + fReset);
 
-    Room dungeon3 = new Room("Dungeon 3", "You are now hiding in one of the restaurant,the zombie followed you but have lost track of you\n" +
-            "you look for a knife but all you can find is a frying pan");
+    Room dungeon3 = new Room(magenta+"You are in one of the restaurants in the mall!",fReset+ "You are now hiding coss one of the zombie followed you, but luckily have lost track of you.\n" +
+            "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
 
-    Room dungeon4 = new Room("Dungeon 4", "You went upstairs to the second floor.\n" +
-            "You hear some weird noises coming from the halls\n" +
-            "You spot a giant zombie wandering the hallway");
+    Room dungeon4 = new Room(magenta+"You found some stairs, and are now on the second floor in the hallway.",fReset+ "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr
+            "You hear some weird noises coming from somwhere in the halls.\n" +
+            "You spot a giant zombie wandering the hallway. Better move on quick, or do somthing else.");
 
-    Room dungeon5 = new Room("Dungeon 5", "You arrived at the Helicopter area,you block the door the Mall and now have to wait for the helicopter\n" +
-            "the zombies are trying to get through the door, you looking nervous around for the helicopter");
+    Room dungeon5 = new Room(magenta+"You are now on the roof, close to the helicopterpatch.",fReset+ "You have finaly arrived at the helicopter area. Try quick to block the door to the stairs, so you can wait for the helicopter.\n" +
+            "The zombies are trying to get through the door. What do you do now?");
 
-    Room dungeon6 = new Room("Dungeon 6", "You arrived to another staircase, but it looks like its destroyed\n" +
-            "you look around a spot a crate, you open it and find an axe");
+    Room dungeon6 = new Room(magenta+"your now at an unknown  estryed staicase.",fReset+ "You arrived to another staircase, but it looks like its destroyed by the attacs.\n" +
+            "You look around a spot a crate. Maby you shuld look there to find somthing you can use to move on befor somone hear you!");
 
-    Room dungeon7 = new Room("Dungeon 7", "You spot the Sport section, and decide to go pick up some football equipment for protection");
+    Room dungeon7 = new Room(magenta+"Your are in a TAAS shop.",fReset+ "You spot the american football section. Maby you shuld look for som football equipment for protection there?");
 
-    Room dungeon8 = new Room("Dungeon 8", "A zombie, as huge as a tank is blocking a some stairs going to the roof");
+    Room dungeon8 = new Room(magenta+"Your at a dead end!",fReset+ "A zombie, as huge as a tank, is blocking some stairs, that leads up to the roof. Find another way, or somthing to deal with the zombi.");
 
-    Room dungeon9 = new Room("Dungeon 9", "You are in the hunting section and find a rifle with a few shells left\n" +
-            "you can maybe use it against the giant zombie, that's blocking the door");
+    Room dungeon9 = new Room(magenta+"You are in the OUTDOOR911.",fReset+ "You found the hunting section. Maby you shuld look for a rifle with a few shells?\n" +
+            "You can maybe use it against the giant zombie, that's blocking the door");
 
     //room 1
     dungeon1.setEast(dungeon2);
@@ -187,7 +188,7 @@ public class Adventure {
     dungeon5.setSouth(dungeon8);
     //Room 6
     dungeon6.setNorth(dungeon3);
-  //dungeon6.setSouth(dungeon9);
+  //dungeon6.setSouth(dungeon9); // lukket adgang. skal åbnes/eleminere zombie
     //Room 7
     dungeon7.setNorth(dungeon4);
     dungeon7.setEast(dungeon8);
@@ -197,29 +198,16 @@ public class Adventure {
     dungeon8.setEast(dungeon9);
     //Room 9
     dungeon9.setWest(dungeon8);
-    //dungeon9.setNorth(dungeon6);
+    //dungeon9.setNorth(dungeon6); // lukket adgang. skal åbnes/eleminere zombie
 
     currentRoom = dungeon1;
 
-     /* //Kan ikke få det her til at virke :(
 
-      if (currentRoom.getNorth() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getNorth();//skiftet plads
-      } else if (currentRoom.getSouth() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getSouth();//skiftet plads
-      } else if (currentRoom.getEast() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getEast();//skiftet plads
-      } else if (currentRoom.getWest() != null) { //tjekker for om den er =null
-        currentRoom = currentRoom.getWest();//skiftet plads
-      } else {
-        System.out.println("wrong way");
-      }
-  */  }
+  }
 
   public static void main(String[] args) {
 
     Adventure adventure = new Adventure();
-
     // starter spillet
     adventure.mainMenu();
 
