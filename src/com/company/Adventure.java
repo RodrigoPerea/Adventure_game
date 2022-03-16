@@ -156,20 +156,20 @@ public class Adventure {
             "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
 
     Room dungeon4 = new Room(magenta+"You found some stairs, and are now on the second floor in the hallway.",fReset+ "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr
-            "You hear some weird noises coming from somwhere in the halls.\n" +
-            "You spot a giant zombie wandering the hallway. Better move on quick, or do somthing else.");
+            "You hear some weird noises coming from somewhere in the halls.\n" +
+            "You spot a giant zombie wandering the hallway. Better move on quick, or do something else.");
 
-    Room dungeon5 = new Room(magenta+"You are now on the roof, close to the helicopterpatch.",fReset+ "You have finaly arrived at the helicopter area. Try quick to block the door to the stairs, so you can wait for the helicopter.\n" +
+    Room dungeon5 = new Room(magenta+"You are now on the roof, close to the helicopter-patch.",fReset+ "You have finally arrived at the helicopter area. Try quick to block the door to the stairs, so you can wait for the helicopter.\n" +
             "The zombies are trying to get through the door. What do you do now?");
 
-    Room dungeon6 = new Room(magenta+"your now at an unknown  estryed staicase.",fReset+ "You arrived to another staircase, but it looks like its destroyed by the attacs.\n" +
-            "You look around a spot a crate. Maby you shuld look there to find somthing you can use to move on befor somone hear you!");
+    Room dungeon6 = new Room(magenta+"You are now at an unknown destroyed staircase.",fReset+ "The staircase...? it looks like its destroyed by the attacks.\n" +
+            "You look around and spot a crate. Maybe you should look there to find something you can use to move on before someone hear you!");
 
-    Room dungeon7 = new Room(magenta+"Your are in a TAAS shop.",fReset+ "You spot the american football section. Maby you shuld look for som football equipment for protection there?");
+    Room dungeon7 = new Room(magenta+"You are in a TAAS shop.",fReset+ "You spot the american football section, maybe you should look for some football equipment for protection?");
 
-    Room dungeon8 = new Room(magenta+"Your at a dead end!",fReset+ "A zombie, as huge as a tank, is blocking some stairs, that leads up to the roof. Find another way, or somthing to deal with the zombi.");
+    Room dungeon8 = new Room(magenta+"You at a dead end!",fReset+ "A zombie, as huge as a tank, is blocking some stairs, that leads up to the roof. Find another way, or somthing to deal with the zombi.");
 
-    Room dungeon9 = new Room(magenta+"You are in the OUTDOOR911.",fReset+ "You found the hunting section. Maby you shuld look for a rifle with a few shells?\n" +
+    Room dungeon9 = new Room(magenta+"You are in the OUTDOOR911.",fReset+ "You found the hunting section. Maybe you should look for a rifle with a few shells?\n" +
             "You can maybe use it against the giant zombie, that's blocking the door");
 
     //room 1
