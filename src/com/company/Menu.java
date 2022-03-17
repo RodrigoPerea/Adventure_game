@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
+
 public class Menu {
 
 
@@ -61,15 +62,16 @@ public class Menu {
             String direction = "west";
             checkForNull(dungeonWest, direction);
 
+
             } else if (input.equals("help")) {
             newLine();
             System.out.println(red+"THE STORY"+fReset);
             System.out.println("   We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
             +"   Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
-            "   You were in a large mall when the attacks took place, seeking shelter in the parking basement.\n" +
+            "   You were in a large shopping center when the attacks took place, seeking shelter in the parking basement.\n" +
             "   You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
-            "   You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
-            "   But be careful, because you must not be bitten or attacked by the mutations.");
+            "   You therefor have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
+            "   But be careful, because you must not be bitten or attacked by the infected.");
             newLine();
             System.out.println("............................................................");
             System.out.println("   NAVIGATION");
@@ -103,7 +105,7 @@ public class Menu {
 
 
 public void checkForNull(Room dungeon, String direction) {
-    // denne er lavet, så man SKAL kigge i rumet for at få beskrivelse af rummet.
+    // denne er lavet, Så man ved om man går ind i et rum eller rammer en væg.
 
     if (dungeon == null) {
         System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
@@ -113,5 +115,6 @@ public void checkForNull(Room dungeon, String direction) {
         System.out.println("Going " + direction);
         currentRoom = dungeon;
     }
+
 }
 }

@@ -4,7 +4,13 @@ import java.util.Scanner;
 
 public class Adventure {
 
+  public static void main(String[] args) {
 
+    Adventure adventure = new Adventure();
+    // starter spillet
+    adventure.mainMenu();
+
+  }
   public void welcomeMessage() {
     Welcome welcome = new Welcome();
     welcome.welcomeMessage();
@@ -26,14 +32,5 @@ public class Adventure {
     welcomeMessage();
     EkstraCommands();
     Menu();
-
-  }
-
-  public static void main(String[] args) {
-
-    Adventure adventure = new Adventure();
-    // starter spillet
-    adventure.mainMenu();
-
   }
 }

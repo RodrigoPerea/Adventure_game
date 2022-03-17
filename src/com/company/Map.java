@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Map {
 
     public String red = "\u001B[31m";
@@ -9,7 +11,15 @@ public class Map {
     public String yellow = "\u001B[33m";
     public String magenta = "\u001B[35m";
 
+
     private Room currentRoom;
+
+    Item rifle = new Item("A hunting rifle", "a loud weapon it will attracts a lot of zombies so be carefull", 1);
+    Item bullets = new Item ("Rifle chells", " but only 4,so use them wisely", 4);
+    Item fryingPan = new Item ("A frying pan", "effectiv to hit Zombies in the head",1);
+    Item axe = new Item("A axe","a lumberjack axe, close combat but effectiv of cutting heads", 1);
+    Item healthkit = new Item ("Health kit", " it helps regren your health",2);
+
 
 
 
@@ -40,11 +50,11 @@ public class Map {
                     "The zombies are trying to get through the door. What do you do now?");
 
             Room dungeon6 = new Room(magenta + "You are now at an unknown destroyed staircase.", fReset + "The staircase...? it looks like its destroyed by the attacks.\n" +
-                    "You look around and spot a crate. Maybe you should look there to find something you can use to move on before someone hear you!");
+                    "You look around and spot a crate. You open it and find " + rifle + " and some " + bullets);
 
-            Room dungeon7 = new Room(magenta + "You are in a TAAS shop.", fReset + "You spot the american football section, maybe you should look for some football equipment for protection?");
+            Room dungeon7 = new Room(magenta + "You are in a TAAS shop.", fReset + "Maybe you should look for some football equipment for protection?");
 
-            Room dungeon8 = new Room(magenta + "You at a dead end!", fReset + "A zombie, as huge as a tank, is blocking some stairs, that leads up to the roof. Find another way, or somthing to deal with the zombi.");
+            Room dungeon8 = new Room(magenta + "You at a dead end!", fReset + "A zombie, as huge as a tank, is blocking the stairs the leads up to the roof, find something to deal with the Zombie.");
 
             Room dungeon9 = new Room(magenta + "You are in the OUTDOOR911.", fReset + "You found the hunting section. Maybe you should look for a rifle with a few shells?\n" +
                     "You can maybe use it against the giant zombie, that's blocking the door");
@@ -79,6 +89,11 @@ public class Map {
 
             currentRoom = dungeon1;
 
+            dungeon6.setItems(rifle);
+            dungeon6.setItems(bullets);
+            dungeon4.setItems(fryingPan);
+            dungeon9.setItems(axe);
+            dungeon7.setItems(healthkit);
 
         }
     }
