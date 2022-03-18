@@ -42,8 +42,9 @@ public class Room {
         else {
 
             for (int i = 0; i < items.size(); i++){
-                System.out.println(i + "There is a  " + items.get(i).getName());
-            System.out.println(i + " in his room. Use it for " + items.get(i).getItemDescription());
+                System.out.print( "There is a  " + items.get(i).getName()+" in his room.\n");
+            System.out.print("Use it to " + items.get(i).getItemDescription());
+            break;
         }
         }
         System.out.println();
