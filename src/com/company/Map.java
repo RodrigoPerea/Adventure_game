@@ -16,13 +16,14 @@ public class Map {
     //public void setCurrentRoom(Room starterRoom){
    // return ;
 //}
-    public Room getStarterRoom( ) {
+    public Room getStarterRoom() {
+
         return currentRoom;
 
     }
 
         public void makeDungeons() {
-        items = new Items[10];
+        items = new Items[100];
 
 
             items[0] = new Items("a gun", "shoot zombies, and your self if it gets too far!");

@@ -16,12 +16,25 @@ public class UserInterface {
     private Room currentRoom;
 
 
+  public void welcomeMessage() {
+    Welcome welcome = new Welcome();
+    welcome.welcomeMessage();
 
+  }
 
+  public void EkstraCommands() {
+    EkstraCommands commands = new EkstraCommands();
+    commands.EkstraCommands();
+  }
 
-    private void newLine() {
-        System.out.println();
-    }
+  public void mainMenu() {
+
+    welcomeMessage();
+    EkstraCommands();
+    Menu();
+
+  }
+
 
     public void Menu() {
 
@@ -47,32 +60,30 @@ public class UserInterface {
             currentRoom.viewRoomContent();
 
             } else if (input.equalsIgnoreCase("go north")) {
-            Room dungeonNorth = currentRoom.getNorth();
-            String direction = "north";
+
+            String direction = "go north";
             player.movePlayer(direction);
-            dungeonNorth.setNorth(currentRoom);
+
+
 
 
             } else if (input.equalsIgnoreCase("go south")) {
-            Room dungeonSouth = currentRoom.getSouth();
-            String direction = "south";
-            player.movePlayer(direction);
-            dungeonSouth.setSouth(currentRoom);
 
-            } else if (input.equalsIgnoreCase("Go east")) {
-            Room dungeonEast = currentRoom.getEast();
-            String direction = "east";
+            String direction = "go south";
             player.movePlayer(direction);
-            dungeonEast.setEast(currentRoom);
-            //player.setCurrentRoom(currentRoom);
-            //player.movePlayer(direction);
-           // player.setCurrentRoom(currentRoom);
+
+
+            } else if (input.equalsIgnoreCase("go east")) {
+
+            String direction = "go east";
+            player.movePlayer(direction);
+
 
             } else if (input.equalsIgnoreCase("Go west")) {
-            Room dungeonWest = currentRoom.getWest();
-            String direction = "west";
+
+            String direction = "go west";
             player.movePlayer(direction);
-            dungeonWest.setWest(currentRoom);
+
 
 
 
@@ -132,4 +143,8 @@ public void checkForNull(Room dungeon, String direction) {
 }
 
  */
+private void newLine() {
+  System.out.println();
+}
+
 }

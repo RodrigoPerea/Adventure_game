@@ -45,8 +45,13 @@ public class Room {
         System.out.println();
     }
 
-    public ArrayList<Items> getItems(ArrayList items) {
+    public void setItems(Items item) {
+        this.items.add(item);
+    }
+
+    public ArrayList<Items> getItems() {
         return items;
+
     }
 
     public void setDescription(String aDescription) {
@@ -99,14 +104,7 @@ public class Room {
         return description;
     }
 
-    public void setItems(Items item) {
-        this.items.add(item);
-    }
 
-    public ArrayList<Items> getItems() {
-        return items;
-
-    }
 }
 
 
@@ -123,15 +121,6 @@ public class Room {
 
     /*
 
-
-        public void dropObject(Items item) {
-            itemsArrayList.remove(item);
-        }
-
-
-        public void setItemsArrayList(ArrayList<Items> itemsArrayList) {
-            this.itemsArrayList = itemsArrayList;
-        }
 
 
 
