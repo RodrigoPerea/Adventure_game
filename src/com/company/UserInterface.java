@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Menu {
+public class UserInterface {
 
 
     public String red = "\u001B[31m";
@@ -11,8 +11,13 @@ public class Menu {
     public String blue = "\u001B[34m";
     public String yellow = "\u001B[33m";
     public String magenta = "\u001B[35m";
-
+    private Player player;
+    private Map map;
     private Room currentRoom;
+
+
+
+
 
     private void newLine() {
         System.out.println();
@@ -21,10 +26,10 @@ public class Menu {
     public void Menu() {
 
     Map map = new Map();
-
     map.makeDungeons();
-
-            currentRoom = map.getStarterRoom();
+    player = new Player();
+    player.setCurrentRoom(map.getStarterRoom());
+    currentRoom = map.getStarterRoom();
 
             Scanner sc = new Scanner(System.in);
 
@@ -38,28 +43,37 @@ public class Menu {
             System.out.println("Looking around...");  // kunne evt sættes i en metode for sig selv der hed look, så den ikke blir kaldt fra els if sætning men kommer i en mtode.
             System.out.println(currentRoom.getName());
             System.out.println(currentRoom.getDescription());
+            currentRoom.viewRoomContent();
 
             } else if (input.equalsIgnoreCase("go north")) {
             Room dungeonNorth = currentRoom.getNorth();
             String direction = "north";
-            //dungeonNorth.setNorth(currentRoom);
-            checkForNull(dungeonNorth,direction);
+            player.movePlayer(direction);
+            dungeonNorth.setNorth(currentRoom);
+
 
             } else if (input.equalsIgnoreCase("go south")) {
             Room dungeonSouth = currentRoom.getSouth();
-            dungeonSouth.setSouth(currentRoom);
             String direction = "south";
-            checkForNull(dungeonSouth, direction);
+            player.movePlayer(direction);
+            dungeonSouth.setSouth(currentRoom);
 
             } else if (input.equalsIgnoreCase("Go east")) {
             Room dungeonEast = currentRoom.getEast();
             String direction = "east";
-            checkForNull(dungeonEast, direction);
+            player.movePlayer(direction);
+            dungeonEast.setEast(currentRoom);
+            //player.setCurrentRoom(currentRoom);
+            //player.movePlayer(direction);
+           // player.setCurrentRoom(currentRoom);
 
             } else if (input.equalsIgnoreCase("Go west")) {
             Room dungeonWest = currentRoom.getWest();
             String direction = "west";
-            checkForNull(dungeonWest, direction);
+            player.movePlayer(direction);
+            dungeonWest.setWest(currentRoom);
+
+
 
             } else if (input.equals("help")) {
             newLine();
@@ -101,7 +115,7 @@ public class Menu {
 
             }
 
-
+/*
 public void checkForNull(Room dungeon, String direction) {
     // denne er lavet, så man SKAL kigge i rumet for at få beskrivelse af rummet.
 
@@ -114,4 +128,6 @@ public void checkForNull(Room dungeon, String direction) {
         currentRoom = dungeon;
     }
 }
+
+ */
 }

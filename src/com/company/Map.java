@@ -8,29 +8,54 @@ public class Map {
     public String blue = "\u001B[34m";
     public String yellow = "\u001B[33m";
     public String magenta = "\u001B[35m";
-
     private Room currentRoom;
+    private Items items[];
 
-
-
-    public Room getStarterRoom() {
+    //public void setCurrentRoom(Room starterRoom){
+   // return ;
+//}
+    public Room getStarterRoom( ) {
         return currentRoom;
 
     }
 
         public void makeDungeons() {
+        items = new Items[3];
 
+
+            items[0] = new Items("a gun", "shoot zombies, and your self if it gets too far!");
+            items[1] = new Items("fork", "eat food, but not much more. its usless");
+            items[2] = new Items("slippers", "avoid walk barefoot");
+            items[3] = new Items("slippers", "avoid walk barefoot");
+            items[4] = new Items("slippers", "avoid walk barefoot");
+            items[5] = new Items("slippers", "avoid walk barefoot");
+            items[6] = new Items("slippers", "avoid walk barefoot");
+            items[7] = new Items("slippers", "avoid walk barefoot");
+            items[8] = new Items("slippers", "avoid walk barefoot");
+            items[9] = new Items("slippers", "avoid walk barefoot");
+            items[10] = new Items("slippers", "avoid walk barefoot");
+            items[11] = new Items("slippers", "avoid walk barefoot");
 
             Room dungeon1 = new Room(magenta + "You are in the parking basement!", fReset + "Here in the basement, there is a few zombies walk around\n" +
                     "shhh be quiet or they will see you!");
+            dungeon1.addObject(items[0]);
+            dungeon1.addObject(items[1]);
+            System.out.println(dungeon1.getItems());
+
 
             Room dungeon2 = new Room(magenta + "You found some stairs, and are on the first floor!", fReset + "You found the stairs, and went upstairs.\n" +
                     "You are now on the first floor, and it smells like death\n" +
                     "You look over towards the dinning area and see a something laying over a dead corpse\n" +
                     red + "WATCH OUT IT'S A ZOMBIE " + fReset);
+            dungeon2.addObject(items[2]);
+            dungeon2.addObject(items[3]);
+            System.out.println(dungeon2.getItems());
 
             Room dungeon3 = new Room(magenta + "You are in one of the restaurants in the mall!", fReset + "You are now hiding coss one of the zombie followed you, but luckily have lost track of you.\n" +
                     "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
+            dungeon3.addObject(items[4]);
+            dungeon3.addObject(items[5]);
+            System.out.println(dungeon3.getItems());
 
             Room dungeon4 = new Room(magenta + "You found some stairs, and are now on the second floor in the hallway.", fReset + "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr
                     "You hear some weird noises coming from somewhere in the halls.\n" +
@@ -77,8 +102,8 @@ public class Map {
             dungeon9.setWest(dungeon8);
             //dungeon9.setNorth(dungeon6); // lukket adgang. skal åbnes/eleminere zombie
 
-            currentRoom = dungeon1;
 
+            currentRoom = dungeon1;
 
         }
     }

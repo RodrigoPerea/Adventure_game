@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Adventure {
 
 
@@ -17,8 +15,8 @@ public class Adventure {
   }
 
   public void Menu() {
-    Menu menu = new Menu();
-    menu.Menu();
+    UserInterface userInterface = new UserInterface();
+    userInterface.Menu();
   }
 
   public void mainMenu() {
@@ -30,7 +28,7 @@ public class Adventure {
   }
 
   public static void main(String[] args) {
-
+RunGame rungame = new  RunGame();
     Adventure adventure = new Adventure();
     // starter spillet
     adventure.mainMenu();
