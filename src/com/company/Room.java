@@ -30,12 +30,17 @@ public class Room {
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
+        /*
         north = null;
         east = null;
         west = null;
         south = null;
+
+         */
         items = new ArrayList<>();
     }
+
+
 
 
     public void addObject(Items item) {

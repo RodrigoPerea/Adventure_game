@@ -45,6 +45,7 @@ public class UserInterface {
     player.setCurrentRoom(map.getStarterRoom());
     currentRoom = map.getStarterRoom();
 
+
             Scanner sc = new Scanner(System.in);
 
 
