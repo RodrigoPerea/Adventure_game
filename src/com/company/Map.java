@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Map {
 
     public String red = "\u001B[31m";
@@ -11,7 +9,7 @@ public class Map {
     public String yellow = "\u001B[33m";
     public String magenta = "\u001B[35m";
     private Room currentRoom;
-    private Items items[];
+    private Item items[];
 
     //public void setCurrentRoom(Room starterRoom){
    // return ;
@@ -21,25 +19,25 @@ public class Map {
     }
 
         public void makeDungeons() {
-        items = new Items[100];
+        items = new Item[100];
 
 
-            items[0] = new Items(green+"a gun"+fReset, "shoot zombies, and your self if it gets too far!");
-            items[1] = new Items(green+"a fork"+fReset, "eat food, but not much more. its usless");
-            items[2] = new Items(green+"a flash"+fReset, "avoid walk barefoot");
-            items[3] = new Items(green+"a woodspoon"+fReset, "avoid walk barefoot");
-            items[4] = new Items(green+"a dietcoke"+fReset, "avoid walk barefoot");
-            items[5] = new Items(green+"a mouse"+fReset, "avoid walk barefoot");
-            items[6] = new Items(green+"a computer"+fReset, "avoid walk barefoot");
-            items[7] = new Items(green+"a paddel"+fReset, "avoid walk barefoot");
-            items[8] = new Items(green+"a chair"+fReset, "avoid walk barefoot");
-            items[9] = new Items(green+"a giutar"+fReset, "avoid walk barefoot");
-            items[10] = new Items(green+"a pair of slippers"+fReset, "avoid walk barefoot");
-            items[11] = new Items(green+"a waterbottle"+fReset, "avoid walk barefoot");
+            items[0] = new Item(green+"a gun"+fReset, "shoot zombies, and your self if it gets too far!");
+            items[1] = new Item(green+"a fork"+fReset, "eat food, but not much more. its usless");
+            items[2] = new Item(green+"a flash"+fReset, "avoid walk barefoot");
+            items[3] = new Item(green+"a woodspoon"+fReset, "avoid walk barefoot");
+            items[4] = new Item(green+"a dietcoke"+fReset, "avoid walk barefoot");
+            items[5] = new Item(green+"a mouse"+fReset, "avoid walk barefoot");
+            items[6] = new Item(green+"a computer"+fReset, "avoid walk barefoot");
+            items[7] = new Item(green+"a paddel"+fReset, "avoid walk barefoot");
+            items[8] = new Item(green+"a chair"+fReset, "avoid walk barefoot");
+            items[9] = new Item(green+"a giutar"+fReset, "avoid walk barefoot");
+            items[10] = new Item(green+"a pair of slippers"+fReset, "avoid walk barefoot");
+            items[11] = new Item(green+"a waterbottle"+fReset, "avoid walk barefoot");
 
             Room dungeon1 = new Room(magenta + "You are in the parking basement!", fReset + "Here in the basement, there is a few zombies walk around\n" +
                     "shhh be quiet or they will see you!");
-            dungeon1.addObject(items[11]);
+            dungeon1.addItem(items[11]);
 
 
 
@@ -48,14 +46,14 @@ public class Map {
                     "You are now on the first floor, and it smells like death\n" +
                     "You look over towards the dinning area and see a something laying over a dead corpse\n" +
                     red + "WATCH OUT IT'S A ZOMBIE " + fReset);
-            dungeon2.addObject(items[2]);
-            dungeon2.addObject(items[3]);
+            dungeon2.addItem(items[2]);
+            dungeon2.addItem(items[3]);
 
 
             Room dungeon3 = new Room(magenta + "You are in one of the restaurants in the mall!", fReset + "You are now hiding coss one of the zombie followed you, but luckily have lost track of you.\n" +
                     "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
-            dungeon3.addObject(items[4]);
-            dungeon3.addObject(items[5]);
+            dungeon3.addItem(items[4]);
+            dungeon3.addItem(items[5]);
 
 
             Room dungeon4 = new Room(magenta + "You found some stairs, and are now on the second floor in the hallway.", fReset + "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr

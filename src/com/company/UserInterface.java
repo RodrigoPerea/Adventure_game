@@ -43,7 +43,7 @@ public class UserInterface {
     map.makeDungeons();
     player = new Player();
     player.setCurrentRoom(map.getStarterRoom());
-    currentRoom = map.getStarterRoom();
+    //currentRoom = map.getStarterRoom();
 
 
             Scanner sc = new Scanner(System.in);
@@ -56,9 +56,9 @@ public class UserInterface {
 
             if (input.equals("look")) {
             System.out.println("Looking around...");  // kunne evt sættes i en metode for sig selv der hed look, så den ikke blir kaldt fra els if sætning men kommer i en mtode.
-            System.out.println(currentRoom.getName());
-            System.out.println(currentRoom.getDescription());
-            currentRoom.viewRoomContent();
+            System.out.println(player.getCurrentRoom().getName());
+            System.out.println(player.getCurrentRoom().getDescription());
+              System.out.println(player.getCurrentRoom().viewRoomContent());
 
             } else if (input.equalsIgnoreCase("go north")) {
 

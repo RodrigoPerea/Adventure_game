@@ -1,12 +1,12 @@
 package com.company;
 
 
-public class Items {
+public class Item {
   private String name;
   private String itemDescription;
 
 
-  public Items(String name, String desccreption) {
+  public Item(String name, String desccreption) {
     this.name = name;
     this.itemDescription = desccreption;
   }

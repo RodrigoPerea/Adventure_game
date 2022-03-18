@@ -11,43 +11,44 @@ public class Player {
   public String yellow = "\u001B[33m";
   public String magenta = "\u001B[35m";
   private Room currentRoom;
-  private ArrayList<Items> itemsArrayList = new ArrayList<>();
+  private ArrayList<Item> itemArrayList = new ArrayList<>();
 
 
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
   }
-/*
+
   public Room getCurrentRoom() {
     return currentRoom;
   }
 
- */
 
-  public String movePlayer(String direction) {
-    Room nextRoom = findNewRoom(direction);
-    return checkForNull(nextRoom, direction);
+
+  public void movePlayer(String direction) {
+    currentRoom = findNewRoom(direction);
+    checkForNull(currentRoom, direction);
   }
 
-  public void picUpItem (Items take) {
+  public void picUpItem(Item take) {
     Scanner choice = new Scanner(System.in);
+    System.out.println("Type"+blue+"take"+fReset+" to pic up item and add to your inventory.");
     if (choice.equals("take")) {
-      System.out.println("You pick up ");
-      itemsArrayList.add(take);
+      System.out.println("Item now added to you inventory.");
+      itemArrayList.add(take);
     }
   }
 
-      public void droppItem (Items item){
+      public void droppItem (Item dropp){
         Scanner choice = new Scanner(System.in);
         if (choice.equals("take")) {
           System.out.println("is now droppd");
-          itemsArrayList.remove(item);
+          itemArrayList.remove(dropp);
         }
   }
 
 
 
-  public String checkForNull(Room dungeon, String direction) {
+  public void checkForNull(Room dungeon, String direction) {
 
     if (dungeon == null) {
       System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
@@ -57,7 +58,6 @@ public class Player {
       System.out.println("Going " + direction);
       currentRoom = dungeon;
     }
-    return direction;
   }
 
   public Room findNewRoom(String direction){

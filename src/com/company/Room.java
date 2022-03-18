@@ -14,7 +14,7 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
-    private ArrayList<Items> items = new ArrayList<>();
+    private ArrayList<Item> items;
     String red = "\u001B[31m";
     public String fReset = "\u001B[0m";
     public String green = "\u001B[32m";
@@ -43,11 +43,13 @@ public class Room {
 
 
 
-    public void addObject(Items item) {
+    public void addItem(Item item) {
         items.add(item);
     }
 
-    public void viewRoomContent() {
+    public ArrayList<Item> viewRoomContent() {
+        /*
+        Player picup = new Player();
         if (items.size() == 0)
             System.out.println("No artifacts around you!");
         else {
@@ -56,18 +58,22 @@ public class Room {
                 System.out.print( "There is a  " + items.get(i).getName()+" in his room.\n");
             System.out.print("Use it to " + items.get(i).getItemDescription());
             System.out.println("\nDo you wanna pic it up and add to your inventory?");
+           // picup.picUpItem();
             break;
 
         }
         }
         System.out.println();
+
+         */
+        return items;
     }
 
-    public void setItems(Items item) {
+    public void setItems(Item item) {
         this.items.add(item);
     }
 
-    public ArrayList<Items> getItems() {
+    public ArrayList<Item> getItems() {
         return items;
 
     }
