@@ -3,9 +3,6 @@ package com.company;
 
 import java.util.ArrayList;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Room {
 
     //List<String> inv;
@@ -17,11 +14,7 @@ public class Room {
     private Room south;
     private Room east;
     private Room west;
-    private ArrayList<Item> items = new ArrayList<>();
-
-
-    //private String viewRoomContent;
-    ArrayList<Items> items = new ArrayList<>();
+    private ArrayList<Items> items = new ArrayList<>();
 
 
     public Room(String name, String description) {
@@ -52,7 +45,7 @@ public class Room {
         System.out.println();
     }
 
-    public ArrayList<Items> getItems() {
+    public ArrayList<Items> getItems(ArrayList items) {
         return items;
     }
 
@@ -105,32 +98,20 @@ public class Room {
     public String getDescription() {
         return description;
     }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void setItems(Item item) {
+    public void setItems(Items item) {
         this.items.add(item);
     }
 
-    public ArrayList<Item> getItems() {
+    public ArrayList<Items> getItems() {
         return items;
 
     }
 }
+
+
+
+
 
  /*
 

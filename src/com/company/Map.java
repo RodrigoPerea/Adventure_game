@@ -22,7 +22,7 @@ public class Map {
     }
 
         public void makeDungeons() {
-        items = new Items[3];
+        items = new Items[10];
 
 
             items[0] = new Items("a gun", "shoot zombies, and your self if it gets too far!");

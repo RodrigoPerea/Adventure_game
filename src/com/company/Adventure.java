@@ -23,7 +23,7 @@ public class Adventure {
   }
 
   public void Menu() {
-    Menu menu = new Menu();
+    UserInterface menu = new UserInterface();
     menu.Menu();
   }
 
@@ -35,11 +35,4 @@ public class Adventure {
 
   }
 
-  public static void main(String[] args) {
-
-    Adventure adventure = new Adventure();
-    // starter spillet
-    adventure.mainMenu();
-
   }
-}
