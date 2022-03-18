@@ -2,6 +2,8 @@ package com.company;
 
 
 import java.util.ArrayList;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Room {
@@ -10,10 +12,12 @@ public class Room {
     private String desription;
     private String name;
     private String description;
+
     private Room north;
     private Room south;
     private Room east;
     private Room west;
+    private ArrayList<Item> items = new ArrayList<>();
 
 
     //private String viewRoomContent;
@@ -23,6 +27,11 @@ public class Room {
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
+        north = null;
+        east = null;
+        west = null;
+        south = null;
+
         items = new ArrayList<>();
     }
     public void addObject(Items item) {
@@ -53,32 +62,32 @@ public class Room {
     }
 
 
-    public void setNorth(Room cave) {
-        north = cave;
+    public void setNorth(Room dungeon) {
+        north = dungeon;
     }
 
     public Room getNorth() {
         return north;
     }
 
-    public void setSouth(Room cave) {
-        south = cave;
+    public void setSouth(Room dungeon) {
+        south = dungeon;
     }
 
     public Room getSouth() {
         return south;
     }
 
-    public void setEast(Room cave) {
-        east = cave;
+    public void setEast(Room dungeon) {
+        east = dungeon;
     }
 
     public Room getEast() {
         return east;
     }
 
-    public void setWest(Room cave) {
-        west = cave;
+    public void setWest(Room dungeon) {
+        west = dungeon;
     }
 
     public Room getWest() {
@@ -112,6 +121,16 @@ public class Room {
 
 
 
+
+    public void setItems(Item item) {
+        this.items.add(item);
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+
+    }
+}
 
  /*
 

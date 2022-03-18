@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Map {
 
     public String red = "\u001B[31m";
@@ -104,6 +106,7 @@ public class Map {
 
 
             currentRoom = dungeon1;
+
 
         }
     }
