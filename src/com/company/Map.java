@@ -25,21 +25,21 @@ public class Map {
 
 
             items[0] = new Items(green+"a gun"+fReset, "shoot zombies, and your self if it gets too far!");
-            items[1] = new Items(green+"a gun"+fReset, "eat food, but not much more. its usless");
-            items[2] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[3] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[4] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[5] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[6] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[7] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[8] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[9] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[10] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
-            items[11] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[1] = new Items(green+"a fork"+fReset, "eat food, but not much more. its usless");
+            items[2] = new Items(green+"a flash"+fReset, "avoid walk barefoot");
+            items[3] = new Items(green+"a woodspoon"+fReset, "avoid walk barefoot");
+            items[4] = new Items(green+"a dietcoke"+fReset, "avoid walk barefoot");
+            items[5] = new Items(green+"a mouse"+fReset, "avoid walk barefoot");
+            items[6] = new Items(green+"a computer"+fReset, "avoid walk barefoot");
+            items[7] = new Items(green+"a paddel"+fReset, "avoid walk barefoot");
+            items[8] = new Items(green+"a chair"+fReset, "avoid walk barefoot");
+            items[9] = new Items(green+"a giutar"+fReset, "avoid walk barefoot");
+            items[10] = new Items(green+"a pair of slippers"+fReset, "avoid walk barefoot");
+            items[11] = new Items(green+"a waterbottle"+fReset, "avoid walk barefoot");
 
             Room dungeon1 = new Room(magenta + "You are in the parking basement!", fReset + "Here in the basement, there is a few zombies walk around\n" +
                     "shhh be quiet or they will see you!");
-            dungeon1.addObject(items[0]);
+            dungeon1.addObject(items[11]);
 
 
 
