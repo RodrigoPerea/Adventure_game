@@ -24,23 +24,23 @@ public class Map {
         items = new Items[100];
 
 
-            items[0] = new Items("a gun", "shoot zombies, and your self if it gets too far!");
-            items[1] = new Items("fork", "eat food, but not much more. its usless");
-            items[2] = new Items("slippers", "avoid walk barefoot");
-            items[3] = new Items("slippers", "avoid walk barefoot");
-            items[4] = new Items("slippers", "avoid walk barefoot");
-            items[5] = new Items("slippers", "avoid walk barefoot");
-            items[6] = new Items("slippers", "avoid walk barefoot");
-            items[7] = new Items("slippers", "avoid walk barefoot");
-            items[8] = new Items("slippers", "avoid walk barefoot");
-            items[9] = new Items("slippers", "avoid walk barefoot");
-            items[10] = new Items("slippers", "avoid walk barefoot");
-            items[11] = new Items("slippers", "avoid walk barefoot");
+            items[0] = new Items(green+"a gun"+fReset, "shoot zombies, and your self if it gets too far!");
+            items[1] = new Items(green+"a gun"+fReset, "eat food, but not much more. its usless");
+            items[2] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[3] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[4] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[5] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[6] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[7] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[8] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[9] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[10] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
+            items[11] = new Items(green+"a gun"+fReset, "avoid walk barefoot");
 
             Room dungeon1 = new Room(magenta + "You are in the parking basement!", fReset + "Here in the basement, there is a few zombies walk around\n" +
                     "shhh be quiet or they will see you!");
             dungeon1.addObject(items[0]);
-            dungeon1.addObject(items[1]);
+
 
 
 
@@ -56,7 +56,7 @@ public class Map {
                     "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
             dungeon3.addObject(items[4]);
             dungeon3.addObject(items[5]);
-            
+
 
             Room dungeon4 = new Room(magenta + "You found some stairs, and are now on the second floor in the hallway.", fReset + "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr
                     "You hear some weird noises coming from somewhere in the halls.\n" +

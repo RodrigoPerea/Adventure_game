@@ -15,6 +15,12 @@ public class Room {
     private Room east;
     private Room west;
     private ArrayList<Items> items = new ArrayList<>();
+    String red = "\u001B[31m";
+    public String fReset = "\u001B[0m";
+    public String green = "\u001B[32m";
+    public String blue = "\u001B[34m";
+    public String yellow = "\u001B[33m";
+    public String magenta = "\u001B[35m";
 
 
 
@@ -44,7 +50,9 @@ public class Room {
             for (int i = 0; i < items.size(); i++){
                 System.out.print( "There is a  " + items.get(i).getName()+" in his room.\n");
             System.out.print("Use it to " + items.get(i).getItemDescription());
+            System.out.println("\nDo you wanna pic it up and add to your inventory?");
             break;
+
         }
         }
         System.out.println();
@@ -98,7 +106,7 @@ public class Room {
     }
 
     public String getName() {
-        return name;
+        return  name;
     }
 
     public void setName(String aName) {
