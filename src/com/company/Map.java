@@ -17,9 +17,7 @@ public class Map {
    // return ;
 //}
     public Room getStarterRoom() {
-
         return currentRoom;
-
     }
 
         public void makeDungeons() {
@@ -43,7 +41,7 @@ public class Map {
                     "shhh be quiet or they will see you!");
             dungeon1.addObject(items[0]);
             dungeon1.addObject(items[1]);
-            System.out.println(dungeon1.getItems());
+
 
 
             Room dungeon2 = new Room(magenta + "You found some stairs, and are on the first floor!", fReset + "You found the stairs, and went upstairs.\n" +
@@ -52,13 +50,13 @@ public class Map {
                     red + "WATCH OUT IT'S A ZOMBIE " + fReset);
             dungeon2.addObject(items[2]);
             dungeon2.addObject(items[3]);
-            System.out.println(dungeon2.getItems());
+
 
             Room dungeon3 = new Room(magenta + "You are in one of the restaurants in the mall!", fReset + "You are now hiding coss one of the zombie followed you, but luckily have lost track of you.\n" +
                     "You look for a knife but all you can find is a frying pan.\nMove on quick.....but quite!!");
             dungeon3.addObject(items[4]);
             dungeon3.addObject(items[5]);
-            System.out.println(dungeon3.getItems());
+            
 
             Room dungeon4 = new Room(magenta + "You found some stairs, and are now on the second floor in the hallway.", fReset + "you are too exposed here in the hallway. the corridor is dark, and the light is broken, and hangning from the seal...blinking.\n" + //ændret, da man jo også kan gå ned igen cr
                     "You hear some weird noises coming from somewhere in the halls.\n" +

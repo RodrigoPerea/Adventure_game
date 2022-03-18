@@ -17,6 +17,10 @@ public class Room {
     private ArrayList<Items> items = new ArrayList<>();
 
 
+
+
+
+
     public Room(String name, String description) {
         this.name = name;
         this.description = description;
@@ -24,22 +28,22 @@ public class Room {
         east = null;
         west = null;
         south = null;
-
         items = new ArrayList<>();
     }
+
+
     public void addObject(Items item) {
         items.add(item);
     }
 
     public void viewRoomContent() {
-        System.out.print("You have found");
         if (items.size() == 0)
             System.out.println("No artifacts around you!");
         else {
 
             for (int i = 0; i < items.size(); i++){
-                System.out.println(i + "  " + items.get(i).getName());
-            System.out.println(i + " use it" + items.get(i).getItemDescription());
+                System.out.println(i + "There is a  " + items.get(i).getName());
+            System.out.println(i + " in his room. Use it for " + items.get(i).getItemDescription());
         }
         }
         System.out.println();
