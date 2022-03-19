@@ -41,10 +41,12 @@ public class Room {
     }
 
 
+    public void droppItem(Item item) {
+        items.remove(item);
+    }
 
-
-    public void addItem(Item item) {
-        items.add(item);
+    public void addItem(Item t) {
+        items.add(t);
     }
 
     public ArrayList<Item> viewRoomContent() {
@@ -68,15 +70,24 @@ public class Room {
          */
         return items;
     }
+    public Item getRoomItem(int takeThing) {
+        Item t = items.get(takeThing);
+        droppItem(t);
+        return t;
 
-    public void setItems(Item item) {
-        this.items.add(item);
+    }
+
+
+    public void setItems(ArrayList <Item> items) {
+        this.items = items;
     }
 
     public ArrayList<Item> getItems() {
         return items;
-
     }
+
+
+
 
     public void setDescription(String aDescription) {
         this.description = aDescription;

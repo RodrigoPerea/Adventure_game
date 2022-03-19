@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Player {
   public String red = "\u001B[31m";
@@ -11,7 +10,17 @@ public class Player {
   public String yellow = "\u001B[33m";
   public String magenta = "\u001B[35m";
   private Room currentRoom;
-  private ArrayList<Item> itemArrayList = new ArrayList<>();
+  private ArrayList<Item> inventoryList = new ArrayList<>();
+
+  public Item findItemRoom(String itemName) {
+
+    for (Item item : currentRoom.getItems()) {
+      if (item.getName().equals(itemName)) {
+        return item;
+      }
+    }
+    return null;
+  }
 
 
   public void setCurrentRoom(Room currentRoom) {
@@ -21,32 +30,47 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
-
+  public void viewinventoryList() {
+    System.out.println("Your Inventory list");
+    System.out.println();
+    if(inventoryList.size()==0)
+      System.out.println("No Item in Inventory");
+    else {
+      for(int i = 0 ; i < inventoryList.size(); i++)
+        System.out.println(i + "  " + inventoryList.get(i));
+    }
+    System.out.println();
+  }
 
 
   public void movePlayer(String direction) {
     currentRoom = findNewRoom(direction);
     checkForNull(currentRoom, direction);
   }
+  public void picUpItem(Item item){
+    inventoryList.add(item);
+  }
+  public void dropItem(Item item){
+    inventoryList.remove(item);
+  }
 
-  public void picUpItem(Item take) {
-    Scanner choice = new Scanner(System.in);
+/*
     System.out.println("Type"+blue+"take"+fReset+" to pic up item and add to your inventory.");
     if (choice.equals("take")) {
       System.out.println("Item now added to you inventory.");
-      itemArrayList.add(take);
+      inventoryList.add(takke);
     }
   }
 
-      public void droppItem (Item dropp){
-        Scanner choice = new Scanner(System.in);
-        if (choice.equals("take")) {
-          System.out.println("is now droppd");
-          itemArrayList.remove(dropp);
-        }
+
+
+ */
+
+
+
+  public ArrayList<Item> getInventoryList() {
+    return inventoryList;
   }
-
-
 
   public void checkForNull(Room dungeon, String direction) {
 
