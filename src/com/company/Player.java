@@ -1,27 +1,132 @@
 package com.company;
-
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 
 public class Player {
-  public String red = "\u001B[31m";
-  public String fReset = "\u001B[0m";
-  public String green = "\u001B[32m";
-  public String blue = "\u001B[34m";
-  public String yellow = "\u001B[33m";
-  public String magenta = "\u001B[35m";
+
+  // Instance variables
+  private String playerName;
+  private int playerHealth;
+  private ArrayList<Item> inventory;
+  //private ArrayList<Item> food;
   private Room currentRoom;
-  private ArrayList<Item> inventoryList = new ArrayList<>();
+  Item currentItem;
+  Weapon currentWeapon;
+  private int damage;
 
-  public Item findItemRoom(String itemName) {
-
-    for (Item item : currentRoom.getItems()) {
-      if (item.getName().equals(itemName)) {
-        return item;
-      }
-    }
-    return null;
+  // Defining Player() constructor
+  public Player() {
+    this.playerName = "";
+    this.playerHealth = 100;
+    inventory = new ArrayList<>();
   }
 
+  public boolean playerCheckItem(Item itemName) {
+    for (Item item : inventory) {
+      if (inventory.equals(itemName)) {
+        return true; // if the item exists
+      }
+    }
+    return false; // if the item doesn't exist
+  }
+
+  // Take item
+  public void takeItem(String itemName) {
+    boolean itemCheck = false;
+    for (int i = 0; i < currentRoom.getLoot().size() ; i++) {
+      currentItem = currentRoom.getLoot().get(i);
+      if (currentItem.getName().equals(itemName)) {
+        inventory.add(currentItem);
+        getCurrentRoom().getLoot().remove(i);
+        System.out.println("You've picked up: " + currentItem);
+        itemCheck = true;
+      }
+    }
+    if (!itemCheck) {
+      System.out.println("There is no item with that name here");
+    }
+  }
+
+  // Drop item
+  public void dropItem(String itemName) {
+    boolean itemCheck = false;
+    for (int i = 0; i < inventory.size(); i++) {
+      currentItem = inventory.get(i);
+      if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
+        inventory.remove(i);
+        getCurrentRoom().getLoot().add(currentItem);
+        System.out.println("You've dropped: '" + currentItem + "' in " + currentRoom);
+      }
+    }
+  }
+
+  // Health
+  public void showHealth() {
+    if (playerHealth == 100) {
+      System.out.println("You're HP is full" +
+              "\n Player HP: " + playerHealth);
+    } else if (playerHealth > 25 && playerHealth < 50) {
+      System.out.println(" Player HP: " + playerHealth);
+    } else if (playerHealth < 25) {
+      System.out.println("You are low on HP! " +
+              "\n Player HP: " + playerHealth);
+    }
+
+  }
+
+  public void equipItem(String itemName) {
+    boolean itemCheck = false;
+    for (int i = 0; i < inventory.size(); i++) {
+      if (inventory.get(i) instanceof Weapon) {
+        currentWeapon = (Weapon) inventory.get(i);
+        if (currentWeapon.getName().equalsIgnoreCase(itemName)) {
+          setDamage(currentWeapon.getDamage());
+          System.out.println("You've equipped: " + currentWeapon +
+                  "\n Current damage: " + getDamage());
+        }
+        itemCheck = true;
+
+      }
+
+    }
+
+    if (!itemCheck) {
+      System.out.println("You can't equip that!");
+
+    }
+  }
+
+  public void setDamage(int damage) {
+    this.damage = currentWeapon.getDamage();
+  }
+
+  public int getDamage() {
+    return damage;
+  }
+
+  public void setPlayerName(String playerName) {
+    this.playerName = playerName;
+  }
+
+  public String getPlayerName() {
+    return playerName;
+  }
+
+  public void setPlayerHealth(int playerHealth) {
+    this.playerHealth = playerHealth;
+  }
+
+  public int getPlayerHealth() {
+    return playerHealth;
+  }
+
+  public void setInventory(ArrayList<Item> inventory) {
+    this.inventory = inventory;
+  }
+
+  public ArrayList<Item> getInventory() {
+    return inventory;
+  }
 
   public void setCurrentRoom(Room currentRoom) {
     this.currentRoom = currentRoom;
@@ -30,75 +135,6 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
-  public void viewinventoryList() {
-    System.out.println("Your Inventory list");
-    System.out.println();
-    if(inventoryList.size()==0)
-      System.out.println("No Item in Inventory");
-    else {
-      for(int i = 0 ; i < inventoryList.size(); i++)
-        System.out.println(i + "  " + inventoryList.get(i));
-    }
-    System.out.println();
-  }
 
 
-  public void movePlayer(String direction) {
-    currentRoom = findNewRoom(direction);
-    checkForNull(currentRoom, direction);
-  }
-  public void picUpItem(Item item){
-    inventoryList.add(item);
-  }
-  public void dropItem(Item item){
-    inventoryList.remove(item);
-  }
-
-/*
-    System.out.println("Type"+blue+"take"+fReset+" to pic up item and add to your inventory.");
-    if (choice.equals("take")) {
-      System.out.println("Item now added to you inventory.");
-      inventoryList.add(takke);
-    }
-  }
-
-
-
- */
-
-
-
-  public ArrayList<Item> getInventoryList() {
-    return inventoryList;
-  }
-
-  public void checkForNull(Room dungeon, String direction) {
-
-    if (dungeon == null) {
-      System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-          "\nOUCH!" + fReset);
-      System.out.println("Wrong way, please try again!");
-    } else {
-      System.out.println("Going " + direction);
-      currentRoom = dungeon;
-    }
-  }
-
-  public Room findNewRoom(String direction){
-
-    if(direction.equals("go north")) {
-      return currentRoom.getNorth();
-    } else if (direction.equals("go south")) {
-      return currentRoom.getSouth();
-    } else if (direction.equals("go east")) {
-      return currentRoom.getEast();
-    } else if (direction.equals("go west")) {
-      return currentRoom.getWest();
-    } return null;
-  }
 }
-
-
-
-
-

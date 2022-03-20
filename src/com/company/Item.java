@@ -1,90 +1,53 @@
 package com.company;
 
+public abstract class Item {
 
-public class Item {
   private String name;
-  private String itemDescription;
+  private String description;
+  private int weight;
+  private int healthPoints;
+  private int damage;
 
-
-  public Item(String name, String desccreption) {
+  public Item(String name) {
     this.name = name;
-    this.itemDescription = desccreption;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-
   public String getName() {
     return name;
   }
 
-  public void setItemDescription(String itemDescription) {
-    this.itemDescription = itemDescription;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
-  public String getItemDescription() {
-    return itemDescription;
+  public String getDescription() {
+    return description;
   }
 
-
-  public String look() {
-    return getItemDescription();
+  public void setWeight(int weight) {
+    this.weight = weight;
   }
-public String toString(){
-    return name + " " + itemDescription;
+
+  public int getWeight() {
+    return weight;
+  }
+
+  public void setHealthPoints(int healthPoints) {
+    this.healthPoints = healthPoints;
+  }
+  public int getHealthPoints() {
+    return healthPoints;
+  }
+
+  public void setDamage(int damage) {
+    this.damage = damage;
+  }
+
+  public int getDamage() {
+    return damage;
+  }
 }
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-  if (choice.equals("take axe")) {
-    System.out.println("You pick up the axe");
-    inv.add("axe");
-
-    System.out.println("You walk for awhile and start to become thirsty");
-    System.out.println(inv);
-    choice = scan.nextLine();
-
-    if (choice.equals("drink")) {
-      if (inv.contains("pepsi")) {
-        System.out.println("You drink a can of pepsi");
-        inv.remove("pepsi");
-
-        if (inv.contains("pepsi")) {
-          System.out.println("You drank pepsi");
-          inv.remove("pepsi");
-        } else if (!inv.contains("pepsi")) {
-          System.out.println("You have nothing to drink!");
-        }
-      }
-
- */
-
-
