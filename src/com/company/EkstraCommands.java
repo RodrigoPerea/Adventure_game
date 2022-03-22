@@ -15,9 +15,11 @@ public class EkstraCommands {
 
     private void newLine() {
         System.out.println();
+
     }
 
     public void EkstraCommands() {
+
 
         System.out.println("\n   EXSTRA COMANDS:");
         System.out.println("   ............................................");
@@ -25,7 +27,8 @@ public class EkstraCommands {
         System.out.println("   Type: |" + blue + " help " + fReset + "| Go to the help menu");
         System.out.println("   Type: |" + blue + " exit " + fReset + "| To exit the game");
         newLine();
-        System.out.println(red + "   Let the game begin! TYPE HERE" + fReset);
+        System.out.println();
+        System.out.println(red + "   Let the game begin! TYPE HERE  " + fReset);
         newLine();
         newLine();
         newLine();

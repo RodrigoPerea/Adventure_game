@@ -19,7 +19,7 @@ public class Map {
     }
 
     public void setupMap(){ // Names and descriptions
-        d1 = new Room("The Parking Basement", "\nthere is a few zombies walking around\n" +
+        d1 = new Room("The Parking Basement", "\nthere is a few zombies walking around [¬º-°]¬ [¬º-°]¬ [¬º-°]¬\n" +
                 "shhh be quiet or they will see you!");
 
         d2 = new Room("The 1st Floor", "\nIt smells like death...\n" +
@@ -64,7 +64,6 @@ public class Map {
         d5.setSouth(d8);
         // Room 6
         d6.setNorth(d3);
-
         // Room 7
         d7.setNorth(d4);
         d7.setEast(d8);
@@ -81,9 +80,10 @@ public class Map {
     Item burger = new Food("Burger", 15, 1);
     Item soda = new Food("Soda", 5, 1);
     Item rottenTomato = new Food("Rotten Tomato", -25, 1);
-    Item rustyKnife = new MeleeWeapon("Rusty Knife", 15);
+    Item rustyKnife = new MeleeWeapon("Rusty Knife", 10);
     Item huntingRifle = new ShootingWeapon("Hunting Rifle",30,4);
     Item healthPotion = new Food("Health Potion", 35, 1);
+    Item katana = new MeleeWeapon("Katana", 20);
 
     // Add item
     public void addItems() {
@@ -103,6 +103,7 @@ public class Map {
         //Room 6
         d6.addItem(burger);
         d6.addItem(healthPotion);
+        d6.addItem(katana);
         //Room 7
         d7.addItem(soda);
         //Room 8

@@ -74,6 +74,14 @@ public class Player {
 
   }
 
+
+  public void addHealth(int addHealth) {
+    this.playerHealth = this.playerHealth + addHealth;
+    if (playerHealth > 100) { // PlayerHP limit is 100
+      this.playerHealth = 100;
+    }
+  }
+
   public void equipItem(String itemName) {
     boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
@@ -92,6 +100,22 @@ public class Player {
 
     if (!itemCheck) {
       System.out.println("You can't equip that!");
+
+    }
+  }
+
+  public void eatFood(String foodName) {
+    boolean foodCheck = true;
+    for (int i = 0; i < inventory.size(); i++) {
+      if (inventory.get(i) instanceof Food) {
+        addHealth(((Food) inventory.get(i)).getHealthPoints()); // Adding health when eating
+        System.out.println("You ate: " + foodName + "\nYour current health is: " + getPlayerHealth());
+      }
+      inventory.remove(i);
+      foodCheck = false;
+    }
+    if (foodCheck) {
+      System.out.println("You can't eat that!");
 
     }
   }

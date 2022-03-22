@@ -130,6 +130,15 @@ public class GameControls {
                 player.equipItem(itemName);
 
             }
+
+            // Eat
+            if (Input.equalsIgnoreCase("eat") || Input.equals("consume")) {
+                System.out.println("What would you like to consume?" +
+                        "\n" + player.getInventory());
+                itemName = scan.nextLine();
+                player.eatFood(itemName);
+
+            }
             // Show Health
             if (Input.equalsIgnoreCase("health") || Input.equalsIgnoreCase("hp")) {
                 player.showHealth();
@@ -150,6 +159,7 @@ public class GameControls {
         System.out.println(blue + "take/drop" + fReset + " - to add or remove items in your inventory");
         System.out.println(blue + "equip" + fReset + " - to use weapon");
         System.out.println(blue + "health" + fReset + " - to check how much HP you have");
+        System.out.println(blue + "eat/consume" + fReset + "to eat or drink the food you have in your inventory");
         System.out.println(red + "exit" + fReset + " - To quit game");
     }
 }
