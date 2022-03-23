@@ -7,6 +7,7 @@ public class ShootingWeapon extends Weapon {
     public ShootingWeapon(String name, int damage, int ammo) {
         super(name, damage);
         this.ammo = ammo;
+
     }
 
     @Override

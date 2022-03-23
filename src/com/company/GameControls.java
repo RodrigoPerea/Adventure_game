@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class GameControls {
@@ -12,7 +13,7 @@ public class GameControls {
     public String magenta = "\u001B[35m";
 
     private Scanner scan = new Scanner(System.in);
-    private String Input;
+    private String input;
     private String playerName;
 
     private void newLine() {
@@ -42,9 +43,10 @@ public class GameControls {
             System.out.println(yellow + "----------------------------------------" + fReset);
             System.out.print("What do you want to do?\n");
             newLine();
-            Input = scan.nextLine().toLowerCase().trim();
+            input = scan.nextLine().toLowerCase().trim();
 
-            if (Input.equals("go north") || Input.equals("north")) {
+
+            if (input.equals("go north") || input.equals("north")) {
                 if (player.getCurrentRoom().getNorth() != null) {
                     player.setCurrentRoom(player.getCurrentRoom().getNorth());
                     System.out.println("You are in " + player.getCurrentRoom());
@@ -55,7 +57,7 @@ public class GameControls {
                 }
             }
 
-            if (Input.equals("go east") || Input.equals("east")) {
+            if (input.equals("go east") || input.equals("east")) {
                 if (player.getCurrentRoom().getEast() != null) {
                     player.setCurrentRoom(player.getCurrentRoom().getEast());
                     System.out.println("You went to " + player.getCurrentRoom());
@@ -65,7 +67,7 @@ public class GameControls {
                     System.out.println("Wrong way, please try again!");
                 }
             }
-            if (Input.equals("go south") || Input.equals("south")) {
+            if (input.equals("go south") || input.equals("south")) {
                 if (player.getCurrentRoom().getSouth() != null) {
                     player.setCurrentRoom(player.getCurrentRoom().getSouth());
                     System.out.println("You went to " + player.getCurrentRoom());
@@ -76,7 +78,7 @@ public class GameControls {
                 }
             }
 
-            if (Input.equals("go west") || Input.equals("west")) {
+            if (input.equals("go west") || input.equals("west")) {
                 if (player.getCurrentRoom().getWest() != null) {
                     player.setCurrentRoom(player.getCurrentRoom().getWest());
                     System.out.println("You went to " + player.getCurrentRoom());
@@ -88,34 +90,45 @@ public class GameControls {
             }
 
             //Look command
-            if (Input.equals("look")) {
+            if (input.equals("look")) {
                 System.out.println(" You are in " + player.getCurrentRoom());
                 System.out.println(player.getCurrentRoom().getDescription());
                 newLine();
                 System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
-            if (Input.equals("help")) {
+            if (input.equals("help")) {
                 help();
             }
             // Exit command
-            if (Input.equals("exit")) {
+            if (input.equals("exit")) {
                 System.out.println(" You have ended the game");
                 break;
             }
             // Show inventory
-            if (Input.equals("inventory") || Input.equals("inv")) {
+            if (input.equals("inventory") || input.equals("inv")) {
                 System.out.println("Inventory:\n" + player.getInventory());
             }
             // Take item
-            if (Input.equalsIgnoreCase("take")) {
+            if (input.startsWith("take ")) {
+                String lastword = input.substring(5);
+                player.takeItem(lastword);
+            }
+            else if (input.equalsIgnoreCase("take")) {
                 player.getCurrentRoom().showLoot();
                 System.out.println("What would you like to pick up?");
                 itemName = scan.nextLine();
                 player.takeItem(itemName);
+
+               /* if (Input.equalsIgnoreCase("take" )) {
+                    player.getCurrentRoom().showLoot();
+                    System.out.println("What would you like to pick up?");
+                    itemName = scan.nextLine();
+                    player.takeItem(itemName);
+                */
             }
             // Drop item
-            if (Input.equalsIgnoreCase("drop")) {
+            if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
                 itemName = scan.nextLine();
@@ -123,7 +136,7 @@ public class GameControls {
 
             }
             // Equip
-            if (Input.equalsIgnoreCase("equip")) {
+            if (input.equalsIgnoreCase("equip")) {
                 System.out.println("What would you like to equip?" +
                         "\n" + player.getInventory());
                 itemName = scan.nextLine();
@@ -131,21 +144,24 @@ public class GameControls {
 
             }
 
-            // Eat
-            if (Input.equalsIgnoreCase("eat") || Input.equals("consume")) {
+             // Eat
+            if (input.equalsIgnoreCase("eat" ) || input.equals("Eat")) {
                 System.out.println("What would you like to consume?" +
                         "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
 
+
+
+
             }
             // Show Health
-            if (Input.equalsIgnoreCase("health") || Input.equalsIgnoreCase("hp")) {
+            if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();
 
             }
         }
-        while (!Input.equals("exit")) ;
+        while (!input.equals("exit")) ;
     }// Start
 
     //Help command

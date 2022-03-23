@@ -78,18 +78,21 @@ public class Map {
     }
     // Items
     Item burger = new Food("Burger", 15, 1);
-    Item soda = new Food("Soda", 5, 1);
+    Item soda = new Liquid("Soda", 5, 1);
     Item rottenTomato = new Food("Rotten Tomato", -25, 1);
     Item rustyKnife = new MeleeWeapon("Rusty Knife", 10);
     Item huntingRifle = new ShootingWeapon("Hunting Rifle",30,4);
     Item healthPotion = new Food("Health Potion", 35, 1);
     Item katana = new MeleeWeapon("Katana", 20);
+    //Item ammo = new Ammunition("Gun ammo", 5);
+    //Item ammo2 = new Ammunition("Ammo", 2);
 
     // Add item
     public void addItems() {
         //Room 1
         d1.addItem(rustyKnife);
         d1.addItem(rottenTomato);
+       // d1.addItem(ammo2);
         //Room 2
         d2.addItem(rottenTomato);
         d2.addItem(burger);
