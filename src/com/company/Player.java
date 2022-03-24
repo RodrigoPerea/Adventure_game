@@ -1,5 +1,5 @@
 package com.company;
-import java.awt.image.AreaAveragingScaleFilter;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -49,7 +49,7 @@ public class Player {
 
   // Drop item
   public void dropItem(String itemName) {
-    boolean itemCheck = false;
+      boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
       currentItem = inventory.get(i);
       if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {

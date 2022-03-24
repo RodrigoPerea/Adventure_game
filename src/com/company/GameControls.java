@@ -40,6 +40,7 @@ public class GameControls {
 
         // While loop
         do {
+
             System.out.println(yellow + "----------------------------------------" + fReset);
             System.out.print("What do you want to do?\n");
             newLine();
@@ -110,28 +111,27 @@ public class GameControls {
                 System.out.println("Inventory:\n" + player.getInventory());
             }
             // Take item
-            if (input.startsWith("take ")) {
-                String lastword = input.substring(5);
-                player.takeItem(lastword);
+
+
+//vi vil gerne have man kan srkive take og så itemmet.
+            if (input.startsWith("take " )) {
+                String lastWord = input.substring(5);
+                player.takeItem(lastWord);
+                //String lastWord = input.substring(input.lastIndexOf(" ")+1);
             }
+
             else if (input.equalsIgnoreCase("take")) {
                 player.getCurrentRoom().showLoot();
                 System.out.println("What would you like to pick up?");
                 itemName = scan.nextLine();
+               // itemName.toLowerCase(Locale.ROOT);
                 player.takeItem(itemName);
-
-               /* if (Input.equalsIgnoreCase("take" )) {
-                    player.getCurrentRoom().showLoot();
-                    System.out.println("What would you like to pick up?");
-                    itemName = scan.nextLine();
-                    player.takeItem(itemName);
-                */
             }
             // Drop item
             if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
-                itemName = scan.nextLine();
+                itemName = scan.nextLine().toLowerCase().trim();
                 player.dropItem(itemName);
 
             }
@@ -159,10 +159,18 @@ public class GameControls {
             if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();
 
+
+
+// vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
+            } else if (input!=){
+                System.out.println("Invalid command");
             }
+
+
         }
         while (!input.equals("exit")) ;
-    }// Start
+    }
+    // Start
 
     //Help command
     public void help() {

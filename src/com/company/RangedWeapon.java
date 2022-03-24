@@ -1,10 +1,10 @@
 package com.company;
 
 
-public class ShootingWeapon extends Weapon {
+public class RangedWeapon extends Weapon {
     private int ammo;
 
-    public ShootingWeapon(String name, int damage, int ammo) {
+    public RangedWeapon(String name, int damage, int ammo) {
         super(name, damage);
         this.ammo = ammo;
 
