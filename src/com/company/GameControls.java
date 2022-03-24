@@ -16,6 +16,8 @@ public class GameControls {
     private String input;
     private String playerName;
 
+    Player player;
+
     private void newLine() {
         System.out.println();
 
@@ -25,7 +27,7 @@ public class GameControls {
         Map map = new Map();
         // currentRoom = map.starterRoom;
 
-        Player player = new Player();
+        player = new Player();
         player.setCurrentRoom(map.starterRoom);
 
         String itemName;
@@ -53,7 +55,7 @@ public class GameControls {
                     System.out.println("You are in " + player.getCurrentRoom());
                 } else {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                            "\nOUCH!" + fReset);
+                        "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
                 }
             }
@@ -64,7 +66,7 @@ public class GameControls {
                     System.out.println("You went to " + player.getCurrentRoom());
                 } else {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                            "\nOUCH!" + fReset);
+                        "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
                 }
             }
@@ -74,7 +76,7 @@ public class GameControls {
                     System.out.println("You went to " + player.getCurrentRoom());
                 } else {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                            "\nOUCH!" + fReset);
+                        "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
                 }
             }
@@ -85,50 +87,48 @@ public class GameControls {
                     System.out.println("You went to " + player.getCurrentRoom());
                 } else {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                            "\nOUCH!" + fReset);
+                        "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
                 }
             }
 
             //Look command
-            if (input.equals("look")) {
+            else if (input.equals("look")) {
                 System.out.println(" You are in " + player.getCurrentRoom());
                 System.out.println(player.getCurrentRoom().getDescription());
                 newLine();
                 System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
-            if (input.equals("help")) {
+            else if (input.equals("help")) {
                 help();
             }
             // Exit command
-            if (input.equals("exit")) {
+            else if (input.equals("exit")) {
                 System.out.println(" You have ended the game");
                 break;
             }
             // Show inventory
-            if (input.equals("inventory") || input.equals("inv")) {
+            else if (input.equals("inventory") || input.equals("inv")) {
                 System.out.println("Inventory:\n" + player.getInventory());
             }
             // Take item
 
 
 //vi vil gerne have man kan srkive take og så itemmet.
-            if (input.startsWith("take " )) {
+            else if (input.startsWith("take ")) {
                 String lastWord = input.substring(5);
                 player.takeItem(lastWord);
                 //String lastWord = input.substring(input.lastIndexOf(" ")+1);
-            }
-
-            else if (input.equalsIgnoreCase("take")) {
+            } else if (input.equalsIgnoreCase("take")) {
                 player.getCurrentRoom().showLoot();
                 System.out.println("What would you like to pick up?");
                 itemName = scan.nextLine();
-               // itemName.toLowerCase(Locale.ROOT);
+                // itemName.toLowerCase(Locale.ROOT);
                 player.takeItem(itemName);
             }
             // Drop item
-            if (input.equalsIgnoreCase("drop")) {
+            else if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
                 itemName = scan.nextLine().toLowerCase().trim();
@@ -136,40 +136,38 @@ public class GameControls {
 
             }
             // Equip
-            if (input.equalsIgnoreCase("equip")) {
+            else if (input.equalsIgnoreCase("equip")) {
                 System.out.println("What would you like to equip?" +
-                        "\n" + player.getInventory());
+                    "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.equipItem(itemName);
 
             }
 
-             // Eat
-            if (input.equalsIgnoreCase("eat" ) || input.equals("Eat")) {
+            // Eat
+            else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
                 System.out.println("What would you like to consume?" +
-                        "\n" + player.getInventory());
+                    "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
 
 
-
-
             }
             // Show Health
-            if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
+            else if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();
 
 
-
 // vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
-            } else if (input!=){
+            } else {
                 System.out.println("Invalid command");
             }
 
 
         }
-        while (!input.equals("exit")) ;
-    }
+
+            while(!input.equals("exit"));
+}
     // Start
 
     //Help command
