@@ -6,7 +6,7 @@ public abstract class Item {
   private String description;
   private int weight;
   private int healthPoints;
-  private int damage;
+  //private int damage;
 
   public Item(String name) {
     this.name = name;
@@ -43,6 +43,8 @@ public abstract class Item {
     return healthPoints;
   }
 
+
+  /*
   public void setDamage(int damage) {
     this.damage = damage;
   }
@@ -50,4 +52,6 @@ public abstract class Item {
   public int getDamage() {
     return damage;
   }
+
+   */
 }

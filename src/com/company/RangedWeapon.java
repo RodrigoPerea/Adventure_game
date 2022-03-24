@@ -9,9 +9,11 @@ public class RangedWeapon extends Weapon {
         this.ammo = ammo;
 
     }
-
-    @Override
-    public int getDamage() {
-        return super.getDamage();
+    public int getAmmo(){
+        return ammo;
     }
+
+
+
+
 }

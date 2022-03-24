@@ -115,10 +115,13 @@ public class GameControls {
             // Take item
 
 
-//vi vil gerne have man kan srkive take og så itemmet.
+//fikset
             else if (input.startsWith("take ")) {
-                String lastWord = input.substring(5);
+                //String itenm = input.substring(input.indexOf(" ")+1); //ikke låst af "take" længden
+                String lastWord= input.substring(5);
                 player.takeItem(lastWord);
+                System.out.println(lastWord);
+
                 //String lastWord = input.substring(input.lastIndexOf(" ")+1);
             } else if (input.equalsIgnoreCase("take")) {
                 player.getCurrentRoom().showLoot();
@@ -150,9 +153,18 @@ public class GameControls {
                     "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
+//en if der tjekekr om listens størrelse er større end 0.
+            } else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
+                System.out.println("what would you like to use to attack?");
+                for (Item wepons : player.getInventory()){
+                    if (wepons instanceof Weapon) {
+                        System.out.println(wepons);
+                    }else {
+                            System.out.println("you have no wepons in your inventorry");
+                        }
+                    }
+                }
 
-
-            }
             // Show Health
             else if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();

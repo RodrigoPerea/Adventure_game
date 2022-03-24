@@ -6,8 +6,14 @@ public class MeleeWeapon extends Weapon{
         super(name, damage);
     }
 
+
+
+/*
+// ability tæller hvor mange gange du kan bruge før det ågr istykker
     @Override
     public int getDamage() {
         return super.getDamage();
     }
+
+ */
 }
