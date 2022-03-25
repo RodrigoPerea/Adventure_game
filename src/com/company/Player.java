@@ -121,26 +121,7 @@ public class Player {
     }
   }
 
-  /* public void drinkLiquid(String liquidName) {
-    boolean liquidCheck = true;
-    for (int i = 0; i < inventory.size(); i++) {
-      if (inventory.get(i) instanceof Liquid) {
-        addHealth(((Liquid) inventory.get(i)).getHealthPoints()); // Adding health when eating
-        System.out.println("You ate: " + liquidName + "\nYour current health is: " + getPlayerHealth());
-      }
-      inventory.remove(i);
-      liquidCheck = false;
 
-    }
-    if (liquidCheck) {
-      System.out.println("You can't eat that!");
-
-
-
-    }
-
-   */
-  // }
 
   public void setDamage(int damage) {
     this.damage = currentWeapon.getDamage();

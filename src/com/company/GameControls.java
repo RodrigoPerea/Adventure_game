@@ -120,7 +120,7 @@ public class GameControls {
                 //String itenm = input.substring(input.indexOf(" ")+1); //ikke låst af "take" længden
                 String lastWord= input.substring(5);
                 player.takeItem(lastWord);
-                System.out.println(lastWord);
+
 
                 //String lastWord = input.substring(input.lastIndexOf(" ")+1);
             } else if (input.equalsIgnoreCase("take")) {
@@ -129,8 +129,16 @@ public class GameControls {
                 itemName = scan.nextLine();
                 // itemName.toLowerCase(Locale.ROOT);
                 player.takeItem(itemName);
+
             }
             // Drop item
+
+            else if (input.startsWith("drop ")) {
+                String lastword = input.substring(5);
+                player.dropItem(lastword);
+
+            }
+
             else if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");

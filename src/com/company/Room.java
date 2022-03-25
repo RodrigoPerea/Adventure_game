@@ -83,4 +83,13 @@ public class Room {
     public ArrayList<Item> loot() {
         return loot;
     }
+    public Item findItemRoom(String itemName) {
+
+        for (Item item : loot) {
+            if (item.getName().equals(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
