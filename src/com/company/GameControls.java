@@ -18,6 +18,11 @@ public class GameControls {
 
     Player player;
 
+    public void ZombieHorde() {
+        ZombieHorde picture = new ZombieHorde();
+        picture.Horde();
+    }
+
     private void newLine() {
         System.out.println();
 
@@ -57,6 +62,7 @@ public class GameControls {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                         "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
+                    ZombieHorde();
                 }
             }
 
@@ -68,6 +74,7 @@ public class GameControls {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                         "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
+                    ZombieHorde();
                 }
             }
             if (input.equals("go south") || input.equals("south")) {
@@ -78,6 +85,7 @@ public class GameControls {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                         "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
+                    ZombieHorde();
                 }
             }
 
@@ -89,6 +97,7 @@ public class GameControls {
                     System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                         "\nOUCH!" + fReset);
                     System.out.println("Wrong way, please try again!");
+                    ZombieHorde();
                 }
             }
 
@@ -146,6 +155,13 @@ public class GameControls {
                 player.dropItem(itemName);
 
             }
+
+            else if (input.startsWith("equip ")) {
+                String lastword = input.substring(5);
+                player.equipItem(lastword);
+
+            }
+
             // Equip
             else if (input.equalsIgnoreCase("equip")) {
                 System.out.println("What would you like to equip?" +
@@ -161,7 +177,8 @@ public class GameControls {
                     "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
-//en if der tjekekr om listens størrelse er større end 0.
+
+            //en if der tjekekr om listens størrelse er større end 0.
             } else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
                 System.out.println("what would you like to use to attack?");
                 for (Item wepons : player.getInventory()){
@@ -179,8 +196,10 @@ public class GameControls {
 
 
 // vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
-            } else {
+           /* } else {
                 System.out.println("Invalid command");
+
+            */
             }
 
 

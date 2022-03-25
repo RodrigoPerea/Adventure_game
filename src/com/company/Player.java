@@ -108,7 +108,7 @@ public class Player {
     boolean foodCheck = true;
     for (int i = 0; i < inventory.size(); i++) {
       if (inventory.get(i) instanceof Food || inventory.get(i) instanceof Liquid ) {
-        addHealth(((Food) inventory.get(i)).getHealthPoints()); // Adding health when eating
+        addHealth(( inventory.get(i)).getHealthPoints()); // Adding health when eating
         System.out.println("You ate: " + foodName + "\nYour current health is: " + getPlayerHealth());
       }
       inventory.remove(i);

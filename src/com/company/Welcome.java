@@ -26,6 +26,10 @@ public class Welcome {
         MallPicture picture = new MallPicture();
         picture.Mall();
     }
+    public void ZombieHorde() {
+        ZombieHorde picture = new ZombieHorde();
+        picture.Horde();
+    }
 
 
     public void welcomeMessage(){
@@ -58,8 +62,7 @@ public class Welcome {
                 blue + "\"go west\" " + fReset + "or " + blue + "go north " + fReset + "or " + blue + "go south" + fReset + " or " + blue + "go east.\n" + fReset +
                 "Along the way, you can find items to combat the mutations.\n");
 
-        ZombiePicture();
-        ZombieMall();
+
 
 
     }
