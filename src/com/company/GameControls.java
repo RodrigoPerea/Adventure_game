@@ -55,50 +55,22 @@ public class GameControls {
 
 
             if (input.equals("go north") || input.equals("north")) {
-                if (player.getCurrentRoom().getNorth() != null) {
-                    player.setCurrentRoom(player.getCurrentRoom().getNorth());
-                    System.out.println("You are in " + player.getCurrentRoom());
-                } else {
-                    System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                        "\nOUCH!" + fReset);
-                    System.out.println("Wrong way, please try again!");
-                    ZombieHorde();
+               go(Direction.NORTH);
                 }
-            }
+
 
             if (input.equals("go east") || input.equals("east")) {
-                if (player.getCurrentRoom().getEast() != null) {
-                    player.setCurrentRoom(player.getCurrentRoom().getEast());
-                    System.out.println("You went to " + player.getCurrentRoom());
-                } else {
-                    System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                        "\nOUCH!" + fReset);
-                    System.out.println("Wrong way, please try again!");
-                    ZombieHorde();
+                go(Direction.EAST);
                 }
-            }
+
             if (input.equals("go south") || input.equals("south")) {
-                if (player.getCurrentRoom().getSouth() != null) {
-                    player.setCurrentRoom(player.getCurrentRoom().getSouth());
-                    System.out.println("You went to " + player.getCurrentRoom());
-                } else {
-                    System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                        "\nOUCH!" + fReset);
-                    System.out.println("Wrong way, please try again!");
-                    ZombieHorde();
+                go(Direction.SOUTH);
                 }
-            }
+
 
             if (input.equals("go west") || input.equals("west")) {
-                if (player.getCurrentRoom().getWest() != null) {
-                    player.setCurrentRoom(player.getCurrentRoom().getWest());
-                    System.out.println("You went to " + player.getCurrentRoom());
-                } else {
-                    System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                        "\nOUCH!" + fReset);
-                    System.out.println("Wrong way, please try again!");
-                    ZombieHorde();
-                }
+                go(Direction.WEST);
+
             }
 
             //Look command
@@ -206,6 +178,30 @@ public class GameControls {
         }
 
             while(!input.equals("exit"));
+}
+
+
+public  void go(Direction direction) {
+    Room weWantToGo = null;
+
+ if (direction == Direction.NORTH) {
+     weWantToGo = player.getCurrentRoom().getNorth();
+    } else if(direction == Direction.EAST) {
+     weWantToGo = player.getCurrentRoom().getEast();
+    } else if (direction == Direction.WEST) {
+        weWantToGo = player.getCurrentRoom().getWest();
+    }else if (direction == Direction.SOUTH) {
+        weWantToGo = player.getCurrentRoom().getSouth();
+
+        }
+            if (weWantToGo != null) {
+                System.out.println("You are in " + player.getCurrentRoom());
+            } else {
+                System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
+                        "\nOUCH!" + fReset);
+                System.out.println("Wrong way, please try again!");
+                ZombieHorde();
+        }
 }
     // Start
 
