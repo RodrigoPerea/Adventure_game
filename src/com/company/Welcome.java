@@ -59,6 +59,7 @@ public class Welcome {
                 "Along the way, you can find items to combat the mutations.\n");
 
         ZombiePicture();
+        ZombieMall();
 
 
     }
