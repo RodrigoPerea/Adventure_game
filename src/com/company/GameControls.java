@@ -150,6 +150,19 @@ public class GameControls {
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
 
+
+            }else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
+                boolean status = true;
+                player.equipItem(String.valueOf(status));
+                if (!status) {
+                    itemName = scan.nextLine();
+                    player.equipItem(itemName);
+
+                }else {
+                    System.out.println("you havent equipted anything");
+                                    }
+
+/*
             //en if der tjekekr om listens størrelse er større end 0.
             } else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
                 System.out.println("what would you like to use to attack?");
@@ -160,7 +173,11 @@ public class GameControls {
                             System.out.println("you have no wepons in your inventorry");
                         }
                     }
+
+ */
                 }
+
+
 
             // Show Health
             else if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
@@ -168,10 +185,8 @@ public class GameControls {
 
 
 // vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
-           /* } else {
+            } else {
                 System.out.println("Invalid command");
-
-            */
             }
 
 

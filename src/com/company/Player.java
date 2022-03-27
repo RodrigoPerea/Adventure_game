@@ -85,24 +85,26 @@ public class Player {
   public void equipItem(String itemName) {
     boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
+
       if (inventory.get(i) instanceof Weapon) {
         currentWeapon = (Weapon) inventory.get(i);
+
         if (currentWeapon.getName().equalsIgnoreCase(itemName)) {
           setDamage(currentWeapon.getDamage());
           System.out.println("You've equipped: " + currentWeapon +
                   "\n Current damage: " + getDamage());
-        }
-        itemCheck = true;
+
+        } itemCheck = true;
 
       }
 
-    }
-
-    if (!itemCheck) {
+    }if (!itemCheck) {
       System.out.println("You can't equip that!");
 
     }
   }
+
+
 
   public void eatFood(String foodName) {
     boolean foodCheck = true;

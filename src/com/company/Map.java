@@ -92,6 +92,7 @@ public class Map {
         //Room 1
         d1.addItem(rustyKnife);
         d1.addItem(rottenTomato);
+        d1.addItem(huntingRifle);
         d1.addItem(ammo);
        // d1.addItem(ammo2);
         //Room 2
