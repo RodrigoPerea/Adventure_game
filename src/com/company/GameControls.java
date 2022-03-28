@@ -143,6 +143,7 @@ public class GameControls {
 
             }
 
+
             // Eat
             else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
                 System.out.println("What would you like to consume?" +
@@ -151,7 +152,21 @@ public class GameControls {
                 player.eatFood(itemName);
 
 
+                // lav en ny block til check wepon.
+                //  take ammo funktion til til inventorry,
+                //reload, lægges i current wepon.
+
+
             }else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
+                if (player.currentWeapon !=null){
+                    player.plaerAttack();
+
+
+                } else {
+                    System.out.println("You havent equipt anything");
+                }
+
+/*
                 boolean status = true;
                 player.equipItem(String.valueOf(status));
                 if (!status) {
@@ -161,6 +176,8 @@ public class GameControls {
                 }else {
                     System.out.println("you havent equipted anything");
                                     }
+
+ */
 
 /*
             //en if der tjekekr om listens størrelse er større end 0.

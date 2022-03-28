@@ -13,6 +13,9 @@ public class Player {
   Item currentItem;
   Weapon currentWeapon;
   private int damage;
+  Ammunition ammonition;
+  //Ammunition reloade;
+  //Weapon ammo;
 
   // Defining Player() constructor
   public Player() {
@@ -33,7 +36,7 @@ public class Player {
   // Take item
   public void takeItem(String itemName) {
     boolean itemCheck = false;
-    for (int i = 0; i < currentRoom.getLoot().size() ; i++) {
+    for (int i = 0; i < currentRoom.getLoot().size(); i++) {
       currentItem = currentRoom.getLoot().get(i);
       if (currentItem.getName().equals(itemName)) {
         inventory.add(currentItem);
@@ -49,7 +52,7 @@ public class Player {
 
   // Drop item
   public void dropItem(String itemName) {
-      boolean itemCheck = false;
+    boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
       currentItem = inventory.get(i);
       if (inventory.get(i).getName().equalsIgnoreCase(itemName)) {
@@ -64,12 +67,12 @@ public class Player {
   public void showHealth() {
     if (playerHealth == 100) {
       System.out.println("You're HP is full" +
-              "\n Player HP: " + playerHealth);
+          "\n Player HP: " + playerHealth);
     } else if (playerHealth > 25 && playerHealth < 50) {
       System.out.println(" Player HP: " + playerHealth);
     } else if (playerHealth < 25) {
       System.out.println("You are low on HP! " +
-              "\n Player HP: " + playerHealth);
+          "\n Player HP: " + playerHealth);
     }
 
   }
@@ -82,19 +85,68 @@ public class Player {
     }
   }
 
+
+
+
+
+  /*
+  // Forsøg på at reloade, tilføje det til curent room, og fjerne fra inventorry.
+
+
+  public void reloade(int ammo) {
+    boolean itemCheck = false;
+    for (int i = 0; i < inventory.size(); i++) {
+
+      if (inventory.get(i) instanceof Ammunition) {
+        Ammunition potentialAmmonition = (Ammunition) inventory.get(i);
+
+
+        if (potentialAmmonition.getAmmunition(i) > 0 || currentWeapon = RangedWeapon) {
+          currentWeapon = currentWeapon + (Ammunition) inventory.get(i);
+          currentWeapon = potentialAmmonition;
+          setAmmonition();
+          inventory.remove(ammonition);
+          setAmmonition(currentWeapon);
+          System.out.println("You have reloaded. You have now " + ammonition + " in your gun. Attack agin to shoot");
+
+        }
+        if (!itemCheck) {
+          System.out.println("You have no ammunition. find somthing and try agin");
+        }
+      }
+    }
+  }
+/*
+
+   */
+
+
+
+
+
+
+
+  public void plaerAttack(){
+    currentWeapon.attack();
+    System.out.println("you have used:" + damage);
+
+  }
+
   public void equipItem(String itemName) {
     boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
 
       if (inventory.get(i) instanceof Weapon) {
-        currentWeapon = (Weapon) inventory.get(i);
+        Weapon potentionWepon = (Weapon) inventory.get(i);
 
-        if (currentWeapon.getName().equalsIgnoreCase(itemName)) {
+
+        if (potentionWepon.getName().equalsIgnoreCase(itemName)) {
+          currentWeapon = (Weapon) inventory.get(i);
           setDamage(currentWeapon.getDamage());
           System.out.println("You've equipped: " + currentWeapon +
                   "\n Current damage: " + getDamage());
-
-        } itemCheck = true;
+          itemCheck = true;
+        }
 
       }
 
@@ -165,5 +217,12 @@ public class Player {
     return currentRoom;
   }
 
+  public Ammunition getAmmonition(){
+    return ammonition;
+  }
 
-}
+  public void setAmmonition(){
+
+  }
+
+  }

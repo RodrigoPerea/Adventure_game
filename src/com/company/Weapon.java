@@ -9,6 +9,10 @@ public abstract class Weapon extends Item {
         this.damage = damage;
     }
 
+    public int attack (){
+        return damage;
+    }
+
     public int  getDamage(){
         return damage;
     }
