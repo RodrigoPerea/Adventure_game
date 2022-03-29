@@ -28,7 +28,7 @@ public class EkstraCommands {
         System.out.println("   Type: |" + blue + " exit " + fReset + "| To exit the game");
         newLine();
         System.out.println();
-        System.out.println(red + "   Let the game begin! TYPE HERE  " + fReset);
+        System.out.println(red + "   Let the game begin!  " + fReset);
         newLine();
         newLine();
         newLine();

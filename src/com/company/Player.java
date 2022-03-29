@@ -120,7 +120,8 @@ public class Player {
 
   public void playerAttack(){
     currentWeapon.attack();
-    System.out.println("you have used:" + damage);
+    System.out.println("Damage dealt:" + damage);
+
 
   }
 
@@ -129,10 +130,10 @@ public class Player {
     for (int i = 0; i < inventory.size(); i++) {
 
       if (inventory.get(i) instanceof Weapon) {
-        Weapon potentionWepon = (Weapon) inventory.get(i);
+        Weapon potentialWeapon = (Weapon) inventory.get(i);
 
 
-        if (potentionWepon.getName().equalsIgnoreCase(itemName)) {
+        if (potentialWeapon.getName().equalsIgnoreCase(itemName)) {
           currentWeapon = (Weapon) inventory.get(i);
           setDamage(currentWeapon.getDamage());
           System.out.println("You've equipped: " + currentWeapon +

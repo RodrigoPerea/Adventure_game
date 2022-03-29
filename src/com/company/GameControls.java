@@ -27,6 +27,11 @@ public class GameControls {
         sounds.musicStart();
     }
 
+    public void lineSpace() {
+        LineSpacing lines = new LineSpacing();
+        lines.lines();
+    }
+
     private void newLine() {
         System.out.println();
 
@@ -41,12 +46,16 @@ public class GameControls {
 
         String itemName;
 
-        System.out.print(red + "Enter your name: " + fReset);
+        System.out.print(red + "   Enter your name: " + fReset);
+        newLine();
         newLine();
         playerName = scan.nextLine();
         player.setPlayerName(playerName);
+        newLine();
+        lineSpace();
 
-        System.out.print("Welcome to the Dead Center, " + playerName + "\n\n");
+
+        System.out.print("╔═════════════════════════════════╗ \n " + red + "     WELCOME TO DEAD CENTER " +"\n" + fReset +"             " + green + playerName + fReset + "\n\n");
         System.out.println("You are in " + player.getCurrentRoom());
 
 
@@ -57,6 +66,7 @@ public class GameControls {
             System.out.print("What do you want to do?\n");
             newLine();
             input = scan.nextLine().toLowerCase().trim();
+            lineSpace();
 
 
             if (input.equals("go north") || input.equals("north")) {
@@ -187,7 +197,7 @@ public class GameControls {
                 System.out.println("Weapon: " + player.currentWeapon);
                 System.out.println("Dmg: " + player.getDamage());
 
-            } else {  //TODO: PETER´s HJÆLP TIL AT FLYTTE DENNE
+            } else {
                 System.out.println("Invalid command");
 
             }

@@ -37,14 +37,14 @@ public class Welcome {
                 " ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝       ╚═╝    ╚═════╝        ╚═╝   ╚═╝  ╚═╝╚══════╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═════╝      ╚═════╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═╝  ╚═╝\n" +
                 "                                                                                                                                                                                                            \n" + fReset);
 
-        System.out.println("╔════════════════════════════════════════════════════STORY═════════════════════════════════════════════════════════╗" +
+        System.out.println(green + "╔════════════════════════════════════════════════════STORY═════════════════════════════════════════════════════════╗" + fReset +
                 "\n         We are in 2023, and the world leaders of the superpowers have ended up in a war with chemical weapons.\n"
                 + "         Now the human race has begun to mutate, and become carnivorous, and aggressive.\n" +
                 "         You were in a large shopping center when the attacks took place, seeking shelter in the parking basement.\n" +
                 "         You have heard via a car radio that the military has begun evacuating to a safe zone.\n" +
                 "         You therefore have to go up to the roof, of the mall so they can pick you up by helicopter.\n" +
                 "         But be careful, because you must not be bitten or attacked by the infected.\n" +
-                "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝");
+                green + "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝"+ fReset);
         newLine();
         System.out.println("Your task now is to find your way to the roof of the rescue helicopter. " +
                 "You navigate around the Center by typing:\n" +
