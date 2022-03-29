@@ -62,15 +62,16 @@ public class GameControls {
             if (input.equals("go north") || input.equals("north")) {
                 go(Direction.NORTH);
 
-            }
+            } else
 
             if (input.equals("go east") || input.equals("east")) {
                 go(Direction.EAST);
-            }
+
+            } else
 
             if (input.equals("go south") || input.equals("south")) {
                 go(Direction.SOUTH);
-            }
+            } else
 
 
             if (input.equals("go west") || input.equals("west")) {
@@ -134,10 +135,15 @@ public class GameControls {
 
             } else if (input.equalsIgnoreCase("equip")) {
                 System.out.println("What would you like to equip?" +
-                        "\n" + player.getInventory());
+                    "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.equipItem(itemName);
 
+
+            //reloade, tager ammo fra inventory og adder til currentWepon i player
+
+            } else if (input.equalsIgnoreCase("reload") || input.equals("Reload")) {
+                player.reload();
             }
             // Eat
             else if (input.startsWith("eat ")) {
@@ -146,7 +152,7 @@ public class GameControls {
 
             } else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
                 System.out.println("What would you like to consume?" +
-                        "\n" + player.getInventory());
+                    "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
 
@@ -174,17 +180,18 @@ public class GameControls {
 
 
 // vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
-           // } else {
-              //  System.out.println("Invalid command");
             }
-
-            if (input.equalsIgnoreCase(("info"))) {
+            else if (input.equalsIgnoreCase(("info"))) {
                 System.out.println("PlayerName: " + player.getPlayerName());
                 System.out.println("HP: " + player.getPlayerHealth());
                 System.out.println("Weapon: " + player.currentWeapon);
                 System.out.println("Dmg: " + player.getDamage());
 
+            } else {  //TODO: PETER´s HJÆLP TIL AT FLYTTE DENNE
+                System.out.println("Invalid command");
+
             }
+
 
 
 

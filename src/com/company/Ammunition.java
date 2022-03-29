@@ -1,13 +1,17 @@
 package com.company;
 
-public class Ammunition extends RangedWeapon {
+public class Ammunition extends Item {
   private int ammunition;
 
-  public Ammunition(String name, int damage, int ammo) {
-    super(name, damage, ammo);
-    this.ammunition = ammunition;
+  public Ammunition(String name, int ammo) {
+    super(name);
+    this.ammunition = ammo;
   }
-  public int getAmmunition(int ammo){
+
+  public int getAmmunition() {
     return ammunition;
+  }
+  public String toString() {
+    return System.out.printf("%10d", (int) ammunition);
   }
 }

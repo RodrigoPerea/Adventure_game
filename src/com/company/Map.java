@@ -85,8 +85,8 @@ public class Map {
     Item huntingRifle = new RangedWeapon("hunting rifle",30,4);
     Item healthPotion = new Food("health potion", 35, 1);
     Item katana = new MeleeWeapon("katana", 20);
-    Item ammo = new Ammunition("gun ammo", 5, 10);
-    Item ammo2 = new Ammunition("ammo", 2, 10);
+    Item ammo = new Ammunition("ammo", 10);
+    Item gun = new RangedWeapon ("gun" ,1,10 );
 
     // Enemies
     Enemies commonZombie = new Enemies("Infected",10,5);
@@ -99,21 +99,21 @@ public class Map {
         //Room 1
         d1.addItem(rustyKnife);
         d1.addItem(rottenTomato);
-        d1.addItem(huntingRifle);
         d1.addItem(ammo);
         d1.addItem(huntingRifle);
+        d1.addItem(gun);
 
         //Room 2
         d2.addItem(rottenTomato);
         d2.addItem(burger);
         d2.addItem(soda);
-        d2.addItem(ammo);
+
         //Room 3
         d3.addItem(soda);
         //Room 4
         d4.addItem(healthPotion);
         d4.addItem(burger);
-        d4.addItem(ammo2);
+        d4.addItem(ammo);
         //Room 5
         //Room 6
         d6.addItem(burger);
@@ -125,7 +125,7 @@ public class Map {
         d8.addItem(healthPotion);
         //Room 9
         d9.addItem(huntingRifle);
-        d9.addItem(ammo2);
+        d9.addItem(ammo);
 
 
     }
