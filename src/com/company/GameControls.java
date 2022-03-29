@@ -45,6 +45,7 @@ public class GameControls {
         System.out.print("Welcome to the Dead Center, " + playerName + "\n\n");
         System.out.println("You are in " + player.getCurrentRoom());
 
+
         // While loop
         do {
 
@@ -94,11 +95,8 @@ public class GameControls {
                 System.out.println("Inventory:\n" + player.getInventory());
             }
             // Take item
-
-
-//fikset
+            //String item = input.substring(input.indexOf(" ")+1);
             else if (input.startsWith("take ")) {
-                //String itenm = input.substring(input.indexOf(" ")+1); //ikke låst af "take" længden
                 String lastWord = input.substring(5);
                 player.takeItem(lastWord);
 
@@ -120,34 +118,33 @@ public class GameControls {
 
             }
 
-            // Item er en abtrakt kalsse. gir det problemer?
-
             else if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
                 itemName = scan.nextLine().toLowerCase().trim();
                 player.dropItem(itemName);
 
-            } else if (input.startsWith("equip ")) {
+            }
+            // Equip
+            else if (input.startsWith("equip ")) {
                 String lastword = input.substring(5);
                 player.equipItem(lastword);
 
-            }
-
-            // Equip
-            else if (input.equalsIgnoreCase("equip")) {
+            } else if (input.equalsIgnoreCase("equip")) {
                 System.out.println("What would you like to equip?" +
-                    "\n" + player.getInventory());
+                        "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.equipItem(itemName);
 
             }
-
-
             // Eat
-            else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
+            else if (input.startsWith("eat ")) {
+                String lastword = input.substring(5);
+                player.eatFood(lastword);
+
+            } else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
                 System.out.println("What would you like to consume?" +
-                    "\n" + player.getInventory());
+                        "\n" + player.getInventory());
                 itemName = scan.nextLine();
                 player.eatFood(itemName);
 
@@ -168,18 +165,32 @@ public class GameControls {
 
             }
 
-
+            }
             // Show Health
             else if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();
 
 
+// vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
             } else {
                 System.out.println("Invalid command");
             }
 
+            else if (input.equalsIgnoreCase(("info"))) {
+                System.out.println("PlayerName: " + player.getPlayerName());
+                System.out.println("HP: " + player.getPlayerHealth());
+                System.out.println("Weapon: " + player.currentWeapon);
+                System.out.println("Dmg: " + player.getDamage());
 
-        } while (!input.equals("exit"));
+            }
+           // else {
+           //     System.out.println("Invalid command");
+           // }
+
+
+        }
+
+        while (!input.equals("exit"));
     }
 
 
@@ -200,9 +211,10 @@ public class GameControls {
             System.out.println("You are in " + player.getCurrentRoom());
         } else {
             System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                "\nOUCH!" + fReset);
+                    "\nOUCH!" + fReset);
             System.out.println("Wrong way, please try again!");
             ZombieHorde();
+            hordeSounds();
         }
     }
     // Start
@@ -221,5 +233,5 @@ public class GameControls {
         System.out.println(blue + "eat/consume" + fReset + "to eat or drink the food you have in your inventory");
         System.out.println(red + "exit" + fReset + " - To quit game");
     }
-
 }
+

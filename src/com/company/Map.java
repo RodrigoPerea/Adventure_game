@@ -12,14 +12,14 @@ public class Map {
     public String blue = "\u001B[34m";
     public String yellow = "\u001B[33m";
     public String magenta = "\u001B[35m";
-    private Item items[];
+
 
     public Map() {
         setupMap();
     }
 
     public void setupMap(){ // Names and descriptions
-        d1 = new Room("The Parking Basement", "\nthere is a few zombies walking around [¬º-°]¬ [¬º-°]¬ [¬º-°]¬\n" +
+        d1 = new Room("The Parking Basement", "\nthere is a few zombies walking around\n" +
                 "shhh be quiet or they will see you!");
 
         d2 = new Room("The 1st Floor", "\nIt smells like death...\n" +
@@ -75,6 +75,7 @@ public class Map {
         d9.setWest(d8);
 
         addItems();
+
     }
     // Items
     Item burger = new Food("burger", 15, 1);
@@ -87,6 +88,12 @@ public class Map {
     Item ammo = new Ammunition("gun ammo", 5, 10);
     Item ammo2 = new Ammunition("ammo", 2, 10);
 
+    // Enemies
+    Enemies commonZombie = new Enemies("Infected",10,5);
+    Enemies mediumZombie = new Enemies("Hunter",25,15);
+    Enemies bossZombie   = new Enemies("Tank", 50, 25);
+
+
     // Add item
     public void addItems() {
         //Room 1
@@ -94,7 +101,8 @@ public class Map {
         d1.addItem(rottenTomato);
         d1.addItem(huntingRifle);
         d1.addItem(ammo);
-       // d1.addItem(ammo2);
+        d1.addItem(huntingRifle);
+
         //Room 2
         d2.addItem(rottenTomato);
         d2.addItem(burger);

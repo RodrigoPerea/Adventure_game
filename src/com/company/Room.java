@@ -8,7 +8,9 @@ public class Room {
     //Directions to navigate room
     private String name;
     private String description;
+
     // Constructor
+
 
     public Room(String name, String description) {
         this.name = name;
@@ -36,6 +38,7 @@ public class Room {
     public String getName() {
         return this.name;
     }
+
 
     public void setNorth(Room north) {
         this.north = north;

@@ -14,12 +14,18 @@ public class UserInterface {
     commands.EkstraCommands();
   }
 
+  public void musicAmbient() {
+    Ambient song = new Ambient();
+    song.musicStart();
+  }
+
   public void mainMenu() {
+
 
     welcomeMessage();
     EkstraCommands();
+    musicAmbient();
     GameControls();
-
   }
 
   public void GameControls() {

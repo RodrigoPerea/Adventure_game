@@ -67,12 +67,12 @@ public class Player {
   public void showHealth() {
     if (playerHealth == 100) {
       System.out.println("You're HP is full" +
-          "\n Player HP: " + playerHealth);
+              "\n Player HP: " + playerHealth);
     } else if (playerHealth > 25 && playerHealth < 50) {
       System.out.println(" Player HP: " + playerHealth);
     } else if (playerHealth < 25) {
       System.out.println("You are low on HP! " +
-          "\n Player HP: " + playerHealth);
+              "\n Player HP: " + playerHealth);
     }
 
   }
@@ -91,16 +91,11 @@ public class Player {
 
   /*
   // Forsøg på at reloade, tilføje det til curent room, og fjerne fra inventorry.
-
-
   public void reloade(int ammo) {
     boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
-
       if (inventory.get(i) instanceof Ammunition) {
         Ammunition potentialAmmonition = (Ammunition) inventory.get(i);
-
-
         if (potentialAmmonition.getAmmunition(i) > 0 || currentWeapon = RangedWeapon) {
           currentWeapon = currentWeapon + (Ammunition) inventory.get(i);
           currentWeapon = potentialAmmonition;
@@ -108,7 +103,6 @@ public class Player {
           inventory.remove(ammonition);
           setAmmonition(currentWeapon);
           System.out.println("You have reloaded. You have now " + ammonition + " in your gun. Attack agin to shoot");
-
         }
         if (!itemCheck) {
           System.out.println("You have no ammunition. find somthing and try agin");
@@ -117,7 +111,6 @@ public class Player {
     }
   }
 /*
-
    */
 
 
@@ -225,4 +218,4 @@ public class Player {
 
   }
 
-  }
+}
