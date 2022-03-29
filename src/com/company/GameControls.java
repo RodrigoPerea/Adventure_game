@@ -55,17 +55,17 @@ public class GameControls {
 
 
             if (input.equals("go north") || input.equals("north")) {
-               go(Direction.NORTH);
-                }
+                go(Direction.NORTH);
+            }
 
 
             if (input.equals("go east") || input.equals("east")) {
                 go(Direction.EAST);
-                }
+            }
 
             if (input.equals("go south") || input.equals("south")) {
                 go(Direction.SOUTH);
-                }
+            }
 
 
             if (input.equals("go west") || input.equals("west")) {
@@ -99,7 +99,7 @@ public class GameControls {
 //fikset
             else if (input.startsWith("take ")) {
                 //String itenm = input.substring(input.indexOf(" ")+1); //ikke låst af "take" længden
-                String lastWord= input.substring(5);
+                String lastWord = input.substring(5);
                 player.takeItem(lastWord);
 
 
@@ -120,15 +120,15 @@ public class GameControls {
 
             }
 
+            // Item er en abtrakt kalsse. gir det problemer?
+
             else if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
                 itemName = scan.nextLine().toLowerCase().trim();
                 player.dropItem(itemName);
 
-            }
-
-            else if (input.startsWith("equip ")) {
+            } else if (input.startsWith("equip ")) {
                 String lastword = input.substring(5);
                 player.equipItem(lastword);
 
@@ -152,13 +152,13 @@ public class GameControls {
                 player.eatFood(itemName);
 
 
-                // lav en ny block til check wepon.
-                //  take ammo funktion til til inventorry,
-                //reload, lægges i current wepon.
+                //TODO: lav en ny block til check wepon.
+                //TODO:   take ammo funktion til til inventorry,
+                //TODO: reload, lægges i current wepon.
 
 
-            }else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
-                if (player.currentWeapon !=null){
+            } else if (input.equalsIgnoreCase("attack") || input.equals("Attack")) {
+                if (player.currentWeapon != null) {
                     player.plaerAttack();
 
 
@@ -166,34 +166,7 @@ public class GameControls {
                     System.out.println("You havent equipt anything");
                 }
 
-/*
-                boolean status = true;
-                player.equipItem(String.valueOf(status));
-                if (!status) {
-                    itemName = scan.nextLine();
-                    player.equipItem(itemName);
-
-                }else {
-                    System.out.println("you havent equipted anything");
-                                    }
-
- */
-
-/*
-            //en if der tjekekr om listens størrelse er større end 0.
-            } else if (input.equalsIgnoreCase("attack")|| input.equals("Attack")){
-                System.out.println("what would you like to use to attack?");
-                for (Item wepons : player.getInventory()){
-                    if (wepons instanceof Weapon) {
-                        System.out.println(wepons);
-                    }else {
-                            System.out.println("you have no wepons in your inventorry");
-                        }
-                    }
-
- */
-                }
-
+            }
 
 
             // Show Health
@@ -201,40 +174,37 @@ public class GameControls {
                 player.showHealth();
 
 
-// vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
             } else {
                 System.out.println("Invalid command");
             }
 
 
-        }
-
-            while(!input.equals("exit"));
-}
+        } while (!input.equals("exit"));
+    }
 
 
-public  void go(Direction direction) {
-    Room weWantToGo = null;
+    public void go(Direction direction) {
+        Room weWantToGo = null;
 
- if (direction == Direction.NORTH) {
-     weWantToGo = player.getCurrentRoom().getNorth();
-    } else if(direction == Direction.EAST) {
-     weWantToGo = player.getCurrentRoom().getEast();
-    } else if (direction == Direction.WEST) {
-        weWantToGo = player.getCurrentRoom().getWest();
-    }else if (direction == Direction.SOUTH) {
-        weWantToGo = player.getCurrentRoom().getSouth();
+        if (direction == Direction.NORTH) {
+            weWantToGo = player.getCurrentRoom().getNorth();
+        } else if (direction == Direction.EAST) {
+            weWantToGo = player.getCurrentRoom().getEast();
+        } else if (direction == Direction.WEST) {
+            weWantToGo = player.getCurrentRoom().getWest();
+        } else if (direction == Direction.SOUTH) {
+            weWantToGo = player.getCurrentRoom().getSouth();
 
         }
-            if (weWantToGo != null) {
-                System.out.println("You are in " + player.getCurrentRoom());
-            } else {
-                System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                        "\nOUCH!" + fReset);
-                System.out.println("Wrong way, please try again!");
-                ZombieHorde();
+        if (weWantToGo != null) {
+            System.out.println("You are in " + player.getCurrentRoom());
+        } else {
+            System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
+                "\nOUCH!" + fReset);
+            System.out.println("Wrong way, please try again!");
+            ZombieHorde();
         }
-}
+    }
     // Start
 
     //Help command
@@ -251,29 +221,5 @@ public  void go(Direction direction) {
         System.out.println(blue + "eat/consume" + fReset + "to eat or drink the food you have in your inventory");
         System.out.println(red + "exit" + fReset + " - To quit game");
     }
+
 }
-
-
-
-
-
-
-
-
-
-/*
-public void checkForNull(Room dungeon, String direction) {
-    // denne er lavet, så man SKAL kigge i rumet for at få beskrivelse af rummet.
-
-    if (dungeon == null) {
-        System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
-                "\nOUCH!" + fReset);
-        System.out.println("Wrong way, please try again!");
-    } else {
-        System.out.println("Going " + direction);
-        currentRoom = dungeon;
-    }
-}
-
- */
-

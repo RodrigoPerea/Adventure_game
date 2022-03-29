@@ -124,7 +124,7 @@ public class Player {
 
 
 
-
+      //TODO: få sout ny ammo status efter hvert attack
 
   public void plaerAttack(){
     currentWeapon.attack();
