@@ -12,9 +12,13 @@ public class Ammunition extends Item {
   public int getAmmunition() {
     return ammunition;
   }
-  /*public String toString(int ammunition) {
-    return System.out.printf("%10d",);
+
+
+ // @Override
+  public String toString() {
+    return ammunition +" bullets";
+
   }
 
-   */
+
 }

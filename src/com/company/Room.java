@@ -28,6 +28,7 @@ public class Room {
     }
 
     public ArrayList<Item> getLoot() {
+        loot.stream().forEach(System.out::println);
         return loot;
     }
 
@@ -77,8 +78,10 @@ public class Room {
     }
 
     public void showLoot() {
-        System.out.println(loot.toString());
+        loot.stream().forEach(System.out::println);
     }
+
+
     public String toString() {
         return this.name;
     }

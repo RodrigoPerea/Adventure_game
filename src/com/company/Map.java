@@ -19,8 +19,8 @@ public class Map {
     }
 
     public void setupMap(){ // Names and descriptions
-        d1 = new Room("The Parking Basement", "\nthere is a few zombies walking around\n" +
-                "shhh be quiet or they will see you!");
+        d1 = new Room("The Parking Basement", "\nThere is a few zombies walking around\n" +
+                "SHHH be quiet or they will see you!");
 
         d2 = new Room("The 1st Floor", "\nIt smells like death...\n" +
                 "You look over towards the dinning area and see a someone laying over a dead corpse\n" +

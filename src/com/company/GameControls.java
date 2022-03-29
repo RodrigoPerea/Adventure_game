@@ -16,6 +16,7 @@ public class GameControls {
     private String playerName;
 
     Player player;
+    Welcome theStory;
 
     public void ZombieHorde() {
         ZombieHorde picture = new ZombieHorde();
@@ -91,14 +92,19 @@ public class GameControls {
 
             //Look command
             else if (input.equals("look")) {
-                System.out.println(" You are in " + player.getCurrentRoom());
+                System.out.println(red+"You are in " + player.getCurrentRoom()+"!"+fReset);
                 System.out.println(player.getCurrentRoom().getDescription());
                 newLine();
-                System.out.println("Loot: " + player.getCurrentRoom().getLoot());
+                System.out.println(red+"In this room there is som items you can take:"+fReset);
+                System.out.println(player.getCurrentRoom().getLoot());
+                //System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
             else if (input.equals("help")) {
                 help();
+            }
+            else if (input.equals("story")) {
+                theStory.welcomeMessage();
             }
             // Exit command
             else if (input.equals("exit")) {
@@ -118,7 +124,10 @@ public class GameControls {
 
                 //String lastWord = input.substring(input.lastIndexOf(" ")+1);
             } else if (input.equalsIgnoreCase("take")) {
+                System.out.println(red + "----------------------------------------" + fReset);
+                System.out.println(red+"In this room you find:"+fReset);
                 player.getCurrentRoom().showLoot();
+                System.out.println(yellow + "----------------------------------------" + fReset);
                 System.out.println("What would you like to pick up?");
                 itemName = scan.nextLine();
                 // itemName.toLowerCase(Locale.ROOT);
@@ -245,14 +254,18 @@ public class GameControls {
         System.out.println("----------------------------------------");
         System.out.println(yellow + "    \tYou have these options:" + fReset);
         newLine();
-        System.out.println(blue + "go north, go east, go south, go west" + fReset + " OR" + blue + " north, east, south, west" + fReset + " - To choose directions");
-        System.out.println(blue + "look" + fReset + " - To check your current location");
-        System.out.println(blue + "inventory" + fReset + " - To see whats in your backpack");
-        System.out.println(blue + "take/drop" + fReset + " - to add or remove items in your inventory");
-        System.out.println(blue + "equip" + fReset + " - to use weapon");
-        System.out.println(blue + "health" + fReset + " - to check how much HP you have");
-        System.out.println(blue + "eat/consume" + fReset + "to eat or drink the food you have in your inventory");
-        System.out.println(red + "exit" + fReset + " - To quit game");
+        System.out.println("Type: " +blue + "go north, go east, go south, go west" + fReset + " OR" + blue + " north, east, south, west" + fReset + "...To choose directions");
+        System.out.println("Type: " +blue + "look" + fReset + "...............................................................To check your current location");
+        System.out.println("Type: " +blue + "inventory" + fReset + "..........................................................To see whats in your backpack");
+        System.out.println("Type: " +blue + "take"+fReset+"/"+blue+"drop" + fReset + "..........................................................To add or remove items in your inventory");
+        System.out.println("Type: " +blue + "equip" + fReset + "..............................................................To use weapon");
+        System.out.println("Type: " +blue + "reload" + fReset + ".............................................................To reload your gun, if you have bullets in your inventory");
+        System.out.println("Type: " +blue + "story" + fReset + "..............................................................To read the storyline");
+        System.out.println("Type: " +blue + "info" + fReset + "...............................................................To check your characters status");
+        System.out.println("Type: " +blue + "attack" + fReset + ".............................................................To attack zombies");
+        System.out.println("Type: " +blue + "health" + fReset + ".............................................................To check how much HP you have");
+        System.out.println("Type: " +blue + "eat/consume" + fReset + "........................................................To eat or drink the food you have in your inventory");
+        System.out.println("Type: " +red + "exit" + fReset + "...............................................................To quit game");
     }
 }
 
