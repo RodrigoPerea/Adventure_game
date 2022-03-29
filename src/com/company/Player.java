@@ -119,7 +119,7 @@ public class Player {
 
       //TODO: få sout ny ammo status efter hvert attack
 
-  public void plaerAttack(){
+  public void playerAttack(){
     currentWeapon.attack();
     System.out.println("you have used:" + damage);
 
@@ -210,11 +210,11 @@ public class Player {
     return currentRoom;
   }
 
-  public Ammunition getAmmonition(){
+  public Ammunition getAmmunition(){
     return ammonition;
   }
 
-  public void setAmmonition(){
+  public void setAmmunition(){
 
   }
 

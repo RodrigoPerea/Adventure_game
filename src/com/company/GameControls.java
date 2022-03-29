@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class GameControls {
@@ -21,6 +20,11 @@ public class GameControls {
     public void ZombieHorde() {
         ZombieHorde picture = new ZombieHorde();
         picture.Horde();
+    }
+
+    public void hordeSounds() {
+        ZombieSounds sounds = new ZombieSounds();
+        sounds.musicStart();
     }
 
     private void newLine() {
@@ -116,9 +120,7 @@ public class GameControls {
                 String lastword = input.substring(5);
                 player.dropItem(lastword);
 
-            }
-
-            else if (input.equalsIgnoreCase("drop")) {
+            } else if (input.equalsIgnoreCase("drop")) {
                 player.getInventory();
                 System.out.println("Which item would you like to drop?");
                 itemName = scan.nextLine().toLowerCase().trim();
@@ -156,7 +158,7 @@ public class GameControls {
 
             } else if (input.equalsIgnoreCase("attack") || input.equals("Attack")) {
                 if (player.currentWeapon != null) {
-                    player.plaerAttack();
+                    player.playerAttack();
 
 
                 } else {
@@ -165,7 +167,7 @@ public class GameControls {
 
             }
 
-            }
+
             // Show Health
             else if (input.equalsIgnoreCase("health") || input.equalsIgnoreCase("hp")) {
                 player.showHealth();
@@ -176,22 +178,23 @@ public class GameControls {
                 System.out.println("Invalid command");
             }
 
-            else if (input.equalsIgnoreCase(("info"))) {
+            if (input.equalsIgnoreCase(("info"))) {
                 System.out.println("PlayerName: " + player.getPlayerName());
                 System.out.println("HP: " + player.getPlayerHealth());
                 System.out.println("Weapon: " + player.currentWeapon);
                 System.out.println("Dmg: " + player.getDamage());
 
             }
-           // else {
-           //     System.out.println("Invalid command");
-           // }
+            // else {
+            //     System.out.println("Invalid command");
+            // }
 
 
-        }
-
-        while (!input.equals("exit"));
+        } while (!input.equals("exit"));
     }
+
+
+
 
 
     public void go(Direction direction) {
