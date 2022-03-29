@@ -61,8 +61,8 @@ public class GameControls {
 
             if (input.equals("go north") || input.equals("north")) {
                 go(Direction.NORTH);
-            }
 
+            }
 
             if (input.equals("go east") || input.equals("east")) {
                 go(Direction.EAST);
@@ -174,8 +174,8 @@ public class GameControls {
 
 
 // vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
-            } else {
-                System.out.println("Invalid command");
+           // } else {
+              //  System.out.println("Invalid command");
             }
 
             if (input.equalsIgnoreCase(("info"))) {
@@ -185,9 +185,7 @@ public class GameControls {
                 System.out.println("Dmg: " + player.getDamage());
 
             }
-            // else {
-            //     System.out.println("Invalid command");
-            // }
+
 
 
         } while (!input.equals("exit"));
@@ -211,13 +209,16 @@ public class GameControls {
 
         }
         if (weWantToGo != null) {
+            player.setCurrentRoom(weWantToGo);
             System.out.println("You are in " + player.getCurrentRoom());
+
         } else {
             System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                     "\nOUCH!" + fReset);
             System.out.println("Wrong way, please try again!");
             ZombieHorde();
             hordeSounds();
+
         }
     }
     // Start
