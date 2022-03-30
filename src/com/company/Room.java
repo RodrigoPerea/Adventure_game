@@ -42,6 +42,10 @@ public class Room {
         return this.name;
     }
 
+    public void addEnemies(Enemies enemies) {
+        
+    }
+
 
     public void setNorth(Room north) {
         this.north = north;

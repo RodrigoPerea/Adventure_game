@@ -12,6 +12,7 @@ public class Ambient {
     }
 
     public static void playingMusic(String filepath) {
+
         try {
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(
                     new File(filepath)
@@ -19,6 +20,7 @@ public class Ambient {
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
+            //clip.loop(5);
 
             Thread.sleep(100);
         } catch (Exception ex) {

@@ -101,10 +101,10 @@ public class Player {
 
           inventory.remove(ammonition);
          // setAmmonition(currentWeapon);
-          System.out.println("You have reloaded. You have now " + ammonition + " in your gun. Attack agin to shoot");
+          System.out.println("You have reloaded. You now have " + ammonition + " in your gun. Attack again to shoot");
         }
         if (!itemCheck) {
-          System.out.println("You have no ammunition. find somthing and try agin");
+          System.out.println("You have no ammunition. find something and try again");
         }
       }
     }

@@ -103,6 +103,7 @@ public class Map {
         d1.addItem(huntingRifle);
         d1.addItem(gun);
 
+
         //Room 2
         d2.addItem(rottenTomato);
         d2.addItem(burger);
