@@ -18,6 +18,7 @@ public class GameControls {
     Player player;
     Welcome theStory;
     Story storyMessage;
+    Enemies enemis;
 
 
     public void Footsteps() {
@@ -109,6 +110,7 @@ public class GameControls {
                 newLine();
                 System.out.println(red+"In this room there is som items you can take:"+fReset);
                 System.out.println(player.getCurrentRoom().showLoot());
+                System.out.println(map.getNumbersOfZumbies());
                 //System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
@@ -195,7 +197,8 @@ public class GameControls {
 
             } else if (input.equalsIgnoreCase("attack") || input.equals("Attack")) {
                 if (player.currentWeapon != null) {
-                    player.playerAttack();
+                    player.playerAttack(player,enemis);
+                    System.out.println(player.currentWeapon);
 
 
                 } else {
@@ -210,7 +213,7 @@ public class GameControls {
                 player.showHealth();
 
 
-// vi vil gerne lave sådan at skrive rman noget andet skriver den dette. men den kommer ikke emd i loopet.
+
             }
             else if (input.equalsIgnoreCase(("info"))) {
                 System.out.println("PlayerName: " + player.getPlayerName());

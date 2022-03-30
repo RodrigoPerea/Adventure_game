@@ -1,15 +1,20 @@
 package com.company;
 
 public class Enemies {
-    private final String enemyName;
-    private final int damage;
-
+    private  String enemyName;
+    private  int zumbiDamage;
+    private  String description;
     private int currentHealth;
+    private int playerAttackPoint;
 
-    public Enemies(String name, int health, int dmg) {
+
+    public Enemies(String name, String zumbiDescription,  int health, int zumbiHitsPower) {
         enemyName = name;
+        description = zumbiDescription;
         currentHealth = health;
-        damage = dmg;
+        zumbiDamage = zumbiHitsPower;
+
+
 
     }
 
@@ -22,16 +27,30 @@ public class Enemies {
     }
 
     public int getDamage() {
-        return damage;
+        return zumbiDamage;
 
     }
 
     public String getEnemyName(){
         return enemyName;
     }
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPlayerAttackPoint() {
+        return playerAttackPoint;
+    }
+
+    public boolean isAlive(){
+        return playerAttackPoint > 0;
+    }
 
     @Override
     public String toString() {
-        return "Name: " + enemyName + " Health: " + getCurrentHealth();
+        return enemyName + " " + description;
+        //return "Name: " + enemyName + " Health: " + getCurrentHealth();
     }
+
+
 }

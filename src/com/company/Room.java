@@ -9,14 +9,20 @@ public class Room {
     //Directions to navigate room
     private String name;
     private String description;
+    private int noOfZom;
+
+
 
     // Constructor
 
 
-    public Room(String name, String description) {
+    public Room(String name, String description, int noOfZom) {
         this.name = name;
         this.description = description;
         loot = new ArrayList<Item>();
+        this.noOfZom = noOfZom;
+
+
     }
     public boolean removeItem(String itemName) {
         for (Item item : loot) {
@@ -31,6 +37,8 @@ public class Room {
 public ArrayList<Item> getLoot(){
         return loot;
 }
+
+//TODO: Denne her har jeg fikset udskrif af vores arrayliste. Laver dem på de andre senere.
     public String showLoot() {
         StringBuilder tekst = new StringBuilder();
         for (Item item: loot){
@@ -87,13 +95,8 @@ public ArrayList<Item> getLoot(){
     public String getDescription() {
         return description;
     }
-/*
-    public void showLoot() {
-        loot.stream().forEach(System.out::println);
-    }
 
 
- */
 
     public String toString() {
         return this.name;
@@ -111,4 +114,5 @@ public ArrayList<Item> getLoot(){
         }
         return null;
     }
+
 }

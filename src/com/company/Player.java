@@ -3,10 +3,13 @@ package com.company;
 import java.util.ArrayList;
 
 public class Player {
-
+  public String red = "\u001B[31m";
+  public String fReset = "\u001B[0m";
+  public String green = "\u001B[32m";
   // Instance variables
   private String playerName;
   private int playerHealth;
+  private int playerAttackPoints; //TODO: lavet så vi kan sætte denn lig emd liv, så vi kan slutte spillet hvis en af dem ahr 0. dvs zombi dør elelr player dør.
   private ArrayList<Item> inventory;
   //private ArrayList<Item> food;
   private Room currentRoom;
@@ -14,6 +17,7 @@ public class Player {
   Weapon currentWeapon;
   private int damage;
   Ammunition ammonition;
+
   //Ammunition reloade;
   //Weapon ammo;
 
@@ -22,6 +26,8 @@ public class Player {
     this.playerName = "";
     this.playerHealth = 100;
     inventory = new ArrayList<>();
+    this.damage= damage;
+    this.playerAttackPoints = getPlayerAttackPoints(); //TODO skal måske elelr burde kunne hentes fra current wepon
   }
 
   public boolean playerCheckItem(Item itemName) {
@@ -117,13 +123,34 @@ public class Player {
 
 
       //TODO: få sout ny ammo status efter hvert attack
+//TODO: har prøver at lægge HELE kampen her ind, så der er mindr ei game controle. Jeg overvejede faktsik, o
+// vi ikek abre skulle gør det mega simpelt, og bruge Radom funktionen, lgie som med terning spillet? så
+// kunne vi bare give en radom imellem 1&10, og slette alt havd våbenrrne kunne :D :D .
+// evt bruge den tila t lade zombi dø, eller noget. det ville være mega nemt.lægge randomværdien til en
+// attriut og tjekke med helth. men pt gør vi det her. tror ejg er godt på vej. vi skal abre have den tila t
+// lægge det korrekt player attackpoints trtor jeg.
 
-  public void playerAttack(){
-    currentWeapon.attack();
-    System.out.println("Damage dealt:" + damage);
+//
+  public void playerAttack(Player player, Enemies enemis){
 
-
+    while (player.isAlive() && enemis.isAlive()){
+      currentWeapon.attack();
+      enemis.setCurrentHealth(enemis.getCurrentHealth()-getPlayerAttackPoints());
+      System.out.println(red+ "The zombie lost " + damage+ " damage!"+fReset);
+      System.out.println("The zombia have now "+enemis.getCurrentHealth()+" helth left!");
+      if (currentWeapon instanceof RangedWeapon){
+        System.out.println("you have "+ ammonition+" letf in your gun");
+      }else if (currentWeapon instanceof MeleeWeapon){
+        System.out.println("Be carefull not to hit too hard, it might brake!!!");
+      }
+    } if (!player.isAlive()){
+      System.out.println("You got eaten by hungry zombies.\n"+red+"GAME OVER"+fReset);
+      System.exit(0);
+    }else if (!enemis.isAlive()){
+      System.out.println(green+"You killed the zombie. Welldome!!"+fReset);
+    }
   }
+
 
   public void equipItem(String itemName) {
     boolean itemCheck = false;
@@ -137,7 +164,7 @@ public class Player {
           currentWeapon = (Weapon) inventory.get(i);
           setDamage(currentWeapon.getDamage());
           System.out.println("You've equipped: " + currentWeapon +
-                  "\n Current damage: " + getDamage());
+                  "\nThis will make: " + getDamage()+"to the zombis");
           itemCheck = true;
         }
 
@@ -217,5 +244,14 @@ public class Player {
   public void setAmmunition(){
 
   }
+
+  public int getPlayerAttackPoints() {
+    return playerAttackPoints;
+  }
+
+  public boolean isAlive() {
+    return playerAttackPoints > 0;
+  }
+
 
 }
