@@ -20,7 +20,8 @@ public class Ambient {
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             clip.start();
-            //clip.loop(5);
+            clip.loop(5);
+
 
             Thread.sleep(100);
         } catch (Exception ex) {
