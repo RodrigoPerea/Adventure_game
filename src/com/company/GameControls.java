@@ -17,6 +17,13 @@ public class GameControls {
 
     Player player;
     Welcome theStory;
+    Story storyMessage;
+
+
+    public void Footsteps() {
+        FootstepsSFX steps = new FootstepsSFX();
+        steps.FootstepsStart();
+    }
 
     public void ZombieHorde() {
         ZombieHorde picture = new ZombieHorde();
@@ -72,21 +79,26 @@ public class GameControls {
 
             if (input.equals("go north") || input.equals("north")) {
                 go(Direction.NORTH);
+                Footsteps();
+
 
             } else
 
             if (input.equals("go east") || input.equals("east")) {
                 go(Direction.EAST);
+                Footsteps();
 
             } else
 
             if (input.equals("go south") || input.equals("south")) {
                 go(Direction.SOUTH);
+                Footsteps();
             } else
 
 
             if (input.equals("go west") || input.equals("west")) {
                 go(Direction.WEST);
+                Footsteps();
 
             }
 
@@ -104,7 +116,7 @@ public class GameControls {
                 help();
             }
             else if (input.equals("story")) {
-                theStory.welcomeMessage();
+                storyMessage.storyMessage();
             }
             // Exit command
             else if (input.equals("exit")) {
@@ -187,7 +199,7 @@ public class GameControls {
 
 
                 } else {
-                    System.out.println("You havent equipt anything");
+                    System.out.println("You haven't equipped anything");
                 }
 
             }
@@ -226,6 +238,7 @@ public class GameControls {
 
         if (direction == Direction.NORTH) {
             weWantToGo = player.getCurrentRoom().getNorth();
+
         } else if (direction == Direction.EAST) {
             weWantToGo = player.getCurrentRoom().getEast();
         } else if (direction == Direction.WEST) {
@@ -238,10 +251,12 @@ public class GameControls {
             player.setCurrentRoom(weWantToGo);
             System.out.println("You are in " + player.getCurrentRoom());
 
+
         } else {
             System.out.println("A horde of zombies.." + red + "LOOK OUT!" +
                     "\nOUCH!" + fReset);
             System.out.println("Wrong way, please try again!");
+
             ZombieHorde();
             hordeSounds();
 
@@ -251,19 +266,19 @@ public class GameControls {
 
     //Help command
     public void help() {
-        System.out.println("----------------------------------------");
-        System.out.println(yellow + "    \tYou have these options:" + fReset);
+        System.out.println("                  ----------------------------------------------");
+        System.out.println(yellow + "                                   \tOPTIONS:" + fReset);
         newLine();
         System.out.println("Type: " +blue + "go north, go east, go south, go west" + fReset + " OR" + blue + " north, east, south, west" + fReset + "...To choose directions");
         System.out.println("Type: " +blue + "look" + fReset + "...............................................................To check your current location");
-        System.out.println("Type: " +blue + "inventory" + fReset + "..........................................................To see whats in your backpack");
+        System.out.println("Type: " +blue + "inventory/inv" + fReset + "......................................................To see whats in your backpack");
         System.out.println("Type: " +blue + "take"+fReset+"/"+blue+"drop" + fReset + "..........................................................To add or remove items in your inventory");
         System.out.println("Type: " +blue + "equip" + fReset + "..............................................................To use weapon");
         System.out.println("Type: " +blue + "reload" + fReset + ".............................................................To reload your gun, if you have bullets in your inventory");
         System.out.println("Type: " +blue + "story" + fReset + "..............................................................To read the storyline");
         System.out.println("Type: " +blue + "info" + fReset + "...............................................................To check your characters status");
         System.out.println("Type: " +blue + "attack" + fReset + ".............................................................To attack zombies");
-        System.out.println("Type: " +blue + "health" + fReset + ".............................................................To check how much HP you have");
+        System.out.println("Type: " +blue + "health/hp" + fReset + "..........................................................To check how much HP you have");
         System.out.println("Type: " +blue + "eat/consume" + fReset + "........................................................To eat or drink the food you have in your inventory");
         System.out.println("Type: " +red + "exit" + fReset + "...............................................................To quit game");
     }
