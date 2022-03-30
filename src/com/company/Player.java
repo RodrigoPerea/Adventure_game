@@ -197,7 +197,7 @@ public class Player {
   public void setInventory(ArrayList<Item> inventory) {
     this.inventory = inventory;
   }
-
+//TODO: to sting i item (alle dem dder printe ud, og en to skring kalder i player
   public ArrayList<Item> getInventory() {
     return inventory;
   }

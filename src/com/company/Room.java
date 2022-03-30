@@ -21,17 +21,22 @@ public class Room {
     public boolean removeItem(String itemName) {
         for (Item item : loot) {
             if (item.getName().equals(itemName)) {
-                getLoot().remove(item);
+                //etLoot().remove(item);
+                loot.remove(item);
                 return true; // if the item exists
             }
         }
         return false; // if the item doesn't exist
     }
-
-    public ArrayList<Item> getLoot() {
-        //loot.stream().forEach(System.out::println); //fucker udsrkie op ved take komandoer, og ved print aaf take.
-        //return loot.replaceAll("[\\[\\]]",);
+public ArrayList<Item> getLoot(){
         return loot;
+}
+    public String showLoot() {
+        StringBuilder tekst = new StringBuilder();
+        for (Item item: loot){
+            tekst.append(item.getName()).append("\n");
+        }
+       return tekst.toString();
     }
 
     public void addItem(Item item) {
@@ -82,11 +87,13 @@ public class Room {
     public String getDescription() {
         return description;
     }
-
+/*
     public void showLoot() {
         loot.stream().forEach(System.out::println);
     }
 
+
+ */
 
     public String toString() {
         return this.name;

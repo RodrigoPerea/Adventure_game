@@ -108,7 +108,7 @@ public class GameControls {
                 System.out.println(player.getCurrentRoom().getDescription());
                 newLine();
                 System.out.println(red+"In this room there is som items you can take:"+fReset);
-                System.out.println(player.getCurrentRoom().getLoot());
+                System.out.println(player.getCurrentRoom().showLoot());
                 //System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
@@ -138,7 +138,7 @@ public class GameControls {
             } else if (input.equalsIgnoreCase("take")) {
                 System.out.println(red + "----------------------------------------" + fReset);
                 System.out.println(red+"In this room you find:"+fReset);
-                player.getCurrentRoom().showLoot();
+                System.out.println(player.getCurrentRoom().showLoot());
                 System.out.println(yellow + "----------------------------------------" + fReset);
                 System.out.println("What would you like to pick up?");
                 itemName = scan.nextLine();
