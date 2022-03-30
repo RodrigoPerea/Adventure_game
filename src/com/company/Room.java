@@ -30,8 +30,8 @@ public class Room {
 
     public ArrayList<Item> getLoot() {
         //loot.stream().forEach(System.out::println); //fucker udsrkie op ved take komandoer, og ved print aaf take.
-
-        return loot.replaceAll("[\\[\\]]",);
+        //return loot.replaceAll("[\\[\\]]",);
+        return loot;
     }
 
     public void addItem(Item item) {
