@@ -16,8 +16,12 @@ public class GameControls {
     private String playerName;
 
     Player player;
-    Welcome theStory;
-    Story storyMessage;
+
+    public void theStory() {
+        Story story = new Story();
+        story.storyMessage();
+    }
+
 
 
     public void Footsteps() {
@@ -103,7 +107,7 @@ public class GameControls {
             }
 
             //Look command
-            else if (input.equals("look")) {
+            else if (input.equalsIgnoreCase("look")) {
                 System.out.println(red+"You are in " + player.getCurrentRoom()+"!"+fReset);
                 System.out.println(player.getCurrentRoom().getDescription());
                 newLine();
@@ -112,19 +116,19 @@ public class GameControls {
                 //System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
-            else if (input.equals("help")) {
+            else if (input.equalsIgnoreCase("help")) {
                 help();
             }
-            else if (input.equals("story")) {
-                storyMessage.storyMessage();
+            else if (input.equalsIgnoreCase("story")) {
+                theStory();
             }
             // Exit command
-            else if (input.equals("exit")) {
+            else if (input.equalsIgnoreCase("exit")) {
                 System.out.println(" You have ended the game");
                 break;
             }
             // Show inventory
-            else if (input.equals("inventory") || input.equals("inv")) {
+            else if (input.equalsIgnoreCase("inventory") || input.equalsIgnoreCase("inv")) {
                 System.out.println("Inventory:\n" + player.getInventory());
             }
             // Take item
