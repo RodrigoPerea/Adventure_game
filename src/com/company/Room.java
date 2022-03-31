@@ -1,6 +1,5 @@
 package com.company;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Room {
 
@@ -9,18 +8,20 @@ public class Room {
     //Directions to navigate room
     private String name;
     private String description;
-    private int noOfZom;
+    private String enemyDescription;
+    private ArrayList<Enemy> enemy;  //TODO: NY TIL FJENDER
 
 
 
     // Constructor
 
 
-    public Room(String name, String description, int noOfZom) {
+    public Room(String name, String description) {
         this.name = name;
         this.description = description;
         loot = new ArrayList<Item>();
-        this.noOfZom = noOfZom;
+        enemy = new ArrayList<Enemy>();
+        this.enemyDescription = enemyDescription;
 
 
     }
@@ -47,6 +48,26 @@ public ArrayList<Item> getLoot(){
        return tekst.toString();
     }
 
+
+    //TODO: til at vise enemy. looper gennem arralisten af enemys
+    public String showEnemy() {
+        StringBuilder tekst = new StringBuilder();
+        for (Enemy enemy: enemy ){
+            tekst.append(enemy.getEnemyName()).append("\n");
+        }
+        return tekst.toString();
+    }
+     
+    //TODO: ny til enemy.
+    public ArrayList<Enemy> getEnemy() {
+        return enemy;
+    }
+
+    //TODO: nyn til enemies. tilføjer dem til arraylisten
+    public void addEnemy( Enemy zombis ){
+        enemy.add(zombis);
+    }
+
     public void addItem(Item item) {
         loot.add(item);
     }
@@ -54,10 +75,14 @@ public ArrayList<Item> getLoot(){
     public String getName() {
         return this.name;
     }
-
-    public void addEnemies(Enemies enemies) {
+/*
+    public void addEnemies(Enemy enemy) {
         
     }
+
+ */
+
+
 
 
     public void setNorth(Room north) {
@@ -102,9 +127,9 @@ public ArrayList<Item> getLoot(){
         return this.name;
     }
 
-    public ArrayList<Item> loot() {
-        return loot;
-    }
+    //public ArrayList<Item> loot() {
+        //return loot;
+    //}
     public Item findItemRoom(String itemName) {
 
         for (Item item : loot) {

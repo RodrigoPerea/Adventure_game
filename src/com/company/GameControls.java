@@ -14,7 +14,7 @@ public class GameControls {
     private Scanner scan = new Scanner(System.in);
     private String input;
     private String playerName;
-    Enemies enemis;
+    Enemy enemis;
     Player player;
     Welcome theStory;
 
@@ -114,7 +114,8 @@ public class GameControls {
                 newLine();
                 System.out.println(red+"In this room there is som items you can take:"+fReset);
                 System.out.println(player.getCurrentRoom().showLoot());
-                System.out.println(map.getNumbersOfZumbies());
+                System.out.println("BE CAREFULLD!! theres is an "+player.getCurrentRoom().showEnemy());
+                //System.out.println(map.getNumbersOfZumbies());
                 //System.out.println("Loot: " + player.getCurrentRoom().getLoot());
             }
             //Help command
@@ -167,7 +168,7 @@ public class GameControls {
             }
             // Equip
             else if (input.startsWith("equip ")) {
-                String lastword = input.substring(5);
+                String lastword = input.substring(6);
                 player.equipItem(lastword);
 
             } else if (input.equalsIgnoreCase("equip")) {
@@ -184,7 +185,7 @@ public class GameControls {
             }
             // Eat
             else if (input.startsWith("eat ")) {
-                String lastword = input.substring(5);
+                String lastword = input.substring(4);
                 player.eatFood(lastword);
 
             } else if (input.equalsIgnoreCase("eat") || input.equals("Eat")) {
@@ -201,8 +202,9 @@ public class GameControls {
 
             } else if (input.equalsIgnoreCase("attack") || input.equals("Attack")) {
                 if (player.currentWeapon != null) {
-                    player.playerAttack(player,enemis);
-                    System.out.println(player.currentWeapon);
+                    System.out.println(player.getCurrentRoom().getEnemy()); //TODO: ny til enemys viser helth etc
+                    player.playerAttack();
+                    //System.out.println(player.currentWeapon);
 
 
                 } else {

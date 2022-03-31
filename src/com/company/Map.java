@@ -21,31 +21,31 @@ public class Map {
 
     public void setupMap(){ // Names and descriptions
         d1 = new Room("The Parking Basement", "\nThere is a few zombies walking around\n" +
-                "SHHH be quiet or they will see you!\nNumbers of zombies in this room is: ", 1);
+                "SHHH be quiet or they will see you!\nNumbers of zombies in this room is: ");
 
 
         d2 = new Room("The 1st Floor", "\nIt smells like death...\n" +
                 "You look over towards the dinning area and see a someone laying over a dead corpse\n" +
-                red + "WATCH OUT IT'S A ZOMBIE " + fReset + "be quiet so it dosen't see you!",0);
+                red + "WATCH OUT IT'S A ZOMBIE " + fReset + "be quiet so it dosen't see you!");
 
         d3 = new Room("KFC", "\n\"You are now hiding behind the counter, one of the zombie followed you" +
-                "\nMove on quick.....but quite!!",0);
+                "\nMove on quick.....but quite!!");
 
         d4 = new Room("The 2nd Floor", "\nyou are too exposed here in the hallway. the corridor is dark, and the light is broken, and hanging from the seal...blinking.\n" +
                 "You hear some weird noises coming from somewhere in the halls.\n" +
-                "You spot a giant zombie wandering the hallway. Better move on quick",0);
+                "You spot a giant zombie wandering the hallway. Better move on quick");
 
         d5 = new Room("The Roof", "\nyou have finally arrived you spot the heliport, you hear zombies coming from downstairs.\n" +
-                "defend yourself till the helicopter is arriving",0);
+                "defend yourself till the helicopter is arriving");
 
-        d6 = new Room("The Brook Staircase", "\nThe staircase must have collapsed under the attacks",0);
+        d6 = new Room("The Brook Staircase", "\nThe staircase must have collapsed under the attacks");
 
-        d7 = new Room("The TAAS Shop", "\nThere are a American Football section",0);
+        d7 = new Room("The TAAS Shop", "\nThere are a American Football section");
 
         d8 = new Room("The Staircase to the Roof", "\nThere is a Zombie as huge as a tank blocking the way, \n" +
-                "find something to deal with him",0);
+                "find something to deal with him");
 
-        d9 = new Room("The OUTDOOR911", "\nYou found the hunting section, maybe there is something usefully",0);
+        d9 = new Room("The OUTDOOR911", "\nYou found the hunting section, maybe there is something usefully");
 
         // Starter room
         starterRoom = d1;
@@ -77,8 +77,9 @@ public class Map {
         d9.setWest(d8);
 
         addItems();
+        addEnemy(); //TODO: ny til enemys
 
-        this.numbersOfZumbies = numbersOfZumbies;
+        //this.numbersOfZumbies = numbersOfZumbies;
 
 
     }
@@ -95,8 +96,11 @@ public class Map {
 
 
     // Enemies
-    Enemies commonZombie = new Enemies("Infected zombi","You have croosed an infected zombia. run or fight, but be carfull. its verry stron!",10,15);
-    Enemies mediumZombie = new Enemies("zombi teacher","this teacher is week",25,2);
+    Enemy commonZombie = new Enemy("infected zombi!!","You have croosed an infected zombia. run or fight, but be carfull. its verry stron!",10,15);
+    Enemy combatZombie = new Enemy("highly and deadly infected zombie!!","this teacher is week",25,2);
+    Enemy mediumZombie = new Enemy("zombi teacher","this teacher is week",2,10);
+    Enemy smallZombie = new Enemy("childish zombie!!","this teacher is week",3,1);
+
 
 
     // Add item
@@ -107,7 +111,7 @@ public class Map {
         d1.addItem(ammo);
         d1.addItem(huntingRifle);
         d1.addItem(gun);
-        d1.addEnemies(commonZombie);
+
 
 
 
@@ -139,8 +143,23 @@ public class Map {
 
 
     }
-
-    public int getNumbersOfZumbies() {  //TODO: til at vise hvor amnge zomber der er. pt hardcoder vi den bare. Tænkte faktisk bruge en random.
+/*
+    public int getNumbersOfZumbies() {
         return numbersOfZumbies;
     }
+
+ */
+
+
+    public void addEnemy(){  //TODO: Ny til enemys
+        //Room1
+        d1.addEnemy(commonZombie);
+
+        // room2
+        d2.addEnemy(combatZombie);
+
+        //room3
+        d3.addEnemy(smallZombie);
+    }
+
 }

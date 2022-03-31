@@ -51,5 +51,7 @@ public abstract class Item {
   public int getDamage() {
     return damage;
   }
+
    */
+
 }
