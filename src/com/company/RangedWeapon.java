@@ -28,5 +28,7 @@ public class RangedWeapon extends Weapon {
     public void addAmmo(Ammunition ammunition) {
         this.ammo += ammunition.getAmmunition();
     }
-
+    public String toString(){
+        return ""+getName()+" have "+ammo +" bullets";
+}
 }

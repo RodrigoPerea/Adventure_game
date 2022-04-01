@@ -92,7 +92,7 @@ public class Map {
     Item healthPotion = new Food("health potion", 35, 1);
     Item katana = new MeleeWeapon("katana", 20);
     Item ammo = new Ammunition("ammo", 10);
-    Item gun = new RangedWeapon ("gun" ,1,10 );
+    Item gun = new RangedWeapon ("gun" ,5,10 );
 
 
     // Enemies

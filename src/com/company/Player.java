@@ -35,14 +35,15 @@ public class Player {
     this.playerName = "";
     this.playerHealth = 100;
     inventory = new ArrayList<>();
-    this.damage= damage;
+    this.damage = damage;
 
     //this.playerAttackPoints = getPlayerAttackPoints(); //TODO skal måske elelr burde kunne hentes fra current wepon
-   //this.enemyDamage = enemyDamage;
-   //this.hitByWepon = hitByWepon;
+    //this.enemyDamage = enemyDamage;
+    //this.hitByWepon = hitByWepon;
 
 
   }
+
   //TODO: ville lave en is dead, som bare tjekerk om hp er under 0, så den kan komme ind . lykkeds ikke.
   public boolean isDead() {
     return getPlayerHealth() <= 0;
@@ -72,35 +73,34 @@ public class Player {
 
  */
 
-public void playerAttack() {
-
-  for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
-    currentEnemy = currentRoom.getEnemy().get(i);
-
-    if (currentEnemy == null);
-    {
+  public void playerAttack() {
+    if (currentRoom.getEnemy().size() == 0) {
       System.out.println("nothing to attack here");
-
-      if (currentEnemy != null) ;
-      {
+    } else{
+      for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
+        currentEnemy = currentRoom.getEnemy().get(i);
         currentWeapon.attack();
         currentEnemy.setEnemyHelth(currentEnemy.getEnemyHelth() - damage);
         System.out.println("You have done " + damage + " HP damge on this zombie!");
+        System.out.println(currentWeapon);
 
-        if (currentEnemy.getEnemyHelth() <= 0); {
+
+        if (currentEnemy.getEnemyHelth() <= 0) {
           currentRoom.getEnemy().remove(currentEnemy);
           System.out.println("The zombie is dead!");
-
-          if (playerHealth<=0){
-            System.out.println("The zombie got you. You got killed");
-            gameover();
-          }
-
         }
+
+        if (playerHealth <= 0) {
+          System.out.println("The zombie got you. You got killed");
+          gameover();
+        }
+
       }
-    }
   }
+
 }
+
+
 
 
 
