@@ -7,7 +7,10 @@ public class Enemy {
     private int enemyHelth;
     private int enemyAttack;
     Player player = new Player();
-
+    public String red = "\u001B[31m";
+    public String fReset = "\u001B[0m";
+    public String yellow = "\u001B[33m"; //TODO: tilføjet
+    public String green = "\u001B[32m";
 
     public Enemy(String name, String zumbiDescription, int health, int enemyAttck) {
         enemyName = name;
@@ -54,6 +57,23 @@ public class Enemy {
         return zumbiDamage;
 
     }
+
+    public void enemyAttack (){
+        player.newrollerValue();
+        if (player.getDicValue()>4){
+        player.setPlayerHealth(player.getPlayerHealth() - zumbiDamage);
+        System.out.println("enemy attack back. you lost" + player.getPlayerHealth() + " HP");
+        if (player.getPlayerHealth() <= 0) {
+            player.gameover();
+        }else if (player.getDicValue()<4)
+            System.out.println(green+"You avoided the zombie bite this time!"+fReset);
+        } else
+            System.out.println(green + "You got luckey, your still alive! The Zombie missed you." + fReset);
+    }
+
+
+
+
 
 
 

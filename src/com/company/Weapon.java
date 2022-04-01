@@ -16,12 +16,6 @@ public abstract class Weapon extends Item {
     public int  getDamage(){
         return damage;
     }
-    /*
-    @Override
-    public int getDamage() {
-        return super.getDamage();
-    }
-     */
 
     public String toString() {
         return this.getName();

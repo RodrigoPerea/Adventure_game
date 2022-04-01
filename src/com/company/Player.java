@@ -21,6 +21,7 @@ public class Player {
   Ammunition ammonition;
   private int dicValue; //TODO: til kamp
   Enemy currentEnemy;
+  //Enemy enemyAttack;
   // Enemy currentEnemy; //TODO: tilføjet
   //Enemy enemyDamage;
   //Enemy hitByWepon;
@@ -36,66 +37,50 @@ public class Player {
     this.playerHealth = 100;
     inventory = new ArrayList<>();
     this.damage = damage;
+    //this.enemyAttack = enemyAttack;
 
-    //this.playerAttackPoints = getPlayerAttackPoints(); //TODO skal måske elelr burde kunne hentes fra current wepon
-    //this.enemyDamage = enemyDamage;
-    //this.hitByWepon = hitByWepon;
 
 
   }
+  public void newrollerValue (){
+    this.dicValue = ThreadLocalRandom.current().nextInt(1,7);}
 
   //TODO: ville lave en is dead, som bare tjekerk om hp er under 0, så den kan komme ind . lykkeds ikke.
   public boolean isDead() {
     return getPlayerHealth() <= 0;
   }
-/*
-  //TODO: den ryger ned til you missed. så den virker ikke.
-  public boolean playerAttack() {
-    boolean enemyCheck = false;
-    for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
-      currentEnemy = currentRoom.getEnemy().get(i);
-      if (dicValue < 4) {
-        System.out.println("You hit the zombie!");
-        if (dicValue > 4) {
-          System.out.println("youkilled a zombie");
-          currentEnemy.setEnemyHelth(damage);
-          System.out.println(currentEnemy.getEnemyHelth());
-          if (currentEnemy.getEnemyHelth() <= 0)
-            System.out.println("you beatet the zombie");
-          return false;
-        } else {
-          System.out.println("you missed...bummer. Try agin");
-        }
-        return true;
-      }
-    }return enemyCheck;
-  }
 
- */
 
   public void playerAttack() {
+    System.out.println(dicValue);
     if (currentRoom.getEnemy().size() == 0) {
       System.out.println("nothing to attack here");
     } else{
+      newrollerValue();
+      if (dicValue>4){
+        System.out.println(dicValue);
       for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
         currentEnemy = currentRoom.getEnemy().get(i);
         currentWeapon.attack();
         currentEnemy.setEnemyHelth(currentEnemy.getEnemyHelth() - damage);
-        System.out.println("You have done " + damage + " HP damge on this zombie!");
+        System.out.println(red + "You have done " + damage + " HP damge on this zombie!" + fReset + "\nThe zombi have now " + currentEnemy.getEnemyHelth() + " left.");
         System.out.println(currentWeapon);
 
 
         if (currentEnemy.getEnemyHelth() <= 0) {
           currentRoom.getEnemy().remove(currentEnemy);
-          System.out.println("The zombie is dead!");
+          System.out.println(red + "The zombie is dead!" + fReset);
         }
 
         if (playerHealth <= 0) {
-          System.out.println("The zombie got you. You got killed");
+          System.out.println(red + "The zombie got you. You got killed" + fReset);
           gameover();
+        } else {
+          currentEnemy.enemyAttack();
         }
-
       }
+      }else
+        System.out.println("The zombie was too fast and avoid your attack!");
   }
 
 }
@@ -173,7 +158,7 @@ public class Player {
 
 
 
-  // Forsøg på at reloade, tilføje det til curent room, og fjerne fra inventorry.
+
   public void reload() {
     boolean itemCheck = false;
     for (int i = 0; i < inventory.size(); i++) {
@@ -199,53 +184,6 @@ public class Player {
 
 
 
-      //TODO: få sout ny ammo status efter hvert attack
-//TODO: har prøver at lægge HELE kampen her ind, så der er mindr ei game controle. Jeg overvejede faktsik, o
-// vi ikek abre skulle gør det mega simpelt, og bruge Radom funktionen, lgie som med terning spillet? så
-// kunne vi bare give en radom imellem 1&10, og slette alt havd våbenrrne kunne :D :D .
-// evt bruge den tila t lade zombi dø, eller noget. det ville være mega nemt.lægge randomværdien til en
-// attriut og tjekke med helth. men pt gør vi det her. tror ejg er godt på vej. vi skal abre have den tila t
-// lægge det korrekt player attackpoints trtor jeg.
-
-
-  /*
-  public void playerAttack() {
-
-    while (playerHealth >= 0) {
-      for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
-        currentEnemy = currentRoom.getEnemy().get(i);
-        if (dicValue < 4) {
-          System.out.println("You hit the zombie!");
-          currentWeapon.attack();
-          currentWeapon() - currentEnemy.setCurrentHealth(damage);
-          //TODO: denne skal sende det over i enemy klassen så den selv hodler styr på sine current helthpoints.
-
-
-
-          Enemy.setCurrentHealth(currentEnemy.getCurrentHealth());
-
-          System.out.println(red + "The zombie lost " + damage + " damage!" + fReset);
-          System.out.println("The zombia have now "  + " helth left!");
-          if (currentWeapon instanceof RangedWeapon) {
-            System.out.println("you have " + ammonition + " letf in your gun");
-          } else if (currentWeapon instanceof MeleeWeapon) {
-            System.out.println("Be carefull not to hit too hard, it might brake!!!");
-          }
-        }
-        if (playerHealth <= 0) {
-          System.out.println("You got eaten by hungry zombies.\n" + red + "GAME OVER" + fReset);
-          System.exit(0);
-        } else if (!enemis.isAlive()) {
-          System.out.println(green + "You killed the zombie. Welldome!!" + fReset);
-        }
-      }
-    }
-  }
-
-   */
-
-
-
   public int getDicValue() { //TODO Ny til kamp
     return dicValue;
   }
@@ -254,52 +192,6 @@ public class Player {
   public void createValue () {
     this.dicValue = ThreadLocalRandom.current().nextInt(1, 7);
   }
-
-
-
-
-  //TODO: vi skal labe en attack-metode - som modtager enemy som parameter
-  // - og så attacker player det enemy-objekt.  Vi kalder en
-  // hit-metode i enemy, så enemy selv sørger for at miste sine health-points. se ENEMY
-
-  //TODO: når bruger skriver attack troll", så skal programmet finde det enemy-objekt der har navnet
-  // "troll" - ligesom når man skriver "take lamp", så finder det item objektet med navnet "lamp".
-
-  //TODO: og så kaldes metoden player.attackEnemy( med det objekt der lige blev fundet ).
-  //    // enemy-objektet i currentRoom. ligesom item
-
-
-
-
-
-/*
-  public boolean  playerAttack() {
-    boolean enemyCheck = false;
-    for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
-      currentEnemy = currentRoom.getEnemy().get(i);
-      if (dicValue < 4) {
-        System.out.println("You hit the zombie!");
-        currentEnemy = hitByWepon - Enemey.setCurrentHelth;
-        if (enemyhp <= 0) {
-          System.out.println("You manage to kill the zombie!");
-          return false;
-        }
-      } else {
-        System.out.println("You missed the zombie!");
-      }
-
-    }return true;
-  }
-
- */
-
-//TODO: samme for eneemy: så vi kan alve en enemy attack som angriber tilbage.
-
-
-
-
-
-
 
 
   public void equipItem(String itemName) {
@@ -381,7 +273,7 @@ public class Player {
   public void setInventory(ArrayList<Item> inventory) {
     this.inventory = inventory;
   }
-//TODO: to sting i item (alle dem dder printe ud, og en to skring kalder i player
+
   public ArrayList<Item> getInventory() {
     return inventory;
   }
@@ -401,23 +293,15 @@ public class Player {
   public void setAmmunition(){
 
   }
-/*
-  public int getPlayerAttackPoints() {
-    return playerAttackPoints;
-  }
 
- */
+
+
 /*
   public boolean isAlive() {
     return playerAttackPoints > 0;
   }
 
  */
-  /*
-public Enemy getEnemyDamage(){ //TODO: tilføjet
-    return enemyDamage;
-}
 
-   */
 
 }

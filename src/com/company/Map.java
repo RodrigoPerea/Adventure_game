@@ -160,6 +160,11 @@ public class Map {
 
         //room3
         d3.addEnemy(smallZombie);
+
+
+        // rum4
+        d4.addEnemy(mediumZombie);
+
     }
 
 }

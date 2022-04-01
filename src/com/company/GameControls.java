@@ -203,9 +203,8 @@ public class GameControls {
             } else if (input.equalsIgnoreCase("attack") || input.equals("Attack")) {
                 if (player.currentWeapon != null) {
 
-                    System.out.println(player.getCurrentRoom().getEnemy()); //TODO: ny til enemys viser helth etc
+                    //System.out.println(player.getCurrentRoom().getEnemy());
                     player.playerAttack();
-                    //System.out.println(player.currentWeapon);
 
 
                 } else {
