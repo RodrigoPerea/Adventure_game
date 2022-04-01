@@ -8,7 +8,7 @@ import javax.sound.sampled.Clip;
 public class FootstepsSFX {
 
     public void FootstepsStart() {
-        playingMusic("footsteps-4.wav");
+        playingMusic("footsteps.wav");
     }
 
     public static void playingMusic(String filepath) {
