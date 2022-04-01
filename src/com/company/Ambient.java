@@ -8,7 +8,7 @@ import javax.sound.sampled.Clip;
 public class Ambient {
 
     public void musicStart() {
-        playingMusic("C:\\Users\\rodri\\OneDrive\\Desktop\\KEA\\lyd\\adventur game\\DeadCenter.wav");
+        playingMusic("DeadCenter.wav");
     }
 
     public static void playingMusic(String filepath) {

@@ -8,7 +8,7 @@ import javax.sound.sampled.Clip;
 public class ZombieSounds {
 
     public void musicStart() {
-        playingMusic("C:\\Users\\rodri\\OneDrive\\Desktop\\KEA\\lyd\\adventur game\\ZombieHorde.wav");
+        playingMusic("ZombieHorde.wav"); //ændret til mappen så det kan pushes med op i github
     }
 
     public static void playingMusic(String filepath) {
