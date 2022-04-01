@@ -43,7 +43,7 @@ public class Player {
 
   }
   public void newrollerValue (){
-    this.dicValue = ThreadLocalRandom.current().nextInt(1,7);}
+    this.dicValue = ThreadLocalRandom.current().nextInt(1,4);}
 
   //TODO: ville lave en is dead, som bare tjekerk om hp er under 0, så den kan komme ind . lykkeds ikke.
   public boolean isDead() {
@@ -52,12 +52,12 @@ public class Player {
 
 
   public void playerAttack() {
-    System.out.println(dicValue);
+
     if (currentRoom.getEnemy().size() == 0) {
       System.out.println("nothing to attack here");
     } else{
       newrollerValue();
-      if (dicValue>4){
+      if (dicValue > 2){
         System.out.println(dicValue);
       for (int i = 0; i < currentRoom.getEnemy().size(); i++) {
         currentEnemy = currentRoom.getEnemy().get(i);

@@ -60,7 +60,7 @@ public class Enemy {
 
     public void enemyAttack (){
         player.newrollerValue();
-        if (player.getDicValue()>4){
+        if (player.getDicValue() > 2){
         player.setPlayerHealth(player.getPlayerHealth() - zumbiDamage);
         System.out.println("enemy attack back. you lost" + player.getPlayerHealth() + " HP");
         if (player.getPlayerHealth() <= 0) {
